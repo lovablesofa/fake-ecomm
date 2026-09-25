@@ -5,7 +5,7 @@ import { requireUser } from "@/lib/auth";
 import { getProduct } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
 import { getUserOrders } from "@/lib/orders";
-import { currentStage, STAGES } from "@/lib/tracking";
+import { currentStage, DELIVERED, STAGES } from "@/lib/tracking";
 
 export const metadata: Metadata = { title: "Your orders" };
 
@@ -30,7 +30,8 @@ export default async function OrdersPage() {
                   <div className="flex -space-x-3">
                     {o.items.slice(0, 3).map((i) => {
                       const p = getProduct(i.productSlug);
-                      return p ? <ProductArt key={i.id} {...p.art} image={p.image} alt={p.name} sizes="56px" className="size-14 rounded-xl ring-2 ring-white" /> : null;
+                      const image = i.image ?? p?.image;
+                      return image || p ? <ProductArt key={i.id} kind={p?.art.kind ?? "tote"} hue={p?.art.hue ?? 30} image={image ?? undefined} alt={i.name} sizes="56px" className="size-14 rounded-xl ring-2 ring-white" /> : null;
                     })}
                   </div>
                   <div className="min-w-40 flex-1">
@@ -39,7 +40,7 @@ export default async function OrdersPage() {
                       {o.placedAt.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })} · {o.items.reduce((s, i) => s + i.quantity, 0)} items
                     </p>
                   </div>
-                  <span className={`rounded-full px-3 py-1 text-xs font-medium ${stage === 3 ? "bg-accent-soft text-accent" : "bg-stone-100"}`}>{STAGES[stage]}</span>
+                  <span className={`rounded-full px-3 py-1 text-xs font-medium ${stage === DELIVERED ? "bg-accent-soft text-accent" : "bg-stone-100"}`}>{STAGES[stage]}</span>
                   <span className="font-semibold">{formatMoney(o.total, o.currency)}</span>
                 </Link>
               </li>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth";
+import { userBudget } from "@/lib/budget";
 import { getCart } from "@/lib/cart";
 import { COUNTRIES, SHIPPING } from "@/lib/config";
 import { localPrice } from "@/lib/money";
@@ -12,6 +13,7 @@ export default async function CheckoutPage() {
   const user = await requireUser("/checkout");
   const cart = await getCart();
   if (!cart.lines.length) redirect("/cart");
+  const budget = await userBudget(user.id, cart.currency);
 
   const shippingOptions = Object.entries(SHIPPING).map(([id, s]) => ({
     id: id as keyof typeof SHIPPING,
@@ -27,6 +29,7 @@ export default async function CheckoutPage() {
       <CheckoutForm
         email={user.email}
         currency={cart.currency}
+        budget={{ limit: budget.limit, remaining: budget.remaining, resetsOn: budget.resetsOn.toLocaleDateString("en-GB", { day: "numeric", month: "long" }) }}
         subtotal={cart.subtotal}
         lines={cart.lines.map((l) => ({ slug: l.product.slug, name: l.product.name, quantity: l.quantity, lineTotal: l.lineTotal, art: l.product.art, image: l.product.image }))}
         shippingOptions={shippingOptions}

@@ -59,7 +59,12 @@ export const orders = sqliteTable(
     deliversAt: integer("delivers_at", { mode: "timestamp_ms" }).notNull(),
     // Highest tracking stage we've emailed about (0 = confirmation).
     notifiedStage: integer("notified_stage").notNull().default(-1),
+    // Legacy yes/no question, replaced by the urge scores below. Kept so old rows stay readable.
     reflection: text("reflection", { enum: ["still_want", "glad_i_didnt"] }),
+    // 1-5, asked at checkout: "How strong is the urge to buy this right now?" Optional.
+    urgeBefore: integer("urge_before"),
+    // 1-5, asked after delivery: "Did this take the edge off the urge?"
+    urgeAfter: integer("urge_after"),
   },
   (t) => [
     index("orders_user_idx").on(t.userId, t.placedAt),
@@ -78,6 +83,8 @@ export const orderItems = sqliteTable("order_items", {
   category: text("category").notNull(),
   unitPrice: integer("unit_price").notNull(),
   quantity: integer("quantity").notNull(),
+  // Photo path at purchase time, so the order keeps its picture if the product leaves the catalog.
+  image: text("image"),
 });
 
 export const emails = sqliteTable("emails", {

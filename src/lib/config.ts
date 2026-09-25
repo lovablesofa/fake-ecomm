@@ -1,6 +1,6 @@
 export const BRAND = {
-  name: "Cartharsis",
-  tagline: "Shop everything. Spend nothing.",
+  name: "Window Spree",
+  tagline: "All the spree. None of the bill.",
   carrier: "Nowhere Express",
 };
 
@@ -40,10 +40,13 @@ export function countryByCode(code: string) {
 
 // USD cents; converted like any other price.
 export const SHIPPING = {
-  standard: { label: "Standard", eta: "2–3 days", priceUsd: 0 },
-  express: { label: "Express", eta: "Next day", priceUsd: 1299 },
+  standard: { label: "Standard", eta: "3–4 days", priceUsd: 0 },
+  express: { label: "Express", eta: "1 day", priceUsd: 1299 },
 } as const;
 
 export type ShippingMethod = keyof typeof SHIPPING;
+
+// Pretend money each account can "spend" per calendar month, in USD cents.
+export const MONTHLY_BUDGET_USD = 120_000;
 
 export const CART_LIMITS = { maxLines: 30, maxQty: 10 };

@@ -1,5 +1,5 @@
 // Step 1: writes catalog/products.csv with LLM-generated products.
-// Usage: pnpm catalog:generate [--count 500]
+// Usage: pnpm catalog:generate [--count 200]
 // Resumable: rows already in the CSV count toward the target, so re-running only fills the gap.
 import fs from "node:fs";
 import path from "node:path";
@@ -12,12 +12,12 @@ const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const BATCH = 20;
 const MAX_ATTEMPTS = 3;
 
-const PRICE_HINTS: Record<string, string> = {
-  tech: "$19 to $2,500",
-  fashion: "$15 to $900",
-  home: "$12 to $1,800",
-  beauty: "$8 to $250",
-  outdoors: "$15 to $1,200",
+// What belongs in each category, so the model doesn't put a watch under fashion or a lamp under accessories.
+const CATEGORY_SCOPE: Record<string, { scope: string; prices: string }> = {
+  fashion: { scope: "clothing and footwear only: tops, knitwear, shirts, trousers, dresses, coats, jackets, shoes, boots, trainers", prices: "$25 to $900" },
+  beauty: { scope: "skincare, haircare, makeup, fragrance, bath and body, grooming tools", prices: "$8 to $250" },
+  accessories: { scope: "bags, wallets, small leather goods, watches, jewellery, sunglasses, belts, scarves, hats, gloves, ties", prices: "$20 to $1,500" },
+  home: { scope: "homeware and decor: tableware, glassware, kitchen tools, textiles and bedding, candles, lighting, vases, small furniture", prices: "$12 to $1,200" },
 };
 
 const Batch = z.object({
@@ -39,7 +39,7 @@ const Batch = z.object({
   ),
 });
 
-const SYSTEM = `You write product listings for Cartharsis, an English-language online shop where people "buy" things without spending money. The catalog must feel like a real, desirable, premium-but-believable store for shoppers in the US and UK.
+const SYSTEM = `You write product listings for Window Spree, an English-language online shop where people "buy" things without spending money. The catalog must feel like a real, desirable, premium-but-believable store for shoppers in the US and UK.
 
 Hard rules:
 - Every brand and product name is invented. Never use or closely imitate a real brand, trademark, or product line.
@@ -62,7 +62,7 @@ Fields:
 async function main() {
   loadEnv();
   const countArg = process.argv.indexOf("--count");
-  const target = countArg > 0 ? Number(process.argv[countArg + 1]) : 500;
+  const target = countArg > 0 ? Number(process.argv[countArg + 1]) : 200;
   if (!Number.isInteger(target) || target <= 0) throw new Error("--count must be a positive integer");
 
   const apiKey = process.env.OPENROUTER_API_KEY;
@@ -81,7 +81,7 @@ async function main() {
 
       const batch = await complete(
         apiKey,
-        `Write ${want} new products for the "${category.name}" category. Typical price range: ${PRICE_HINTS[category.slug]}.
+        `Write ${want} new products for the "${category.name}" category, which covers ${CATEGORY_SCOPE[category.slug].scope}. Typical price range: ${CATEGORY_SCOPE[category.slug].prices}.
 Cover a wide variety of product types within the category. Do not repeat or near-duplicate any of these existing products: ${existingNames.join("; ") || "(none yet)"}.
 Brands already in use in this category (reuse some, invent others): ${existingBrands.join(", ") || "(none yet)"}.`,
         category.slug,
@@ -107,7 +107,7 @@ async function complete(apiKey: string, prompt: string, label: string) {
     try {
       const res = await fetch(OPENROUTER_URL, {
         method: "POST",
-        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cartharsis catalog" },
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Window Spree catalog" },
         body: JSON.stringify({
           model: MODEL,
           max_tokens: 16000,

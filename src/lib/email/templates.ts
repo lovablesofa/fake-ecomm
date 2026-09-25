@@ -91,20 +91,20 @@ const STAGE_COPY = {
     body: (o: Order) =>
       `Your package just left our warehouse with ${BRAND.carrier}. Tracking number <strong>${o.trackingNumber}</strong>.`,
   },
-  2: {
+  3: {
     subject: (o: Order) => `Out for delivery today: #${o.number}`,
     heading: "Out for delivery",
     body: (o: Order) => `Your package is on the van in ${esc(o.shipCity)} and should arrive today.`,
   },
-  3: {
+  4: {
     subject: (o: Order) => `Delivered: #${o.number}`,
     heading: "Your order has been delivered",
     body: () =>
-      `It's at your door. Well, not really. But the money is still in your account, and that's the part that lasts.<br><br>Now that the excitement has passed: <strong>do you still want it?</strong> Tell us on the order page. The answer is useful to you.`,
+      `It's at your door. Well, not really. But the money is still in your account, and that's the part that lasts.<br><br>One quick question on the order page: <strong>did this take the edge off the urge?</strong> It takes two seconds.`,
   },
 } as const;
 
-export function trackingEmail(order: Order, stage: 1 | 2 | 3) {
+export function trackingEmail(order: Order, stage: 1 | 3 | 4) {
   const copy = STAGE_COPY[stage];
   const subject = copy.subject(order);
   const text = `${copy.heading}. Order #${order.number}. ${orderUrl(order)}`;
@@ -112,8 +112,8 @@ export function trackingEmail(order: Order, stage: 1 | 2 | 3) {
     subject,
     `<h1 style="font-size:22px;margin:8px 0 12px">${copy.heading}</h1>
 <p>${copy.body(order)}</p>
-${stage === 3 ? savedCallout(order) : ""}
-${button(orderUrl(order), stage === 3 ? "Do you still want it?" : "Track package")}`,
+${stage === 4 ? savedCallout(order) : ""}
+${button(orderUrl(order), stage === 4 ? "Answer one question" : "Track package")}`,
   );
   return { subject, html, text };
 }

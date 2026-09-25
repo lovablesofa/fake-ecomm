@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ProductArt } from "@/components/product-art";
 import { ProductCard } from "@/components/product-card";
 import { getCurrency } from "@/lib/cart";
+import { monthlyBudget } from "@/lib/budget";
 import { PRODUCTS } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
 import { communitySaved } from "@/lib/savings";
@@ -20,9 +21,9 @@ export default async function Home({ searchParams }: PageProps<"/">) {
         <div>
           <p className="text-sm font-medium uppercase tracking-widest text-accent">The store that doesn&apos;t charge you</p>
           <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight sm:text-7xl">
-            Shop everything.
+            All the spree.
             <br />
-            <em>Spend nothing.</em>
+            <em>None of the bill.</em>
           </h1>
           <p className="mt-6 max-w-md text-lg text-muted">
             Fill your bag, check out, get the confirmation email, and watch the package move across the map. You get the
@@ -49,7 +50,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       <section className="border-y border-line bg-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-3">
           {[
-            ["1. Want it", "Browse and fill your bag the way you normally would. No budget, no guilt."],
+            ["1. Want it", `Browse and fill your bag the way you normally would, with ${formatMoney(monthlyBudget(currency), currency).replace(/\.00$/, "")} of pretend money to spend each month.`],
             ["2. Check out", "Pay with a simulated card. The confirmation email lands in your inbox straight away."],
             ["3. Keep the money", "Track the package to your door, then decide whether you still want it."],
           ].map(([title, body]) => (

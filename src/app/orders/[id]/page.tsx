@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { setReflection } from "@/app/actions";
+import { setUrgeAfter } from "@/app/actions";
 import { AutoRefresh } from "@/components/auto-refresh";
 import { ProductArt } from "@/components/product-art";
 import { SubmitButton } from "@/components/submit-button";
@@ -10,7 +10,7 @@ import { getProduct } from "@/lib/catalog";
 import { BRAND, countryByCode, SHIPPING } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
 import { getUserOrder } from "@/lib/orders";
-import { currentStage, STAGES, trackingEvents } from "@/lib/tracking";
+import { currentStage, DELIVERED, STAGES, trackingEvents } from "@/lib/tracking";
 
 export const metadata: Metadata = { title: "Order" };
 
@@ -26,11 +26,11 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
   const stage = currentStage(order);
   const events = trackingEvents(order).filter((e) => e.done).reverse();
   const money = (c: number) => formatMoney(c, order.currency);
-  const eta = stage < 3 ? order.deliversAt : null;
+  const eta = stage < DELIVERED ? order.deliversAt : null;
 
   return (
     <div className="mx-auto max-w-5xl px-4 pt-10">
-      {stage < 3 && <AutoRefresh seconds={30} />}
+      {stage < DELIVERED && <AutoRefresh seconds={30} />}
       {placed && (
         <div className="mb-8 rounded-2xl bg-accent-soft p-6 text-center">
           <p className="text-4xl">✓</p>
@@ -56,7 +56,7 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
           <h3 className="text-2xl font-semibold">{STAGES[stage]}</h3>
           {eta && <p className="text-sm text-muted">Estimated delivery: {fmt(eta)}</p>}
         </div>
-        <ol className="mt-6 grid grid-cols-4 gap-2">
+        <ol className="mt-6 grid grid-cols-5 gap-2">
           {STAGES.map((label, i) => (
             <li key={label} className="text-xs sm:text-sm">
               <div className={`h-2 rounded-full ${i <= stage ? "bg-accent" : "bg-stone-200"}`} />
@@ -75,20 +75,24 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
         </ol>
       </section>
 
-      {stage === 3 && (
+      {stage === DELIVERED && (
         <section className="card mt-6 p-6">
-          <h3 className="font-display text-3xl">Now that it&apos;s &quot;here&quot;: do you still want it?</h3>
-          {order.reflection ? (
+          <h3 className="font-display text-3xl">Did this take the edge off the urge?</h3>
+          {order.urgeAfter ? (
             <p className="mt-3 text-muted">
-              {order.reflection === "glad_i_didnt"
-                ? `Nice. You kept ${money(order.total)} and the urge has passed.`
-                : "Fair enough. If you still want it in 30 days, it's probably a real want. Put it on a list and come back."}
+              You answered {order.urgeAfter} out of 5. {order.urgeAfter >= 4
+                ? `Nice. The urge is handled and you kept ${money(order.total)}.`
+                : "Thanks for being honest. If you still want it in 30 days, it's probably a real want. Put it on a list and come back."}
             </p>
           ) : (
-            <form action={setReflection} className="mt-5 flex flex-wrap gap-3">
+            <form action={setUrgeAfter} className="mt-5">
               <input type="hidden" name="orderId" value={order.id} />
-              <SubmitButton name="reflection" value="glad_i_didnt" className="btn-primary">Nope, glad I didn&apos;t buy it</SubmitButton>
-              <SubmitButton name="reflection" value="still_want" className="btn-secondary">Yes, I still want it</SubmitButton>
+              <div className="flex flex-wrap gap-2">
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <SubmitButton key={n} name="score" value={String(n)} className="btn-secondary min-w-14 tabular-nums">{n}</SubmitButton>
+                ))}
+              </div>
+              <p className="mt-2 flex max-w-72 justify-between text-xs text-muted"><span>1 · Not at all</span><span>5 · Completely</span></p>
             </form>
           )}
         </section>
@@ -100,9 +104,10 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
           <ul className="mt-4 divide-y divide-line">
             {order.items.map((i) => {
               const p = getProduct(i.productSlug);
+              const image = i.image ?? p?.image;
               return (
                 <li key={i.id} className="flex items-center gap-4 py-3">
-                  {p && <ProductArt {...p.art} image={p.image} alt={p.name} sizes="64px" className="size-16 rounded-xl" />}
+                  {(image || p) && <ProductArt kind={p?.art.kind ?? "tote"} hue={p?.art.hue ?? 30} image={image ?? undefined} alt={i.name} sizes="64px" className="size-16 rounded-xl" />}
                   <div className="flex-1">
                     <p className="text-xs uppercase tracking-wider text-muted">{i.brand}</p>
                     <p className="font-medium">{i.name}</p>

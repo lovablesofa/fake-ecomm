@@ -36,11 +36,17 @@ export async function userSavings(userId: string, currency: Currency) {
     orders: orders.length,
     items: items.reduce((sum, i) => sum + i.quantity, 0),
     byCategory: [...byCategory.entries()].sort((a, b) => b[1] - a[1]),
-    reflections: {
-      gladIDidnt: orders.filter((o) => o.reflection === "glad_i_didnt").length,
-      stillWant: orders.filter((o) => o.reflection === "still_want").length,
+    urge: {
+      before: average(orders.map((o) => o.urgeBefore)),
+      after: average(orders.map((o) => o.urgeAfter)),
+      answeredAfter: orders.filter((o) => o.urgeAfter).length,
     },
     // What the kept money could become at 7%/yr, compounded, over 10 years.
     investedIn10y: Math.round(total * Math.pow(1.07, 10)),
   };
+}
+
+function average(scores: (number | null)[]) {
+  const answered = scores.filter((n): n is number => n !== null);
+  return answered.length ? answered.reduce((a, b) => a + b, 0) / answered.length : null;
 }

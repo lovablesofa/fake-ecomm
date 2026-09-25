@@ -6,7 +6,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "slug": "coventry-chronograph-41",
     "name": "Coventry Chronograph 41",
     "brand": "Marlowe & Grey",
-    "category": "fashion",
+    "category": "accessories",
     "priceUsd": 28500,
     "compareAtUsd": 35000,
     "rating": 4.6,
@@ -24,29 +24,6 @@ export const GENERATED_PRODUCTS: Product[] = [
     },
     "image": "/products/coventry-chronograph-41.jpg",
     "badge": "Staff pick"
-  },
-  {
-    "slug": "folio-slim-e-reader",
-    "name": "Folio Slim E-Reader",
-    "brand": "Folio",
-    "category": "tech",
-    "priceUsd": 12999,
-    "compareAtUsd": 15999,
-    "rating": 4.5,
-    "reviews": 847,
-    "blurb": "A featherlight e-reader with a glare-free display and weeks of battery life.",
-    "details": [
-      "6.8-inch e-ink display with adjustable warm light",
-      "16GB storage, enough for thousands of books",
-      "IPX8 waterproof, safe for bath or poolside",
-      "4-week battery life on a single charge"
-    ],
-    "art": {
-      "kind": "sneaker",
-      "hue": 145
-    },
-    "image": "/products/folio-slim-e-reader.jpg",
-    "badge": "Bestseller"
   },
   {
     "slug": "scalp-revival-drops",
@@ -91,33 +68,10 @@ export const GENERATED_PRODUCTS: Product[] = [
     "image": "/products/holloway-stoneware-carafe.jpg"
   },
   {
-    "slug": "stargazer-camp-hammock",
-    "name": "Stargazer Camp Hammock",
-    "brand": "Ridgecrest",
-    "category": "outdoors",
-    "priceUsd": 7999,
-    "compareAtUsd": 10999,
-    "rating": 4.7,
-    "reviews": 1240,
-    "blurb": "A roomy, trail-weight hammock that sets up in minutes – no fire required.",
-    "details": [
-      "20-denier ripstop nylon, 260 g/m²",
-      "Capacity: 400 lb / 181 kg",
-      "Folds into an integrated 4″ stuff sack",
-      "Hanging straps and tree-friendly cord included"
-    ],
-    "art": {
-      "kind": "speaker",
-      "hue": 340
-    },
-    "image": "/products/stargazer-camp-hammock.jpg",
-    "badge": "Staff pick"
-  },
-  {
     "slug": "precision-mug-12oz",
     "name": "Precision Mug 12oz",
     "brand": "HeatCycle",
-    "category": "tech",
+    "category": "home",
     "priceUsd": 8950,
     "compareAtUsd": 11999,
     "rating": 4.5,
@@ -155,28 +109,6 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 210
     },
     "image": "/products/holloway-stoneware-carafe-2.jpg"
-  },
-  {
-    "slug": "ridgecrest-altitude-chair",
-    "name": "Ridgecrest Altitude Chair",
-    "brand": "Ridgecrest",
-    "category": "outdoors",
-    "priceUsd": 8999,
-    "compareAtUsd": 11999,
-    "rating": 4.6,
-    "reviews": 1243,
-    "blurb": "A supportive camp chair that folds away between trail days.",
-    "details": [
-      "Aluminum alloy frame, 3.2 lbs",
-      "Breathable 600D ripstop polyester seat",
-      "Folds to a 5-inch diameter cylinder",
-      "Holds up to 250 lbs, fits 5'1\"–6'4\""
-    ],
-    "art": {
-      "kind": "plant",
-      "hue": 110
-    },
-    "image": "/products/ridgecrest-altitude-chair.jpg"
   },
   {
     "slug": "fermented-rice-cleansing-oil",
@@ -222,5 +154,4157 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 145
     },
     "image": "/products/reversible-ripstop-puffer.jpg"
+  },
+  {
+    "slug": "seabulk-40l-duffel",
+    "name": "SeaBulk 40L Duffel",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 9850,
+    "rating": 4.6,
+    "reviews": 630,
+    "blurb": "Weld-sealed and roll-top tight, this forty-liter duffel treats river crossings like minor events.",
+    "details": [
+      "40L roll-top closure, IP67 rating",
+      "Welded TPU-coated nylon shell",
+      "Removable shoulder strap, top carry handle",
+      "Rated to 30 lbs submerged"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/seabulk-40l-duffel.jpg"
+  },
+  {
+    "slug": "winterton-parka",
+    "name": "Winterton Parka",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 44900,
+    "compareAtUsd": 54900,
+    "rating": 4.8,
+    "reviews": 1250,
+    "blurb": "A waterproof shell with synthetic fill that shrugs off wet snow and city slush equally.",
+    "details": [
+      "3-layer waterproof/breathable nylon",
+      "80g synthetic insulation",
+      "Helmet-compatible hood, pit zips",
+      "17 oz, packs into right pocket"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 320
+    },
+    "image": "/products/winterton-parka.jpg"
+  },
+  {
+    "slug": "merino-ridge-base-layer",
+    "name": "Merino Ridge Base Layer",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 6999,
+    "rating": 4.4,
+    "reviews": 2210,
+    "blurb": "One shirt from the trailhead to campfire, because merino knows how to keep a secret.",
+    "details": [
+      "100% merino wool, 180 gsm",
+      "Flat-lock seams, offset shoulder",
+      "UPF 25, odor-resistant",
+      "Men's and women's sizing"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 10
+    },
+    "image": "/products/merino-ridge-base-layer.jpg"
+  },
+  {
+    "slug": "cashmere-crewneck-sweater",
+    "name": "Cashmere Crewneck Sweater",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 18500,
+    "compareAtUsd": 24500,
+    "rating": 4.8,
+    "reviews": 1243,
+    "blurb": "A weekend-weight cashmere crewneck that holds its shape wash after wash.",
+    "details": [
+      "100% Grade-A Mongolian cashmere",
+      "12-gauge knit, 7-ply construction",
+      "Ribbed collar, cuffs, and hem",
+      "Hand-wash cold, dry flat"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 210
+    },
+    "image": "/products/cashmere-crewneck-sweater.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "selvedge-slim-denim",
+    "name": "Selvedge Slim Denim",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 14800,
+    "rating": 4.6,
+    "reviews": 892,
+    "blurb": "Raw selvedge denim that breaks in to fit only you.",
+    "details": [
+      "14.5oz Japanese selvedge denim",
+      "Slim tapered fit",
+      "Copper hardware, hidden rivets",
+      "Sanforized, minimal shrink"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 220
+    },
+    "image": "/products/selvedge-slim-denim.jpg"
+  },
+  {
+    "slug": "merino-watch-cap",
+    "name": "Merino Watch Cap",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 3200,
+    "rating": 4.5,
+    "reviews": 2108,
+    "blurb": "A ribbed merino beanie that keeps its stretch and never itches.",
+    "details": [
+      "100% extra-fine merino wool",
+      "2x2 rib knit construction",
+      "Fold-over cuff",
+      "Machine washable, wool cycle"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 30
+    },
+    "image": "/products/merino-watch-cap.jpg"
+  },
+  {
+    "slug": "linen-oxford-shirt",
+    "name": "Linen Oxford Shirt",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 9800,
+    "compareAtUsd": 12500,
+    "rating": 4.3,
+    "reviews": 456,
+    "blurb": "A breathable linen-oxford button-down that improves with each wear.",
+    "details": [
+      "55% linen, 45% cotton oxford",
+      "Button-down collar",
+      "Mother-of-pearl buttons",
+      "Garment-washed for softness"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 150
+    },
+    "image": "/products/linen-oxford-shirt.jpg"
+  },
+  {
+    "slug": "peak-chelsea-boot",
+    "name": "Peak Chelsea Boot",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 24500,
+    "rating": 4.7,
+    "reviews": 689,
+    "blurb": "Hand-finished chelsea boots in pull-up leather that ages like a diary.",
+    "details": [
+      "Full-grain pull-up leather",
+      "Goodyear-welted construction",
+      "Elastic side gores, pull tabs",
+      "Leather stacked heel"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 20
+    },
+    "image": "/products/peak-chelsea-boot.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "foulard-silk-scarf",
+    "name": "Foulard Silk Scarf",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 6800,
+    "rating": 4.4,
+    "reviews": 213,
+    "blurb": "A 90cm silk twill scarf printed with a faded botanical pattern.",
+    "details": [
+      "100% silk twill, 90cm square",
+      "Hand-rolled hem",
+      "Heritage botanical print",
+      "Dry clean only"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 280
+    },
+    "image": "/products/foulard-silk-scarf.jpg"
+  },
+  {
+    "slug": "belgrave-trench-coat",
+    "name": "Belgrave Trench Coat",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 39500,
+    "compareAtUsd": 49500,
+    "rating": 4.8,
+    "reviews": 371,
+    "blurb": "A storm-ready trench in water-repellent cotton gabardine.",
+    "details": [
+      "100% cotton gabardine, water-repellent",
+      "Removable wool lining",
+      "Horn buttons, belt with D-rings",
+      "Storm flap, epaulettes"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 45
+    },
+    "image": "/products/belgrave-trench-coat.jpg"
+  },
+  {
+    "slug": "garrison-chino",
+    "name": "Garrison Chino",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 8800,
+    "rating": 4.2,
+    "reviews": 978,
+    "blurb": "A sharp-but-comfortable chino in stretch cotton twill.",
+    "details": [
+      "98% cotton, 2% elastane twill",
+      "Tapered straight fit",
+      "Zip fly, button closure",
+      "5-pocket styling"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 200
+    },
+    "image": "/products/garrison-chino.jpg"
+  },
+  {
+    "slug": "holloway-leather-belt",
+    "name": "Holloway Leather Belt",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 5800,
+    "rating": 4.6,
+    "reviews": 341,
+    "blurb": "A full-grain leather belt with a solid brass buckle that patinas naturally.",
+    "details": [
+      "Full-grain vegetable-tanned leather",
+      "Solid brass roller buckle",
+      "1.25-inch width",
+      "Five hole positions"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 15
+    },
+    "image": "/products/holloway-leather-belt.jpg"
+  },
+  {
+    "slug": "hartley-wool-overcoat",
+    "name": "Hartley Wool Overcoat",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 54000,
+    "compareAtUsd": 68000,
+    "rating": 4.9,
+    "reviews": 156,
+    "blurb": "A structured wool overcoat cut for layering over a suit or sweater.",
+    "details": [
+      "80% wool, 20% cashmere blend",
+      "Half-canvas construction",
+      "Notch lapels, flap pockets",
+      "Two-button front closure"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 0
+    },
+    "image": "/products/hartley-wool-overcoat.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "portside-espadrille",
+    "name": "Portside Espadrille",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 4200,
+    "rating": 4.1,
+    "reviews": 634,
+    "blurb": "Hand-stitched espadrilles with a woven jute sole for warm days.",
+    "details": [
+      "Cotton canvas upper",
+      "Woven jute sole",
+      "Elastic gore for easy fit",
+      "Cushioned cotton insole"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 110
+    },
+    "image": "/products/portside-espadrille.jpg"
+  },
+  {
+    "slug": "wexford-cashmere-scarf",
+    "name": "Wexford Cashmere Scarf",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 11500,
+    "rating": 4.7,
+    "reviews": 287,
+    "blurb": "A double-faced cashmere scarf with a subtle herringbone weave.",
+    "details": [
+      "100% cashmere, double-faced",
+      "Herringbone weave",
+      "30 x 180 cm",
+      "Hand-finished fringed ends"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 250
+    },
+    "image": "/products/wexford-cashmere-scarf.jpg"
+  },
+  {
+    "slug": "marlowe-denim-jacket",
+    "name": "Marlowe Denim Jacket",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 12800,
+    "rating": 4.5,
+    "reviews": 754,
+    "blurb": "A washed denim trucker jacket that looks broken-in from day one.",
+    "details": [
+      "12oz washed denim",
+      "Classic trucker silhouette",
+      "Button front, chest flap pockets",
+      "Adjustable side tabs"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 205
+    },
+    "image": "/products/marlowe-denim-jacket.jpg"
+  },
+  {
+    "slug": "strand-silk-tie",
+    "name": "Strand Silk Tie",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 6200,
+    "rating": 4.3,
+    "reviews": 198,
+    "blurb": "A woven silk tie in a subdued geometric jacquard pattern.",
+    "details": [
+      "100% woven silk jacquard",
+      "8cm blade width",
+      "Self-tipped, 3-fold construction",
+      "145cm length"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 330
+    },
+    "image": "/products/strand-silk-tie.jpg"
+  },
+  {
+    "slug": "fair-isle-sock-trio",
+    "name": "Fair Isle Sock Trio",
+    "brand": "Northfield Knit Co.",
+    "category": "fashion",
+    "priceUsd": 2800,
+    "rating": 4.4,
+    "reviews": 1204,
+    "blurb": "Three pairs of cushioned merino socks with classic Fair Isle patterns.",
+    "details": [
+      "60% merino, 38% nylon, 2% elastane",
+      "Cushioned sole, reinforced heel/toe",
+      "3 pairs per pack",
+      "Crew length"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 300
+    },
+    "image": "/products/fair-isle-sock-trio.jpg"
+  },
+  {
+    "slug": "bomber-flight-jacket",
+    "name": "Bomber Flight Jacket",
+    "brand": "Northfield Knit Co.",
+    "category": "fashion",
+    "priceUsd": 29500,
+    "compareAtUsd": 37500,
+    "rating": 4.6,
+    "reviews": 428,
+    "blurb": "A suede bomber with ribbed cuffs and a satin-quilted lining.",
+    "details": [
+      "Suede outer, satin-quilted lining",
+      "Ribbed collar, cuffs, hem",
+      "Two-way zip front",
+      "Interior chest pocket"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 35
+    },
+    "image": "/products/bomber-flight-jacket.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "sundrop-linen-dress",
+    "name": "Sundrop Linen Dress",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 13500,
+    "rating": 4.2,
+    "reviews": 512,
+    "blurb": "A breezy midi dress in washed linen with a shirred waist.",
+    "details": [
+      "100% European flax linen",
+      "Shirred waistband",
+      "Midi length, short puff sleeves",
+      "Side seam pockets"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 55
+    },
+    "image": "/products/sundrop-linen-dress.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "dunmore-leather-gloves",
+    "name": "Dunmore Leather Gloves",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 8200,
+    "rating": 4.7,
+    "reviews": 268,
+    "blurb": "Cashmere-lined leather gloves with touchscreen fingertips.",
+    "details": [
+      "Lambskin leather exterior",
+      "Cashmere-blend lining",
+      "Touchscreen-compatible fingertips",
+      "Snap closure at wrist"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 230
+    },
+    "image": "/products/dunmore-leather-gloves.jpg"
+  },
+  {
+    "slug": "pebble-table-lamp",
+    "name": "Pebble Table Lamp",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 8900,
+    "rating": 4.6,
+    "reviews": 412,
+    "blurb": "A softly rounded table lamp that casts warm light without glare, perfect for bedside shelves.",
+    "details": [
+      "Material: matte stoneware base with linen shade",
+      "Bulb: 15W LED included, 2700K warm white",
+      "Switch: inline dimmer on 6 ft cord",
+      "Dimensions: 14 in high, 9 in diameter"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 42
+    },
+    "image": "/products/pebble-table-lamp.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "granite-dining-chair",
+    "name": "Granite Dining Chair",
+    "brand": "Alder & Ash",
+    "category": "home",
+    "priceUsd": 24000,
+    "compareAtUsd": 32000,
+    "rating": 4.8,
+    "reviews": 1340,
+    "blurb": "A solid oak dining chair with a curved seat and a stance that means business.",
+    "details": [
+      "Material: FSC-certified solid oak",
+      "Finish: matte natural sealant",
+      "Seat height: 18 in",
+      "Capacity: 275 lb tested"
+    ],
+    "art": {
+      "kind": "chair",
+      "hue": 30
+    },
+    "image": "/products/granite-dining-chair.jpg"
+  },
+  {
+    "slug": "desert-bloom-potted-plant",
+    "name": "Desert Bloom Potted Plant",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 3650,
+    "rating": 4.2,
+    "reviews": 238,
+    "blurb": "A low-care succulent arrangement that looks like it's thriving, even when you forget it.",
+    "details": [
+      "Contents: mixed echeveria and sedum in 4 in pot",
+      "Care: weekly misting or none",
+      "Pot: ceramic with drainage hole",
+      "Height: 8-10 in total"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 120
+    },
+    "image": "/products/desert-bloom-potted-plant.jpg"
+  },
+  {
+    "slug": "emberwick-soy-candle",
+    "name": "Emberwick Soy Candle",
+    "brand": "Grain & Gale",
+    "category": "home",
+    "priceUsd": 2800,
+    "rating": 4.9,
+    "reviews": 3600,
+    "blurb": "A wood-smoke and amber candle with a crackling wick and zero shame about it.",
+    "details": [
+      "Fragrance: smoked amber, cedar, dried tobacco",
+      "Wax: soy blend, 11 oz",
+      "Burn time: 55 hours",
+      "Wick: crackling wooden wick"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 14
+    },
+    "image": "/products/emberwick-soy-candle.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "ripple-glass-carafe",
+    "name": "Ripple Glass Carafe",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 4200,
+    "rating": 4.4,
+    "reviews": 186,
+    "blurb": "A ridged glass carafe that makes tap water feel like a deliberate act of self-care.",
+    "details": [
+      "Material: borosilicate glass",
+      "Capacity: 1 L",
+      "Cleaning: dishwasher safe",
+      "Includes: glass stopper"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 200
+    },
+    "image": "/products/ripple-glass-carafe.jpg"
+  },
+  {
+    "slug": "ridged-glass-vase",
+    "name": "Ridged Glass Vase",
+    "brand": "Grain & Gale",
+    "category": "home",
+    "priceUsd": 3200,
+    "rating": 4.3,
+    "reviews": 94,
+    "blurb": "Vertical ridges in this vase make even a single stem look thoroughly considered.",
+    "details": [
+      "Material: hand-blown glass",
+      "Height: 10 in",
+      "Opening: 2 in wide",
+      "Care: hand wash"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 220
+    },
+    "image": "/products/ridged-glass-vase.jpg"
+  },
+  {
+    "slug": "marlow-ceramic-mug",
+    "name": "Marlow Ceramic Mug",
+    "brand": "Dwell Standard",
+    "category": "home",
+    "priceUsd": 1850,
+    "rating": 4.7,
+    "reviews": 2900,
+    "blurb": "A generously curved mug with a thumb-rest handle that fits like it was made for you.",
+    "details": [
+      "Material: speckled stoneware",
+      "Capacity: 12 oz",
+      "Glaze: matte oatmeal exterior",
+      "Care: dishwasher and microwave safe"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 40
+    },
+    "image": "/products/marlow-ceramic-mug.jpg"
+  },
+  {
+    "slug": "fieldline-canvas-tote",
+    "name": "Fieldline Canvas Tote",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 2400,
+    "rating": 4.5,
+    "reviews": 1500,
+    "blurb": "A structured canvas tote with cotton webbing straps and a base that doesn't sag.",
+    "details": [
+      "Material: 16 oz cotton canvas",
+      "Strap drop: 10 in",
+      "Dimensions: 15 x 14 x 6 in",
+      "Interior: 1 zip pocket"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 80
+    },
+    "image": "/products/fieldline-canvas-tote.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "briar-bluetooth-speaker",
+    "name": "Briar Bluetooth Speaker",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 12000,
+    "compareAtUsd": 15000,
+    "rating": 4.1,
+    "reviews": 520,
+    "blurb": "A fabric-wrapped speaker with surprisingly warm bass for its almost absurdly compact size.",
+    "details": [
+      "Output: 20W, 360-degree sound",
+      "Battery: 12 hours at moderate volume",
+      "Connectivity: Bluetooth 5.3, AUX",
+      "Rating: IPX5 water resistant"
+    ],
+    "art": {
+      "kind": "speaker",
+      "hue": 160
+    },
+    "image": "/products/briar-bluetooth-speaker.jpg"
+  },
+  {
+    "slug": "haverford-mantel-clock",
+    "name": "Haverford Mantel Clock",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 7500,
+    "compareAtUsd": 9500,
+    "rating": 4.6,
+    "reviews": 210,
+    "blurb": "A classic round clock with a quiet sweep hand and enough heft to stay put on a mantel.",
+    "details": [
+      "Movement: silent quartz sweep",
+      "Size: 9 in diameter",
+      "Materials: ash wood, matte brass",
+      "Power: 1 AA battery, not included"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/haverford-mantel-clock.jpg"
+  },
+  {
+    "slug": "flettner-floor-lamp",
+    "name": "Flettner Floor Lamp",
+    "brand": "Alder & Ash",
+    "category": "home",
+    "priceUsd": 18000,
+    "rating": 4.7,
+    "reviews": 640,
+    "blurb": "A no-nonsense floor lamp with a weighted base and a shade that points where you need it.",
+    "details": [
+      "Material: matte black steel",
+      "Shade: pivoting metal cone",
+      "Height: 62 in",
+      "Switch: foot pedal"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 220
+    },
+    "image": "/products/flettner-floor-lamp.jpg"
+  },
+  {
+    "slug": "clasp-brass-pendant",
+    "name": "Clasp Brass Pendant",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 34000,
+    "compareAtUsd": 45000,
+    "rating": 4.8,
+    "reviews": 83,
+    "blurb": "A double-rimmed brass pendant that brings a warm, focused pool of light to a table below.",
+    "details": [
+      "Material: brushed brass",
+      "Diameter: 14 in",
+      "Socket: E26, 60W max",
+      "Suspension: 6 ft adjustable cord"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 50
+    },
+    "image": "/products/clasp-brass-pendant.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "staple-oak-stool",
+    "name": "Staple Oak Stool",
+    "brand": "Bere & Bell",
+    "category": "home",
+    "priceUsd": 9500,
+    "rating": 4.4,
+    "reviews": 77,
+    "blurb": "A small oak stool that doubles as a side table and never apologizes for either role.",
+    "details": [
+      "Material: solid white oak",
+      "Top: 12 in round",
+      "Height: 18 in",
+      "Finish: matte oil wax"
+    ],
+    "art": {
+      "kind": "chair",
+      "hue": 35
+    },
+    "image": "/products/staple-oak-stool.jpg"
+  },
+  {
+    "slug": "kitchen-herb-trio",
+    "name": "Kitchen Herb Trio",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 3400,
+    "rating": 4.5,
+    "reviews": 310,
+    "blurb": "Three live culinary herbs in recycled pots, for windowsill chefs and measured optimists.",
+    "details": [
+      "Varieties: basil, thyme, parsley",
+      "Pots: 4 in recycled fiberglass",
+      "Light: bright indirect light",
+      "Care: water when top is dry"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 100
+    },
+    "image": "/products/kitchen-herb-trio.jpg"
+  },
+  {
+    "slug": "driftwood-tealight-holders",
+    "name": "Driftwood Tealight Holders",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 2250,
+    "rating": 4.6,
+    "reviews": 1200,
+    "blurb": "Six driftwood tealight holders that bring a bit of shoreline to your shelf.",
+    "details": [
+      "Material: natural driftwood",
+      "Set: 6 pieces",
+      "Each: fits standard tealight",
+      "Variation: each piece unique"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 30
+    },
+    "image": "/products/driftwood-tealight-holders.jpg"
+  },
+  {
+    "slug": "insulated-travel-tumbler",
+    "name": "Insulated Travel Tumbler",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 3200,
+    "compareAtUsd": 3999,
+    "rating": 4.3,
+    "reviews": 1800,
+    "blurb": "A double-wall tumbler that keeps coffee hot and your commute fiction of calm intact.",
+    "details": [
+      "Capacity: 16 oz",
+      "Material: stainless steel with ceramic coating",
+      "Lid: leak-resistant sliding closure",
+      "Insulation: 6 hours hot / 12 hours cold"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 250
+    },
+    "image": "/products/insulated-travel-tumbler.jpg"
+  },
+  {
+    "slug": "winslow-woven-storage-tote",
+    "name": "Winslow Woven Storage Tote",
+    "brand": "Bere & Bell",
+    "category": "home",
+    "priceUsd": 5400,
+    "rating": 4.6,
+    "reviews": 1200,
+    "blurb": "A hand-woven seagrass storage tote with leather handles for tidy, textured hiding.",
+    "details": [
+      "Material: natural seagrass",
+      "Handles: vegetable-tanned leather",
+      "Dimensions: 16 x 12 x 10 in",
+      "Lining: removable cotton duck"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 85
+    },
+    "image": "/products/winslow-woven-storage-tote.jpg"
+  },
+  {
+    "slug": "apiary-glass-soap-dispenser",
+    "name": "Apiary Glass Soap Dispenser",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 2600,
+    "rating": 4,
+    "reviews": 48,
+    "blurb": "A ridged glass dispenser with a brass pump that upgrades hand soap to household ritual.",
+    "details": [
+      "Material: glass, brass pump",
+      "Capacity: 12 oz",
+      "Pump: adjustable flow",
+      "Care: hand wash"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 50
+    },
+    "image": "/products/apiary-glass-soap-dispenser.jpg"
+  },
+  {
+    "slug": "aurelle-desktop-lamp",
+    "name": "Aurelle Desktop Lamp",
+    "brand": "Aurelle",
+    "category": "home",
+    "priceUsd": 12900,
+    "rating": 4.5,
+    "reviews": 340,
+    "blurb": "A minimal LED desk lamp with adjustable color temperature and brightness.",
+    "details": [
+      "20W LED, 1000 lumens",
+      "Touch control dimming",
+      "Color temp 2700-6500K",
+      "USB-C power cable"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 55
+    },
+    "image": "/products/aurelle-desktop-lamp.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "cloud-barrier-moisturizer",
+    "name": "Cloud Barrier Moisturizer",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 4200,
+    "compareAtUsd": 5200,
+    "rating": 4.8,
+    "reviews": 3120,
+    "blurb": "A weightless daily moisturizer that locks in hydration without clogging pores.",
+    "details": [
+      "1.7 fl oz / 50 ml",
+      "Ceramide complex + squalane",
+      "Fragrance-free and non-comedogenic",
+      "Dermatologist tested"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 220
+    },
+    "image": "/products/cloud-barrier-moisturizer.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "glycolic-glow-toner",
+    "name": "Glycolic Glow Toner",
+    "brand": "Ardent Flora",
+    "category": "beauty",
+    "priceUsd": 2800,
+    "rating": 4.5,
+    "reviews": 942,
+    "blurb": "A resurfacing toner with glycolic acid and aloe to smooth and brighten.",
+    "details": [
+      "6.8 fl oz / 200 ml",
+      "10% glycolic acid with aloe",
+      "pH balanced to 4.2",
+      "Alcohol-free formula"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 340
+    },
+    "image": "/products/glycolic-glow-toner.jpg"
+  },
+  {
+    "slug": "dewy-rosewater-face-mist",
+    "name": "Dewy Rosewater Face Mist",
+    "brand": "Nereid Apothecary",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.6,
+    "reviews": 1876,
+    "blurb": "Mist on rosewater and glycerin for an instant, dewy refresh.",
+    "details": [
+      "3.4 fl oz / 100 ml",
+      "Rose damascena water base",
+      "Glycerin for lightweight moisture",
+      "No artificial fragrance"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 10
+    },
+    "image": "/products/dewy-rosewater-face-mist.jpg"
+  },
+  {
+    "slug": "black-tea-overnight-mask",
+    "name": "Black Tea Overnight Mask",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 5500,
+    "rating": 4.9,
+    "reviews": 208,
+    "blurb": "A rich overnight mask that supports skin's natural evening repair cycle.",
+    "details": [
+      "2 oz glass jar",
+      "Fermented black tea extract",
+      "Shea butter and ceramides",
+      "Use 2-3 nights per week"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 30
+    },
+    "image": "/products/black-tea-overnight-mask.jpg"
+  },
+  {
+    "slug": "peptide-lip-treatment",
+    "name": "Peptide Lip Treatment",
+    "brand": "Stave & Ember",
+    "category": "beauty",
+    "priceUsd": 1600,
+    "rating": 4.3,
+    "reviews": 4520,
+    "blurb": "A cushiony lip treatment with peptides and ceramides, worn alone or under lip color.",
+    "details": [
+      "0.5 fl oz / 15 ml",
+      "Peptide complex + ceramides",
+      "Subtle peppermint cooling",
+      "Cruelty-free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 350
+    },
+    "image": "/products/peptide-lip-treatment.jpg"
+  },
+  {
+    "slug": "mineral-sunscreen-spf-50",
+    "name": "Mineral Sunscreen SPF 50",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 2300,
+    "rating": 4.4,
+    "reviews": 1289,
+    "blurb": "A reef-friendly mineral sunscreen with a soft, non-cast finish.",
+    "details": [
+      "2 fl oz / 60 ml",
+      "20% zinc oxide",
+      "Reef-safe mineral filter",
+      "Blends without white cast"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 180
+    },
+    "image": "/products/mineral-sunscreen-spf-50.jpg"
+  },
+  {
+    "slug": "botanical-repair-hair-oil",
+    "name": "Botanical Repair Hair Oil",
+    "brand": "Otter & Oak",
+    "category": "beauty",
+    "priceUsd": 3400,
+    "rating": 4.7,
+    "reviews": 611,
+    "blurb": "A fast-absorbing hair oil that smooths flyaways and seals split ends.",
+    "details": [
+      "1.7 fl oz / 50 ml",
+      "Argan and jojoba oils",
+      "Lightweight non-greasy finish",
+      "Thermal protectant up to 230°C"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 45
+    },
+    "image": "/products/botanical-repair-hair-oil.jpg"
+  },
+  {
+    "slug": "jasmine-night-candle",
+    "name": "Jasmine Night Candle",
+    "brand": "Maison Virelle",
+    "category": "beauty",
+    "priceUsd": 3200,
+    "compareAtUsd": 3900,
+    "rating": 4.8,
+    "reviews": 1502,
+    "blurb": "An evening candle with jasmine, sandalwood, and a whisper of amber.",
+    "details": [
+      "8 oz / 227 g soy wax",
+      "Approx. 45-hour burn time",
+      "Cotton wick, hand-poured",
+      "Jasmine, sandalwood, amber"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 290
+    },
+    "image": "/products/jasmine-night-candle.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "silk-slip-sleep-mask",
+    "name": "Silk Slip Sleep Mask",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 2800,
+    "rating": 4.5,
+    "reviews": 2043,
+    "blurb": "A mulberry silk sleep mask that blocks light without pressing on lashes.",
+    "details": [
+      "22-momme mulberry silk",
+      "Soft adjustable strap",
+      "Wire-free, no pressure on lashes",
+      "Includes mini lavender sachet"
+    ],
+    "art": {
+      "kind": "sunglasses",
+      "hue": 260
+    },
+    "image": "/products/silk-slip-sleep-mask.jpg"
+  },
+  {
+    "slug": "halo-lighted-makeup-mirror",
+    "name": "Halo Lighted Makeup Mirror",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 8900,
+    "rating": 4.6,
+    "reviews": 738,
+    "blurb": "A tabletop mirror with adjustable color temperature and 10x magnification.",
+    "details": [
+      "10-inch round mirror",
+      "21 built-in LED bulbs",
+      "3 color temperatures",
+      "USB-C rechargeable"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/halo-lighted-makeup-mirror.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "microcurrent-face-sculptor",
+    "name": "Microcurrent Face Sculptor",
+    "brand": "Novalis Instruments",
+    "category": "beauty",
+    "priceUsd": 14900,
+    "rating": 4.2,
+    "reviews": 315,
+    "blurb": "A featherweight microcurrent device that tones and contours facial muscles.",
+    "details": [
+      "5-minute daily treatment",
+      "Two intensity levels",
+      "Ear clips for grounding",
+      "USB-C charging, 3-hour battery"
+    ],
+    "art": {
+      "kind": "headphones",
+      "hue": 150
+    },
+    "image": "/products/microcurrent-face-sculptor.jpg"
+  },
+  {
+    "slug": "skin-scanning-beauty-camera",
+    "name": "Skin-Scanning Beauty Camera",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 19900,
+    "compareAtUsd": 24900,
+    "rating": 4.1,
+    "reviews": 127,
+    "blurb": "A smart skin scanner that tracks hydration, pores, and fine lines over time.",
+    "details": [
+      "5MP skin sensor",
+      "Tracks hydration, pores, lines",
+      "Companion app included",
+      "USB-C rechargeable"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 330
+    },
+    "image": "/products/skin-scanning-beauty-camera.jpg"
+  },
+  {
+    "slug": "canvas-travel-makeup-bag",
+    "name": "Canvas Travel Makeup Bag",
+    "brand": "Otter & Oak",
+    "category": "beauty",
+    "priceUsd": 4500,
+    "rating": 4.7,
+    "reviews": 596,
+    "blurb": "A structured canvas bag with padded compartments for brushes and bottles.",
+    "details": [
+      "10 x 6 x 5 inches",
+      "Wipe-clean nylon lining",
+      "Six interior brush sleeves",
+      "YKK zipper closure"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 25
+    },
+    "image": "/products/canvas-travel-makeup-bag.jpg"
+  },
+  {
+    "slug": "hanging-toiletry-organizer",
+    "name": "Hanging Toiletry Organizer",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 5800,
+    "rating": 4.8,
+    "reviews": 421,
+    "blurb": "A water-resistant organizer that unrolls to hang in any bathroom.",
+    "details": [
+      "Three main compartments",
+      "Waterproof tear-resistant lining",
+      "Metal T-hook for hanging",
+      "Folds flat to 9 x 4 inches"
+    ],
+    "art": {
+      "kind": "backpack",
+      "hue": 210
+    },
+    "image": "/products/hanging-toiletry-organizer.jpg"
+  },
+  {
+    "slug": "eucalyptus-muscle-bath-salts",
+    "name": "Eucalyptus Muscle Bath Salts",
+    "brand": "Buttermilk & Stone",
+    "category": "beauty",
+    "priceUsd": 1400,
+    "rating": 4.6,
+    "reviews": 987,
+    "blurb": "Magnesium-rich salts with eucalyptus to ease sore muscles and quiet the mind.",
+    "details": [
+      "2 lb / 907 g pouch",
+      "Magnesium sulfate base",
+      "Eucalyptus + mint essential oils",
+      "Dermatologist tested"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 140
+    },
+    "image": "/products/eucalyptus-muscle-bath-salts.jpg"
+  },
+  {
+    "slug": "vitamin-c-brightening-powder",
+    "name": "Vitamin C Brightening Powder",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 2600,
+    "rating": 4,
+    "reviews": 184,
+    "blurb": "Stabilized vitamin C powder to mix into your favorite serum or moisturizer.",
+    "details": [
+      "20 g amber jar",
+      "Pure L-ascorbic acid",
+      "Scoop included",
+      "Mix fresh with serum"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 60
+    },
+    "image": "/products/vitamin-c-brightening-powder.jpg"
+  },
+  {
+    "slug": "firming-eye-contour-cream",
+    "name": "Firming Eye Contour Cream",
+    "brand": "Nereid Apothecary",
+    "category": "beauty",
+    "priceUsd": 3600,
+    "compareAtUsd": 4400,
+    "rating": 4.4,
+    "reviews": 631,
+    "blurb": "A cooling eye cream with caffeine and peptides to reduce puffiness.",
+    "details": [
+      "0.5 fl oz / 15 ml",
+      "Caffeine + peptide complex",
+      "Metal-tip cooling applicator",
+      "Fragrance-free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 200
+    },
+    "image": "/products/firming-eye-contour-cream.jpg"
+  },
+  {
+    "slug": "rosy-lip-and-cheek-tint",
+    "name": "Rosy Lip and Cheek Tint",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 1900,
+    "rating": 4.2,
+    "reviews": 2745,
+    "blurb": "A sheer, buildable tint for lips and cheeks with a healthy rosy flush.",
+    "details": [
+      "0.3 fl oz / 10 ml",
+      "Aloe vera gel base",
+      "Sheer buildable color",
+      "Fragrance-free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 1
+    },
+    "image": "/products/rosy-lip-and-cheek-tint.jpg"
+  },
+  {
+    "slug": "hearthside-baking-dish-9x13",
+    "name": "Hearthside Baking Dish 9x13",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 3400,
+    "rating": 4.7,
+    "reviews": 2140,
+    "blurb": "A ceramic workhorse for casseroles, lasagnas, and the occasional cinnamon roll binge.",
+    "details": [
+      "Oven safe to 500°F",
+      "Glossy speckled stoneware; 3.2 lb",
+      "Interior: 9 x 13 x 2.75 in",
+      "Dishwasher and microwave safe"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 24
+    },
+    "image": "/products/hearthside-baking-dish-9x13.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "kestrel-wall-sconce",
+    "name": "Kestrel Wall Sconce",
+    "brand": "Alder & Ash",
+    "category": "home",
+    "priceUsd": 8950,
+    "compareAtUsd": 11500,
+    "rating": 4.5,
+    "reviews": 387,
+    "blurb": "A sleek swing-arm sconce for focused light beside the sofa or reading chair.",
+    "details": [
+      "Powder-coated steel arm; matte black",
+      "9.5-in diameter linen shade",
+      "3-way rotary switch; E26 socket",
+      "Includes 8 ft cord; hardwire-ready"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 210
+    },
+    "image": "/products/kestrel-wall-sconce.jpg"
+  },
+  {
+    "slug": "marlow-stoneware-dinner-plate",
+    "name": "Marlow Stoneware Dinner Plate",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 1850,
+    "rating": 4.8,
+    "reviews": 4560,
+    "blurb": "Hand-glazed stoneware plate with a reactive finish that makes every table look styled.",
+    "details": [
+      "10.5-in diameter; 0.6-in rim",
+      "High-fired stoneware; lead-free glaze",
+      "Microwave, oven, and dishwasher safe",
+      "Glaze tones may vary slightly"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 150
+    },
+    "image": "/products/marlow-stoneware-dinner-plate.jpg"
+  },
+  {
+    "slug": "larkspur-cotton-quilt-set",
+    "name": "Larkspur Cotton Quilt Set",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 12900,
+    "compareAtUsd": 16000,
+    "rating": 4.6,
+    "reviews": 842,
+    "blurb": "A breathable, matelassé-style quilt that reads as high design and sleeps cool.",
+    "details": [
+      "100% washed cotton shell; poly fill",
+      "Queen: 92 x 96 in; 2 shams 20 x 26 in",
+      "Pre-washed for a soft, relaxed hand",
+      "Machine wash cold; tumble dry low"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 180
+    },
+    "image": "/products/larkspur-cotton-quilt-set.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "vervain-diffuser-reed-set",
+    "name": "Vervain Diffuser Reed Set",
+    "brand": "Grain & Gale",
+    "category": "home",
+    "priceUsd": 4200,
+    "rating": 4.3,
+    "reviews": 1290,
+    "blurb": "A clean, herbal scent with no flame or fuss, ready to unfurl across a hallway.",
+    "details": [
+      "Vervain, white tea, and cedar notes",
+      "6.7 fl oz; lasts up to 8 weeks",
+      "Amber glass bottle; rattan reeds included",
+      "Phthalate-free fragrance blend"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 60
+    },
+    "image": "/products/vervain-diffuser-reed-set.jpg"
+  },
+  {
+    "slug": "holloway-serving-board",
+    "name": "Holloway Serving Board",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 5400,
+    "rating": 4.9,
+    "reviews": 2075,
+    "blurb": "A sturdy acacia board with a juice groove for cheese, bread, or ambitious charcuterie.",
+    "details": [
+      "Solid acacia wood; natural oil finish",
+      "16 x 10 x 0.8 in; 3.4 lb",
+      "Hand wash; oil periodically",
+      "Includes small metal handle"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 30
+    },
+    "image": "/products/holloway-serving-board.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "finch-crystal-wine-glasses-set-of-4",
+    "name": "Finch Crystal Wine Glasses (Set of 4)",
+    "brand": "Bere & Bell",
+    "category": "home",
+    "priceUsd": 6800,
+    "rating": 4.4,
+    "reviews": 3310,
+    "blurb": "Lightweight, lead-free crystal glasses that feel delicate but survive the dishwasher.",
+    "details": [
+      "Lead-free crystal; 18.5-oz capacity",
+      "Set of 4; 9-in height, 3-in diameter",
+      "Thin rim; tapered bowl shape",
+      "Dishwasher safe; avoid extreme heat"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 350
+    },
+    "image": "/products/finch-crystal-wine-glasses-set-of-4.jpg"
+  },
+  {
+    "slug": "alder-oak-teapot-32oz",
+    "name": "Alder & Oak Teapot 32oz",
+    "brand": "Alder & Ash",
+    "category": "home",
+    "priceUsd": 4800,
+    "compareAtUsd": 5899,
+    "rating": 4.7,
+    "reviews": 1630,
+    "blurb": "A stovetop-safe teapot with a wide base for loose leaf and a drip-free spout.",
+    "details": [
+      "Enameled steel; 2.2 lb empty",
+      "32-oz capacity; 7-in base diameter",
+      "Cool-touch phenolic knob",
+      "Compatible with gas, electric, induction"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 170
+    },
+    "image": "/products/alder-oak-teapot-32oz.jpg"
+  },
+  {
+    "slug": "vellum-waxed-canvas-tablecloth",
+    "name": "Vellum Waxed Canvas Tablecloth",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 7500,
+    "rating": 4.2,
+    "reviews": 645,
+    "blurb": "A waxed cotton cloth that sheds spills and crumbs, easing post-dinner cleanup.",
+    "details": [
+      "14-oz waxed cotton canvas",
+      "60 x 120 in; fits 6-8 seat tables",
+      "Water-resistant; wipe clean with damp cloth",
+      "Finished hem; brass grommets at corners"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 40
+    },
+    "image": "/products/vellum-waxed-canvas-tablecloth.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "ridged-stoneware-butter-dish",
+    "name": "Ridged Stoneware Butter Dish",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 2200,
+    "rating": 4.6,
+    "reviews": 2011,
+    "blurb": "Keeps butter spreadable and presentable, with a snug lid that fits neatly in the fridge.",
+    "details": [
+      "8 x 4.5 x 3 in; holds 1 stick or block",
+      "Glossy cream interior; matte exterior",
+      "Dishwasher safe; lead-free glaze",
+      "Includes small ceramic spreader"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 45
+    },
+    "image": "/products/ridged-stoneware-butter-dish.jpg"
+  },
+  {
+    "slug": "groveside-armchair",
+    "name": "Groveside Armchair",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 42000,
+    "compareAtUsd": 55000,
+    "rating": 4.5,
+    "reviews": 210,
+    "blurb": "A compact accent chair with a high back that fits corners without sacrificing comfort.",
+    "details": [
+      "Solid birch frame; kiln-dried",
+      "Performance polyester upholstery",
+      "30.5 W x 32 D x 37 H in",
+      "Seat height 19 in; 220-lb capacity"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 90
+    },
+    "image": "/products/groveside-armchair.jpg"
+  },
+  {
+    "slug": "haig-brass-table-lamp",
+    "name": "Haig Brass Table Lamp",
+    "brand": "Aurelle",
+    "category": "home",
+    "priceUsd": 14900,
+    "rating": 4.8,
+    "reviews": 1580,
+    "blurb": "A polished brass lamp with a drum shade, built to anchor a console or nightstand.",
+    "details": [
+      "Solid brass base; hand-polished finish",
+      "14-in diameter off-white linen shade",
+      "Rotary switch; 60-in cord",
+      "Accepts standard 60W A19 bulb"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 50
+    },
+    "image": "/products/haig-brass-table-lamp.jpg"
+  },
+  {
+    "slug": "mirepoix-cast-iron-skillet-12-in",
+    "name": "Mirepoix Cast Iron Skillet 12-in",
+    "brand": "HeatCycle",
+    "category": "home",
+    "priceUsd": 6850,
+    "rating": 4.9,
+    "reviews": 4480,
+    "blurb": "A pre-seasoned skillet that develops a better non-stick surface every time it's used.",
+    "details": [
+      "12-in diameter; 8.2 lb",
+      "Pre-seasoned with vegetable oil",
+      "Oven safe to 550°F; stovetop compatible",
+      "Dishwasher safe after re-seasoning"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 220
+    },
+    "image": "/products/mirepoix-cast-iron-skillet-12-in.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "vireo-ceramic-egg-set",
+    "name": "Vireo Ceramic Egg Set",
+    "brand": "Dwell Standard",
+    "category": "home",
+    "priceUsd": 3600,
+    "compareAtUsd": 4400,
+    "rating": 4.1,
+    "reviews": 1260,
+    "blurb": "A six-cup egg holder that looks sculptural on the counter and safely stores a carton's worth.",
+    "details": [
+      "High-fired stoneware; caramel glaze",
+      "Holds 6 eggs on circular wells",
+      "7 x 4.5 x 2.5 in; 1.8 lb",
+      "Dishwasher safe; slight glaze variation"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 15
+    },
+    "image": "/products/vireo-ceramic-egg-set.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "wellfleet-linen-throw",
+    "name": "Wellfleet Linen Throw",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 9800,
+    "compareAtUsd": 12000,
+    "rating": 4.7,
+    "reviews": 935,
+    "blurb": "An oversized, stonewashed linen blanket that softens more with every wash.",
+    "details": [
+      "100% French flax linen; stonewashed",
+      "50 x 70 in; 2.1 lb",
+      "Relaxed slub texture; frayed trim",
+      "Machine wash cold; air dry recommended"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 260
+    },
+    "image": "/products/wellfleet-linen-throw.jpg"
+  },
+  {
+    "slug": "tamarisk-glass-water-pitcher",
+    "name": "Tamarisk Glass Water Pitcher",
+    "brand": "Grain & Gale",
+    "category": "home",
+    "priceUsd": 2900,
+    "rating": 4.5,
+    "reviews": 2105,
+    "blurb": "A ribbed glass pitcher that looks crisp on the dinner table and in the fridge door.",
+    "details": [
+      "Borosilicate glass; heat resistant",
+      "64-oz capacity; 8.5-in height",
+      "Ribbed texture along entire body",
+      "Dishwasher safe; no BPA"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 190
+    },
+    "image": "/products/tamarisk-glass-water-pitcher.jpg"
+  },
+  {
+    "slug": "mercer-knife-set-5-piece",
+    "name": "Mercer Knife Set 5-Piece",
+    "brand": "Dwell Standard",
+    "category": "home",
+    "priceUsd": 14500,
+    "rating": 4.6,
+    "reviews": 1805,
+    "blurb": "A balanced, German-forged set that handles daily prep without taking over a drawer.",
+    "details": [
+      "X50CrMoV15 German steel; full tang",
+      "Chef, Santoku, utility, paring, hone",
+      "Ergonomic black acacia handles",
+      "Gift-boxed; lifetime warranty"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 200
+    },
+    "image": "/products/mercer-knife-set-5-piece.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "rookwood-ceramic-vase-trio",
+    "name": "Rookwood Ceramic Vase Trio",
+    "brand": "Bere & Bell",
+    "category": "home",
+    "priceUsd": 8800,
+    "rating": 4.4,
+    "reviews": 560,
+    "blurb": "Three graduated vases that work as a set or find separate homes around a shelf.",
+    "details": [
+      "Set of 3; heights 6, 8, 10 in",
+      "Matte basalt-gray stoneware",
+      "Water-tight; holds fresh stems",
+      "Wipe clean; no direct heat"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 240
+    },
+    "image": "/products/rookwood-ceramic-vase-trio.jpg"
+  },
+  {
+    "slug": "fallow-wooden-catchall",
+    "name": "Fallow Wooden Catchall",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 3200,
+    "rating": 4.3,
+    "reviews": 1330,
+    "blurb": "A tidy oak tray for keys, loose change, and the day's miscellaneous small objects.",
+    "details": [
+      "Solid white oak; natural oil finish",
+      "10 x 6 x 1.5 in; felt base",
+      "Three shallow compartments",
+      "Wipe clean with damp cloth"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/fallow-wooden-catchall.jpg"
+  },
+  {
+    "slug": "cormorant-swing-arm-floor-lamp",
+    "name": "Cormorant Swing Arm Floor Lamp",
+    "brand": "Aurelle",
+    "category": "home",
+    "priceUsd": 27500,
+    "compareAtUsd": 33000,
+    "rating": 4.2,
+    "reviews": 420,
+    "blurb": "A weighty, adjustable floor lamp that arcs over an armchair like a reading perch.",
+    "details": [
+      "Powder-coated steel; brushed brass accents",
+      "Adjustable arm reach: 30-45 in",
+      "17-in linen shade; 3-way rotary switch",
+      "Brass-tipped feet; 78-in cord"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 0
+    },
+    "image": "/products/cormorant-swing-arm-floor-lamp.jpg",
+    "badge": "Limited"
+  },
+  {
+    "slug": "painted-canyon-boxy-tee",
+    "name": "Painted Canyon Boxy Tee",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 3800,
+    "rating": 4.4,
+    "reviews": 412,
+    "blurb": "A heavy cotton tee with a relaxed fit and a subtle sun-faded wash.",
+    "details": [
+      "100% organic cotton, 240 gsm",
+      "Boxy, cropped silhouette",
+      "Pre-washed to reduce shrinkage",
+      "Machine wash cold, tumble low"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 20
+    },
+    "image": "/products/painted-canyon-boxy-tee.jpg"
+  },
+  {
+    "slug": "alpine-fleece-half-zip",
+    "name": "Alpine Fleece Half-Zip",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 8800,
+    "compareAtUsd": 11000,
+    "rating": 4.7,
+    "reviews": 1280,
+    "blurb": "Midweight half-zip fleece with brushed warmth and a clean stand collar.",
+    "details": [
+      "Recycled polyester fleece, 280 gsm",
+      "High stand collar with half-zip",
+      "Zippered chest pocket",
+      "Machine washable, quick dry"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 210
+    },
+    "image": "/products/alpine-fleece-half-zip.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "meridian-wool-trousers",
+    "name": "Meridian Wool Trousers",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 18500,
+    "compareAtUsd": 22000,
+    "rating": 4.5,
+    "reviews": 236,
+    "blurb": "Tailored wool-blend trousers with a gentle taper and lived-in comfort.",
+    "details": [
+      "Wool blend with stretch",
+      "Flat front and side adjusters",
+      "Tapered leg, 31-inch inseam",
+      "Dry clean recommended"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 250
+    },
+    "image": "/products/meridian-wool-trousers.jpg"
+  },
+  {
+    "slug": "cinder-block-knit-polo",
+    "name": "Cinder Block Knit Polo",
+    "brand": "Northfield Knit Co.",
+    "category": "fashion",
+    "priceUsd": 9500,
+    "rating": 4.6,
+    "reviews": 540,
+    "blurb": "A cotton-blend knit polo with a structured collar and feathered cuff.",
+    "details": [
+      "Cotton-mix pique knit",
+      "Button placket with matte buttons",
+      "Ribbed cuffs and hem",
+      "Pre-shrunk, machine washable"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 0
+    },
+    "image": "/products/cinder-block-knit-polo.jpg"
+  },
+  {
+    "slug": "nocturne-silk-blouse",
+    "name": "Nocturne Silk Blouse",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 12800,
+    "rating": 4.3,
+    "reviews": 167,
+    "blurb": "Slip into a fluid silk blouse with a relaxed collar and shell buttons.",
+    "details": [
+      "Washable silk satin",
+      "Relaxed collar with French seams",
+      "Pearlized shell buttons",
+      "Hip-length with side slits"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 280
+    },
+    "image": "/products/nocturne-silk-blouse.jpg"
+  },
+  {
+    "slug": "fjord-linen-camp-shirt",
+    "name": "Fjord Linen Camp Shirt",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 7200,
+    "rating": 4.4,
+    "reviews": 921,
+    "blurb": "An open-weave linen camp shirt with a casual spread collar and chest pocket.",
+    "details": [
+      "100% European linen",
+      "Camp collar and straight hem",
+      "Single patch chest pocket",
+      "Garment washed for softness"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 150
+    },
+    "image": "/products/fjord-linen-camp-shirt.jpg"
+  },
+  {
+    "slug": "arcadia-pleated-midi-skirt",
+    "name": "Arcadia Pleated Midi Skirt",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 11800,
+    "rating": 4.2,
+    "reviews": 88,
+    "blurb": "A swishy pleated midi skirt with a smooth waistband and fluid movement.",
+    "details": [
+      "Viscose twill with pleating",
+      "Elasticated back waistband",
+      "Midi length, 29 inches",
+      "Machine wash cold, line dry"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 35
+    },
+    "image": "/products/arcadia-pleated-midi-skirt.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "moss-quilted-field-jacket",
+    "name": "Moss Quilted Field Jacket",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 19800,
+    "rating": 4.6,
+    "reviews": 312,
+    "blurb": "A lightly padded field jacket with a matte finish and four utility pockets.",
+    "details": [
+      "Cotton shell with recycled fill",
+      "Snap front and zip wind flap",
+      "Four utility pockets",
+      "Adjustable cuffs, machine washable"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 90
+    },
+    "image": "/products/moss-quilted-field-jacket.jpg"
+  },
+  {
+    "slug": "granite-lace-up-boot",
+    "name": "Granite Lace-Up Boot",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 26500,
+    "compareAtUsd": 32500,
+    "rating": 4.7,
+    "reviews": 1040,
+    "blurb": "A waterproof leather lace-up boot with a lug sole and cushioned collar.",
+    "details": [
+      "Full-grain waterproof leather",
+      "Reinforced toe and heel",
+      "Molded lug outsole",
+      "8-inch shaft with padded collar"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 30
+    },
+    "image": "/products/granite-lace-up-boot.jpg"
+  },
+  {
+    "slug": "court-classic-leather-sneaker",
+    "name": "Court Classic Leather Sneaker",
+    "brand": "Halfday",
+    "category": "fashion",
+    "priceUsd": 14500,
+    "compareAtUsd": 17000,
+    "rating": 4.8,
+    "reviews": 2150,
+    "blurb": "A clean leather court sneaker with a cup sole and minimalist understated lines.",
+    "details": [
+      "Full-grain leather upper",
+      "Cup sole with low-profile heel",
+      "Cotton laces and padded tongue",
+      "Wipe clean, spot treat"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 0
+    },
+    "image": "/products/court-classic-leather-sneaker.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "marsh-suede-loafer",
+    "name": "Marsh Suede Loafer",
+    "brand": "Wexford",
+    "category": "fashion",
+    "priceUsd": 16500,
+    "rating": 4.3,
+    "reviews": 264,
+    "blurb": "A slip-on suede loafer with a stitched moc toe and stacked leather heel.",
+    "details": [
+      "Suede upper with leather lining",
+      "Moc toe and hand-stitched apron",
+      "Stacked leather heel",
+      "Blake stitched construction"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 220
+    },
+    "image": "/products/marsh-suede-loafer.jpg"
+  },
+  {
+    "slug": "osprey-hiking-boot",
+    "name": "Osprey Hiking Boot",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 23000,
+    "rating": 4.5,
+    "reviews": 670,
+    "blurb": "A supportive day-hiking boot with a grippy outsole and abrasion-resistant upper.",
+    "details": [
+      "Nubuck and mesh upper",
+      "EVA midsole with shank",
+      "4mm multi-directional lugs",
+      "Padded gaiter collar"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 140
+    },
+    "image": "/products/osprey-hiking-boot.jpg"
+  },
+  {
+    "slug": "harbor-wool-peacoat",
+    "name": "Harbor Wool Peacoat",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 48000,
+    "compareAtUsd": 59500,
+    "rating": 4.8,
+    "reviews": 758,
+    "blurb": "A double-breasted peacoat in dense wool with a classic notch lapel.",
+    "details": [
+      "Melton wool, 32 oz",
+      "Double-breasted anchor buttons",
+      "Flap pockets and inside welt pocket",
+      "Fully lined, dry clean"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 220
+    },
+    "image": "/products/harbor-wool-peacoat.jpg"
+  },
+  {
+    "slug": "rainier-softshell-hoodie",
+    "name": "Rainier Softshell Hoodie",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 11000,
+    "rating": 4.6,
+    "reviews": 390,
+    "blurb": "A stretchy softshell hoodie that blocks wind and shrugs off light rain.",
+    "details": [
+      "Three-layer softshell fabric",
+      "Adjustable drawcord hood",
+      "Zippered hand pockets",
+      "Articulated elbows, machine washable"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 200
+    },
+    "image": "/products/rainier-softshell-hoodie.jpg"
+  },
+  {
+    "slug": "high-desert-utility-shirt",
+    "name": "High Desert Utility Shirt",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 7600,
+    "rating": 4.5,
+    "reviews": 203,
+    "blurb": "A wrinkle-resistant cotton shirt with double chest pockets and a popover placket.",
+    "details": [
+      "Cotton ripstop weave",
+      "Popover button placket",
+      "Double chest pockets with flaps",
+      "Roll-tab sleeves"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 30
+    },
+    "image": "/products/high-desert-utility-shirt.jpg"
+  },
+  {
+    "slug": "slub-cotton-scoop-tee",
+    "name": "Slub Cotton Scoop Tee",
+    "brand": "Fairweather",
+    "category": "fashion",
+    "priceUsd": 3500,
+    "rating": 4,
+    "reviews": 1560,
+    "blurb": "A soft slub cotton tee with a scoop neck and a slightly elongated hem.",
+    "details": [
+      "Slub cotton jersey",
+      "Ribbed scoop neckline",
+      "Elongated curved hem",
+      "Pre-washed, machine wash cold"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 330
+    },
+    "image": "/products/slub-cotton-scoop-tee.jpg"
+  },
+  {
+    "slug": "ember-wool-wrap-dress",
+    "name": "Ember Wool Wrap Dress",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 16800,
+    "rating": 4.4,
+    "reviews": 112,
+    "blurb": "A tailored wrap dress in brushed wool with a tie waist and deep V neckline.",
+    "details": [
+      "Brushed wool-blend",
+      "Wrap front with tie belt",
+      "Long sleeves and knee length",
+      "Dry clean recommended"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 260
+    },
+    "image": "/products/ember-wool-wrap-dress.jpg"
+  },
+  {
+    "slug": "aster-running-trainer",
+    "name": "Aster Running Trainer",
+    "brand": "Halfday",
+    "category": "fashion",
+    "priceUsd": 13000,
+    "rating": 4.5,
+    "reviews": 2890,
+    "blurb": "A responsive road running shoe with breathable mesh and a springy foam midsole.",
+    "details": [
+      "Engineered breathable mesh",
+      "Compression-molded foam midsole",
+      "Rubber outsole with flex grooves",
+      "Heel drop: 8mm, weight: 240g"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 260
+    },
+    "image": "/products/aster-running-trainer.jpg"
+  },
+  {
+    "slug": "portico-linen-shirt",
+    "name": "Portico Linen Shirt",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 8800,
+    "rating": 4.2,
+    "reviews": 314,
+    "blurb": "A breathable linen button-up with a classic collar and single chest pocket.",
+    "details": [
+      "Solid linen weave",
+      "Classic button-down collar",
+      "Single chest pocket",
+      "Relaxed through the body"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 45
+    },
+    "image": "/products/portico-linen-shirt.jpg"
+  },
+  {
+    "slug": "tannery-leather-jacket",
+    "name": "Tannery Leather Jacket",
+    "brand": "Lionbridge",
+    "category": "fashion",
+    "priceUsd": 64000,
+    "rating": 4.7,
+    "reviews": 124,
+    "blurb": "A vegetable-tanned leather jacket with a streamlined silhouette and silver hardware.",
+    "details": [
+      "Vegetable-tanned cowhide",
+      "Asymmetric zip front",
+      "Four snap pockets",
+      "Fully lined with interior zip pocket"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 20
+    },
+    "image": "/products/tannery-leather-jacket.jpg"
+  },
+  {
+    "slug": "cinder-cone-ceramic-pitcher",
+    "name": "Cinder Cone Ceramic Pitcher",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 4800,
+    "rating": 4.6,
+    "reviews": 312,
+    "blurb": "A matte stoneware pitcher with a low, sturdy pour and a speckled charcoal glaze.",
+    "details": [
+      "High-fired stoneware, 28 oz capacity",
+      "Speckled charcoal glaze, matte finish",
+      "Dishwasher and microwave safe",
+      "Measures 6.5\" tall, 5\" wide"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 220
+    },
+    "image": "/products/cinder-cone-ceramic-pitcher.jpg"
+  },
+  {
+    "slug": "holloway-stoneware-carafe-3",
+    "name": "Holloway Stoneware Carafe",
+    "brand": "Morrow & Pine",
+    "category": "home",
+    "priceUsd": 4200,
+    "compareAtUsd": 5200,
+    "rating": 4.8,
+    "reviews": 1204,
+    "blurb": "A generous stoneware carafe for water or wine, finished in a soft oat glaze.",
+    "details": [
+      "High-fired stoneware, 34 oz capacity",
+      "Oat-colored matte glaze",
+      "Dishwasher safe",
+      "Measures 8\" tall, 4.5\" diameter"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 40
+    },
+    "image": "/products/holloway-stoneware-carafe-3.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "precision-mug-12oz-2",
+    "name": "Precision Mug 12oz",
+    "brand": "Dwell Standard",
+    "category": "home",
+    "priceUsd": 1800,
+    "rating": 4.5,
+    "reviews": 2100,
+    "blurb": "A straight-sided porcelain mug with a comfortable, squared handle.",
+    "details": [
+      "Porcelain, 12 oz capacity",
+      "Dishwasher and microwave safe",
+      "Stackable design",
+      "Measures 3.5\" tall, 3.25\" diameter"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 30
+    },
+    "image": "/products/precision-mug-12oz-2.jpg"
+  },
+  {
+    "slug": "pebble-table-lamp-2",
+    "name": "Pebble Table Lamp",
+    "brand": "Aurelle",
+    "category": "home",
+    "priceUsd": 8900,
+    "compareAtUsd": 11000,
+    "rating": 4.7,
+    "reviews": 540,
+    "blurb": "A smooth, pebble-shaped lamp with a linen shade and a warm brass dimmer.",
+    "details": [
+      "Ceramic base, linen shade",
+      "Rotary dimmer switch",
+      "Takes one E26 bulb, 60W max",
+      "Measures 16\" tall, 8\" diameter"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 200
+    },
+    "image": "/products/pebble-table-lamp-2.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "granite-dining-chair-2",
+    "name": "Granite Dining Chair",
+    "brand": "Grain & Gale",
+    "category": "home",
+    "priceUsd": 24000,
+    "rating": 4.4,
+    "reviews": 180,
+    "blurb": "A solid oak chair with a sculpted seat and a low, angled backrest.",
+    "details": [
+      "Solid oak frame, clear matte finish",
+      "Sculpted plywood seat",
+      "Stackable up to four high",
+      "Measures 30\" H x 18\" W x 20\" D"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 30
+    },
+    "image": "/products/granite-dining-chair-2.jpg"
+  },
+  {
+    "slug": "desert-bloom-potted-plant-2",
+    "name": "Desert Bloom Potted Plant",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 3500,
+    "rating": 4.3,
+    "reviews": 95,
+    "blurb": "A low-maintenance faux succulent arrangement in a ridged terracotta pot.",
+    "details": [
+      "Faux echeveria and aloe mix",
+      "Ridged terracotta pot, 5\" diameter",
+      "No watering or sunlight needed",
+      "Measures 7\" tall overall"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 120
+    },
+    "image": "/products/desert-bloom-potted-plant-2.jpg"
+  },
+  {
+    "slug": "emberwick-soy-candle-2",
+    "name": "Emberwick Soy Candle",
+    "brand": "Nook & Hearth",
+    "category": "home",
+    "priceUsd": 2400,
+    "compareAtUsd": 3000,
+    "rating": 4.8,
+    "reviews": 3200,
+    "blurb": "A slow-burning soy candle with notes of smoked cedar, clove, and amber.",
+    "details": [
+      "100% soy wax, cotton wick",
+      "Approx. 50-hour burn time",
+      "Hand-poured in a glass jar",
+      "9 oz net weight"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 20
+    },
+    "image": "/products/emberwick-soy-candle-2.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "ripple-glass-carafe-2",
+    "name": "Ripple Glass Carafe",
+    "brand": "Bere & Bell",
+    "category": "home",
+    "priceUsd": 3200,
+    "rating": 4.5,
+    "reviews": 410,
+    "blurb": "A hand-blown glass carafe with a subtle vertical ripple and a thin lip.",
+    "details": [
+      "Hand-blown borosilicate glass",
+      "34 oz capacity",
+      "Dishwasher safe",
+      "Measures 7.5\" tall, 4\" diameter"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 190
+    },
+    "image": "/products/ripple-glass-carafe-2.jpg"
+  },
+  {
+    "slug": "halcyon-anorak",
+    "name": "Halcyon Anorak",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 13800,
+    "compareAtUsd": 18500,
+    "rating": 4.6,
+    "reviews": 412,
+    "blurb": "A packable pullover anorak that shrugs off drizzle without looking like a raincoat.",
+    "details": [
+      "2.5-layer recycled nylon ripstop shell",
+      "Adjustable three-panel hood",
+      "Two zippered hand pockets and a kangaroo pocket",
+      "Packs into its own left pocket"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 190
+    },
+    "image": "/products/halcyon-anorak.jpg"
+  },
+  {
+    "slug": "marlow-cardigan",
+    "name": "Marlow Cardigan",
+    "brand": "Northfield Knit Co.",
+    "category": "fashion",
+    "priceUsd": 12000,
+    "rating": 4.8,
+    "reviews": 2380,
+    "blurb": "A densely knit cardigan with a clean placket and a touch of structure.",
+    "details": [
+      "100% merino wool, 12-gauge knit",
+      "Corozo buttons",
+      "Ribbed collar, cuffs, and hem",
+      "Relaxed fit through the body"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 30
+    },
+    "image": "/products/marlow-cardigan.jpg"
+  },
+  {
+    "slug": "broadmoor-wide-leg-trousers",
+    "name": "Broadmoor Wide-Leg Trousers",
+    "brand": "Wexford",
+    "category": "fashion",
+    "priceUsd": 9850,
+    "rating": 4.4,
+    "reviews": 567,
+    "blurb": "High-rise trousers with a full, drapey leg that still holds a pressed crease.",
+    "details": [
+      "Wool-polyester blend twill",
+      "High-rise, wide-leg silhouette",
+      "Side slant pockets and back welt pockets",
+      "Inseam lengths 29\", 31\", 33\""
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 210
+    },
+    "image": "/products/broadmoor-wide-leg-trousers.jpg"
+  },
+  {
+    "slug": "sandgate-chino-shorts",
+    "name": "Sandgate Chino Shorts",
+    "brand": "Halfday",
+    "category": "fashion",
+    "priceUsd": 4500,
+    "rating": 4.2,
+    "reviews": 1890,
+    "blurb": "Classic chino shorts cut for movement, with a crisp hand and honest hardware.",
+    "details": [
+      "Cotton twill with slight stretch",
+      "9-inch inseam",
+      "Zip fly with button closure",
+      "Two front slash and two back welt pockets"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 45
+    },
+    "image": "/products/sandgate-chino-shorts.jpg"
+  },
+  {
+    "slug": "ellis-chukka-boot",
+    "name": "Ellis Chukka Boot",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 16500,
+    "compareAtUsd": 21000,
+    "rating": 4.7,
+    "reviews": 934,
+    "blurb": "A two-eyelet chukka in oiled suede that only gets better with weather.",
+    "details": [
+      "Oiled suede upper",
+      "Cushioned leather insole",
+      "Vulcanized rubber crepe sole",
+      "Blake-stitched construction"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 20
+    },
+    "image": "/products/ellis-chukka-boot.jpg"
+  },
+  {
+    "slug": "vale-canvas-high-top",
+    "name": "Vale Canvas High-Top",
+    "brand": "Fairweather",
+    "category": "fashion",
+    "priceUsd": 7500,
+    "rating": 4.5,
+    "reviews": 3210,
+    "blurb": "A clean high-top sneaker with a cotton canvas upper and a grippy gum sole.",
+    "details": [
+      "Cotton canvas upper",
+      "Metal eyelets with cotton laces",
+      "Gum rubber outsole",
+      "Cushioned footbed"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 180
+    },
+    "image": "/products/vale-canvas-high-top.jpg"
+  },
+  {
+    "slug": "pemberly-poplin-shirt",
+    "name": "Pemberly Poplin Shirt",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 6500,
+    "rating": 4.3,
+    "reviews": 765,
+    "blurb": "A crisp cotton poplin shirt with a precise point collar and single cuff.",
+    "details": [
+      "100% cotton poplin",
+      "Point collar with removable collar stays",
+      "Single-button rounded cuffs",
+      "Curved hem for untucked wear"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 220
+    },
+    "image": "/products/pemberly-poplin-shirt.jpg"
+  },
+  {
+    "slug": "sable-turtleneck",
+    "name": "Sable Turtleneck",
+    "brand": "Northfield Knit Co.",
+    "category": "fashion",
+    "priceUsd": 14500,
+    "rating": 4.9,
+    "reviews": 1845,
+    "blurb": "A ribbed turtleneck with a close, comfortable fit and a fold-over collar.",
+    "details": [
+      "Extra-fine merino wool",
+      "Ribbed-knit throughout",
+      "Fold-over turtleneck collar",
+      "Slim fit with natural stretch"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 260
+    },
+    "image": "/products/sable-turtleneck.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "caldwell-quilted-vest",
+    "name": "Caldwell Quilted Vest",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 8950,
+    "compareAtUsd": 12000,
+    "rating": 4.6,
+    "reviews": 1234,
+    "blurb": "A lightweight quilted vest for layering, with a diamond pattern and a snug collar.",
+    "details": [
+      "Recycled nylon shell with polyester fill",
+      "Diamond-quilted pattern",
+      "Zip front with snap storm flap",
+      "Two lower hand pockets and interior chest pocket"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 120
+    },
+    "image": "/products/caldwell-quilted-vest.jpg"
+  },
+  {
+    "slug": "larkspur-wrap-jumpsuit",
+    "name": "Larkspur Wrap Jumpsuit",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 18000,
+    "rating": 4.7,
+    "reviews": 298,
+    "blurb": "A fluid wrap jumpsuit with a V-neck, tied waist, and cropped leg.",
+    "details": [
+      "Viscose crepe with a soft drape",
+      "Wrap front with self-tie sash",
+      "Adjustable leg length with cuff",
+      "Concealed side zip"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 330
+    },
+    "image": "/products/larkspur-wrap-jumpsuit.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "gale-rain-slicker",
+    "name": "Gale Rain Slicker",
+    "brand": "Lionbridge",
+    "category": "fashion",
+    "priceUsd": 9500,
+    "rating": 4.1,
+    "reviews": 845,
+    "blurb": "A no-nonsense rain slicker with sealed seams and a hood that stays put.",
+    "details": [
+      "PVC-free coated nylon",
+      "Fully taped seams",
+      "Adjustable hood with stiffened brim",
+      "Two-way front zip under a snap placket"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 55
+    },
+    "image": "/products/gale-rain-slicker.jpg"
+  },
+  {
+    "slug": "tanner-moccasin",
+    "name": "Tanner Moccasin",
+    "brand": "Kestrel & Marsh",
+    "category": "fashion",
+    "priceUsd": 11000,
+    "rating": 4.4,
+    "reviews": 654,
+    "blurb": "A hand-stitched moccasin with a soft, flexible sole and an unlined leather footbed.",
+    "details": [
+      "Full-grain leather upper",
+      "Hand-sewn apron stitching",
+      "Leather lining and footbed",
+      "Blake-stitched rubber outsole"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 30
+    },
+    "image": "/products/tanner-moccasin.jpg"
+  },
+  {
+    "slug": "ivy-denim-a-line-skirt",
+    "name": "Ivy Denim A-Line Skirt",
+    "brand": "Marlowe & Grey",
+    "category": "fashion",
+    "priceUsd": 7900,
+    "rating": 4.5,
+    "reviews": 1432,
+    "blurb": "A midi denim skirt with a gentle A-line flare and a classic five-pocket layout.",
+    "details": [
+      "12 oz. indigo denim",
+      "Five-pocket styling",
+      "Button and zip fly",
+      "Midi length with a raw hem"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 220
+    },
+    "image": "/products/ivy-denim-a-line-skirt.jpg"
+  },
+  {
+    "slug": "silk-cami",
+    "name": "Silk Cami",
+    "brand": "Aurelia & Co.",
+    "category": "fashion",
+    "priceUsd": 5800,
+    "rating": 4,
+    "reviews": 234,
+    "blurb": "A bias-cut silk camisole with adjustable straps and a delicate cowl neck.",
+    "details": [
+      "100% mulberry silk",
+      "Bias-cut drape",
+      "Adjustable spaghetti straps",
+      "Cowl neckline with a low back"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 350
+    },
+    "image": "/products/silk-cami.jpg"
+  },
+  {
+    "slug": "ridgeline-trail-sandal",
+    "name": "Ridgeline Trail Sandal",
+    "brand": "Trailvine",
+    "category": "fashion",
+    "priceUsd": 8500,
+    "compareAtUsd": 10500,
+    "rating": 4.3,
+    "reviews": 876,
+    "blurb": "A sturdy trail sandal with grippy tread and quick-drying webbing straps.",
+    "details": [
+      "Woven nylon webbing straps",
+      "Ankle and forefoot adjusters",
+      "Cushioned EVA midsole",
+      "High-traction rubber outsole"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 160
+    },
+    "image": "/products/ridgeline-trail-sandal.jpg"
+  },
+  {
+    "slug": "gentle-foam-gel-cleanser",
+    "name": "Gentle Foam Gel Cleanser",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.6,
+    "reviews": 2410,
+    "blurb": "A low-foam daily wash that removes makeup and sweat without stripping.",
+    "details": [
+      "Gel-to-foam texture",
+      "pH-balanced 5.5",
+      "With green tea and glycerin",
+      "For all skin types"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 220
+    },
+    "image": "/products/gentle-foam-gel-cleanser.jpg"
+  },
+  {
+    "slug": "milky-rice-toner",
+    "name": "Milky Rice Toner",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 2200,
+    "compareAtUsd": 2800,
+    "rating": 4.7,
+    "reviews": 1120,
+    "blurb": "A nourishing toner that hydrates and preps skin with rice ceramides.",
+    "details": [
+      "Lightweight milky lotion",
+      "Rice ceramides and sake extract",
+      "Alcohol-free",
+      "200 ml bottle"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 35
+    },
+    "image": "/products/milky-rice-toner.jpg"
+  },
+  {
+    "slug": "bakuchiol-retinol-alternative",
+    "name": "Bakuchiol Retinol Alternative",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 3200,
+    "rating": 4.8,
+    "reviews": 860,
+    "blurb": "Gentle plant-based retinol alternative that smooths fine lines overnight.",
+    "details": [
+      "Bakuchiol and squalane",
+      "Fragrance-free",
+      "30 ml dropper bottle",
+      "Suitable for sensitive skin"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 25
+    },
+    "image": "/products/bakuchiol-retinol-alternative.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "oat-milk-body-butter",
+    "name": "Oat Milk Body Butter",
+    "brand": "Buttermilk & Stone",
+    "category": "beauty",
+    "priceUsd": 2400,
+    "rating": 4.5,
+    "reviews": 2040,
+    "blurb": "Whipped oat milk and shea butter for dry, thirsty skin.",
+    "details": [
+      "Oat kernel oil and shea butter",
+      "Whipped 72-hour moisture",
+      "Vegan formula",
+      "8 fl oz jar"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 60
+    },
+    "image": "/products/oat-milk-body-butter.jpg"
+  },
+  {
+    "slug": "bha-clarifying-spray",
+    "name": "BHA Clarifying Spray",
+    "brand": "Otter & Oak",
+    "category": "beauty",
+    "priceUsd": 2000,
+    "rating": 4.3,
+    "reviews": 720,
+    "blurb": "A salicylic acid mist for back and body breakouts.",
+    "details": [
+      "2% salicylic acid",
+      "Non-sticky quick-dry mist",
+      "150 ml spray bottle",
+      "Dermatologist tested"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 210
+    },
+    "image": "/products/bha-clarifying-spray.jpg"
+  },
+  {
+    "slug": "sea-salt-wave-spray",
+    "name": "Sea Salt Wave Spray",
+    "brand": "Nereid Apothecary",
+    "category": "beauty",
+    "priceUsd": 1600,
+    "compareAtUsd": 2000,
+    "rating": 4.2,
+    "reviews": 1350,
+    "blurb": "Beachy texture spray with sea minerals and kelp for lived-in waves.",
+    "details": [
+      "Sea salt and kelp extract",
+      "Adds grit and volume",
+      "200 ml spray bottle",
+      "No parabens"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 200
+    },
+    "image": "/products/sea-salt-wave-spray.jpg"
+  },
+  {
+    "slug": "hydrating-hair-mask",
+    "name": "Hydrating Hair Mask",
+    "brand": "Ardent Flora",
+    "category": "beauty",
+    "priceUsd": 2800,
+    "rating": 4.8,
+    "reviews": 3100,
+    "blurb": "Deep conditioning mask with murumuru butter and mango fruit extract.",
+    "details": [
+      "Murumuru butter and mango extract",
+      "For dry, damaged hair",
+      "8 fl oz jar",
+      "Safe for color-treated hair"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 70
+    },
+    "image": "/products/hydrating-hair-mask.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "velvet-matte-lipstick",
+    "name": "Velvet Matte Lipstick",
+    "brand": "Maison Virelle",
+    "category": "beauty",
+    "priceUsd": 2400,
+    "rating": 4.7,
+    "reviews": 4200,
+    "blurb": "Rich, weightless lipstick with a blurring velvet finish.",
+    "details": [
+      "Weightless cushion texture",
+      "Vitamin E and jojoba oil",
+      "Shade: Terracotta Nude",
+      "0.12 oz bullet"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 15
+    },
+    "image": "/products/velvet-matte-lipstick.jpg"
+  },
+  {
+    "slug": "volumizing-root-powder",
+    "name": "Volumizing Root Powder",
+    "brand": "Stave & Ember",
+    "category": "beauty",
+    "priceUsd": 2200,
+    "rating": 4.3,
+    "reviews": 780,
+    "blurb": "Mineral powder that instantly thickens hair at the roots.",
+    "details": [
+      "Clay and silica blend",
+      "Adds volume and grip",
+      "0.35 oz shaker bottle",
+      "Colorless formula"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 250
+    },
+    "image": "/products/volumizing-root-powder.jpg"
+  },
+  {
+    "slug": "gel-eyeliner-pen",
+    "name": "Gel Eyeliner Pen",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 1500,
+    "rating": 4.1,
+    "reviews": 960,
+    "blurb": "Waterproof gel pen with a precise felt tip for sharp lines.",
+    "details": [
+      "Waterproof up to 12 hours",
+      "Ultra-black pigment",
+      "Felt tip pen style",
+      "Ophthalmologist tested"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 0
+    },
+    "image": "/products/gel-eyeliner-pen.jpg"
+  },
+  {
+    "slug": "eucalyptus-scented-shower-oil",
+    "name": "Eucalyptus Scented Shower Oil",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 2600,
+    "compareAtUsd": 3200,
+    "rating": 4.6,
+    "reviews": 1500,
+    "blurb": "A cleansing oil that turns into a milky wash with refreshing eucalyptus.",
+    "details": [
+      "Eucalyptus and peppermint",
+      "Olive-derived cleansers",
+      "250 ml pump bottle",
+      "Leaves skin soft"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 190
+    },
+    "image": "/products/eucalyptus-scented-shower-oil.jpg"
+  },
+  {
+    "slug": "pink-clay-detox-mask",
+    "name": "Pink Clay Detox Mask",
+    "brand": "Buttermilk & Stone",
+    "category": "beauty",
+    "priceUsd": 2100,
+    "rating": 4.4,
+    "reviews": 2300,
+    "blurb": "Kaolin clay mask that draws out impurities without over-drying.",
+    "details": [
+      "Pink kaolin clay and rose water",
+      "For oily and combination skin",
+      "100 ml jar",
+      "Wash off after 10 minutes"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 330
+    },
+    "image": "/products/pink-clay-detox-mask.jpg"
+  },
+  {
+    "slug": "rose-gold-facial-roller",
+    "name": "Rose Gold Facial Roller",
+    "brand": "Novalis Instruments",
+    "category": "beauty",
+    "priceUsd": 3400,
+    "compareAtUsd": 4200,
+    "rating": 4.8,
+    "reviews": 540,
+    "blurb": "Sculpting rose quartz roller for cooling facial massage.",
+    "details": [
+      "Natural rose quartz stone",
+      "Smooth 360-degree rolling head",
+      "Stainless steel handle",
+      "Comes with cleaning cloth"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 340
+    },
+    "image": "/products/rose-gold-facial-roller.jpg"
+  },
+  {
+    "slug": "cucumber-melon-body-wash",
+    "name": "Cucumber Melon Body Wash",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 1250,
+    "rating": 4.3,
+    "reviews": 3000,
+    "blurb": "Cooling gel body wash with cucumber and melon extracts.",
+    "details": [
+      "Cucumber and melon extracts",
+      "Sulfate-free gel",
+      "16 fl oz bottle",
+      "Soft-foam lather"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 120
+    },
+    "image": "/products/cucumber-melon-body-wash.jpg"
+  },
+  {
+    "slug": "bamboo-charcoal-foot-scrub",
+    "name": "Bamboo Charcoal Foot Scrub",
+    "brand": "Otter & Oak",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.2,
+    "reviews": 670,
+    "blurb": "Detoxifying foot scrub with bamboo charcoal and pumice.",
+    "details": [
+      "Bamboo charcoal and pumice",
+      "Exfoliates and deodorizes",
+      "6 oz tub",
+      "Use 2-3 times weekly"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 240
+    },
+    "image": "/products/bamboo-charcoal-foot-scrub.jpg"
+  },
+  {
+    "slug": "phytoactive-hair-perfume",
+    "name": "Phytoactive Hair Perfume",
+    "brand": "Maison Virelle",
+    "category": "beauty",
+    "priceUsd": 4800,
+    "rating": 4.5,
+    "reviews": 230,
+    "blurb": "A feather-light fragrance mist for hair with orange blossom and cedar.",
+    "details": [
+      "Orange blossom and cedar",
+      "Alcohol-free mist",
+      "50 ml glass bottle",
+      "Adds subtle shine"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/phytoactive-hair-perfume.jpg"
+  },
+  {
+    "slug": "cold-brew-shampoo-bar",
+    "name": "Cold Brew Shampoo Bar",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 1400,
+    "rating": 4,
+    "reviews": 410,
+    "blurb": "Solid shampoo bar with cold-brew coffee and cocoa butter.",
+    "details": [
+      "Cold-brew coffee and cocoa butter",
+      "Zero-waste bar",
+      "2.8 oz solid bar",
+      "Sulfate-free"
+    ],
+    "art": {
+      "kind": "speaker",
+      "hue": 30
+    },
+    "image": "/products/cold-brew-shampoo-bar.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "firming-neck-serum",
+    "name": "Firming Neck Serum",
+    "brand": "Nereid Apothecary",
+    "category": "beauty",
+    "priceUsd": 3600,
+    "compareAtUsd": 4400,
+    "rating": 4.4,
+    "reviews": 310,
+    "blurb": "Targeted peptide serum for a smoother, firmer neck and décolleté.",
+    "details": [
+      "Peptides and hyaluronic acid",
+      "Lightweight gel serum",
+      "30 ml dropper bottle",
+      "Fragrance-free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 280
+    },
+    "image": "/products/firming-neck-serum.jpg"
+  },
+  {
+    "slug": "nail-strengthening-base-coat",
+    "name": "Nail Strengthening Base Coat",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 1100,
+    "rating": 4.2,
+    "reviews": 1850,
+    "blurb": "Fortifying base coat with hydrolyzed keratin and bamboo extract.",
+    "details": [
+      "Keratin and bamboo extract",
+      "Chip-resistant formula",
+      "15 ml glass bottle",
+      "Quick-dry in under 60 seconds"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 90
+    },
+    "image": "/products/nail-strengthening-base-coat.jpg"
+  },
+  {
+    "slug": "cuticle-softening-balm",
+    "name": "Cuticle Softening Balm",
+    "brand": "Buttermilk & Stone",
+    "category": "beauty",
+    "priceUsd": 1350,
+    "rating": 4.5,
+    "reviews": 1300,
+    "blurb": "A rich balm that tames ragged cuticles with shea and calendula.",
+    "details": [
+      "Shea butter and calendula",
+      "Squeeze tube",
+      "15 ml",
+      "Scented with orange peel"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 45
+    },
+    "image": "/products/cuticle-softening-balm.jpg"
+  },
+  {
+    "slug": "ashwick-weekender-38",
+    "name": "Ashwick Weekender 38",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 29500,
+    "compareAtUsd": 36000,
+    "rating": 4.7,
+    "reviews": 340,
+    "blurb": "A roomy waxed-canvas weekender with a dedicated shoe compartment and solid brass hardware.",
+    "details": [
+      "Waxed 18oz canvas with full-grain leather trim",
+      "35L capacity – fits 2–3 days of clothing",
+      "Interior zip pocket and padded 15\" laptop sleeve",
+      "Solid brass feet and leather carry handle"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 210
+    },
+    "image": "/products/ashwick-weekender-38.jpg"
+  },
+  {
+    "slug": "fleet-st-card-sleeve",
+    "name": "Fleet St. Card Sleeve",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 4500,
+    "rating": 4.8,
+    "reviews": 1200,
+    "blurb": "A slim cardholder in vegetable-tanned leather that ages beautifully with use.",
+    "details": [
+      "Vegetable-tanned Italian leather",
+      "Fits 6–8 cards plus folded cash",
+      "RFID-blocking lining",
+      "Embossed logo, no visible stitching"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 30
+    },
+    "image": "/products/fleet-st-card-sleeve.jpg"
+  },
+  {
+    "slug": "solaris-aviator-sunglasses",
+    "name": "Solaris Aviator Sunglasses",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 8900,
+    "rating": 4.5,
+    "reviews": 210,
+    "blurb": "Polarised acetate aviators with copper lenses and a comfortable keyhole bridge.",
+    "details": [
+      "Polarised CR-39 lenses, UV400 protection",
+      "Hand-polished cellulose acetate frame",
+      "Five-barrel hinges with nickel-silver core",
+      "Includes leather hard case and microfibre cloth"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 40
+    },
+    "image": "/products/solaris-aviator-sunglasses.jpg"
+  },
+  {
+    "slug": "stratford-automatic-39",
+    "name": "Stratford Automatic 39",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 48500,
+    "compareAtUsd": 58000,
+    "rating": 4.9,
+    "reviews": 85,
+    "blurb": "A self-winding dress watch with a deep navy dial and sapphire crystal.",
+    "details": [
+      "Swiss automatic movement, 41h power reserve",
+      "39mm brushed steel case, 100m water resistance",
+      "Sapphire crystal with anti-reflective coating",
+      "Italian leather strap with quick-release pins"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 220
+    },
+    "image": "/products/stratford-automatic-39.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "borealis-bucket-hat",
+    "name": "Borealis Bucket Hat",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 3800,
+    "rating": 4.3,
+    "reviews": 450,
+    "blurb": "A packable cotton-linen bucket hat with a structured brim and chin loop.",
+    "details": [
+      "50% cotton, 50% linen twill",
+      "Reinforced brim holds shape",
+      "Interior sweatband and adjustable toggle",
+      "Folds flat for easy packing"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 70
+    },
+    "image": "/products/borealis-bucket-hat.jpg"
+  },
+  {
+    "slug": "ascot-silk-pocket-square",
+    "name": "Ascot Silk Pocket Square",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 3500,
+    "rating": 4.6,
+    "reviews": 310,
+    "blurb": "A hand-rolled silk pocket square with a classic paisley border.",
+    "details": [
+      "100% silk twill",
+      "Hand-rolled edges",
+      "Approx. 41 x 41 cm",
+      "Comes in a gift-ready cardboard tube"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 150
+    },
+    "image": "/products/ascot-silk-pocket-square.jpg"
+  },
+  {
+    "slug": "thruway-crossbody-sling",
+    "name": "Thruway Crossbody Sling",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 11000,
+    "rating": 4.6,
+    "reviews": 680,
+    "blurb": "A lightweight sling bag with a hidden anti-theft pocket on the back panel.",
+    "details": [
+      "Water-repellent recycled nylon ripstop",
+      "4L capacity – fits a tablet up to 11\"",
+      "YKK AquaGuard zippers",
+      "Adjustable webbing strap with whistle d-ring"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/thruway-crossbody-sling.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "ferndale-suede-driving-gloves",
+    "name": "Ferndale Suede Driving Gloves",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 7500,
+    "rating": 4.4,
+    "reviews": 160,
+    "blurb": "Deerskin driving gloves with open knuckles and a cashmere lining.",
+    "details": [
+      "Deerskin leather with suede finish",
+      "Cashmere-blend lining",
+      "Perforated leather between fingers",
+      "Unisex sizing S–XL"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 25
+    },
+    "image": "/products/ferndale-suede-driving-gloves.jpg"
+  },
+  {
+    "slug": "meridian-wool-tie",
+    "name": "Meridian Wool Tie",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 5500,
+    "rating": 4.7,
+    "reviews": 95,
+    "blurb": "A woollen knit tie with a matte texture and slightly tapered cut.",
+    "details": [
+      "100% merino wool",
+      "7.5cm wide at the widest point",
+      "Hand-stitched tipping",
+      "Classic 4-in-hand knot recommended"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 130
+    },
+    "image": "/products/meridian-wool-tie.jpg"
+  },
+  {
+    "slug": "meridian-watch-36mm",
+    "name": "Meridian Watch 36mm",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 24500,
+    "compareAtUsd": 30000,
+    "rating": 4.5,
+    "reviews": 520,
+    "blurb": "A minimal three-hand watch with a sunburst dial and mesh bracelet.",
+    "details": [
+      "Japanese quartz movement",
+      "36mm stainless steel case",
+      "Sapphire-coated mineral crystal",
+      "Quick-release steel mesh strap"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 210
+    },
+    "image": "/products/meridian-watch-36mm.jpg"
+  },
+  {
+    "slug": "wicker-oak-braided-belt",
+    "name": "Wicker & Oak Braided Belt",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 4800,
+    "rating": 4.7,
+    "reviews": 780,
+    "blurb": "A full-grain leather belt with a woven braid and solid brass buckle.",
+    "details": [
+      "Full-grain leather, 1 inch wide",
+      "Solid brass buckle",
+      "Fits 30\" to 40\" waist",
+      "Stitched two-row hold"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 35
+    },
+    "image": "/products/wicker-oak-braided-belt.jpg"
+  },
+  {
+    "slug": "linen-union-scarf",
+    "name": "Linen Union Scarf",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 6500,
+    "rating": 4.2,
+    "reviews": 120,
+    "blurb": "A breathable linen-blend scarf with a relaxed, fringed edge.",
+    "details": [
+      "55% linen, 45% cotton",
+      "70 x 180 cm including fringe",
+      "Pre-washed for softness",
+      "Natural dye with low-impact colour"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 160
+    },
+    "image": "/products/linen-union-scarf.jpg"
+  },
+  {
+    "slug": "harborough-leather-backpack",
+    "name": "Harborough Leather Backpack",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 18900,
+    "compareAtUsd": 23000,
+    "rating": 4.8,
+    "reviews": 410,
+    "blurb": "A heritage-style backpack in honey-brown leather, built to outlast the commute.",
+    "details": [
+      "Full-grain leather with brass zips",
+      "Fits a 15\" laptop in padded sleeve",
+      "Magnetic clip closure under flap",
+      "13L capacity"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 30
+    },
+    "image": "/products/harborough-leather-backpack.jpg",
+    "badge": "Limited"
+  },
+  {
+    "slug": "silverton-cuff-bracelet",
+    "name": "Silverton Cuff Bracelet",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 14000,
+    "rating": 4.9,
+    "reviews": 62,
+    "blurb": "A solid sterling silver cuff with a soft satin finish and an engraved edge.",
+    "details": [
+      "Sterling silver 925",
+      "Approx. 6g weight",
+      "Satin finish, polished interior",
+      "Fits a 5.5–6.5\" wrist"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/silverton-cuff-bracelet.jpg"
+  },
+  {
+    "slug": "clifftop-round-sunglasses",
+    "name": "Clifftop Round Sunglasses",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 9500,
+    "compareAtUsd": 12000,
+    "rating": 4.4,
+    "reviews": 280,
+    "blurb": "Retro round sunnies with a lightweight titanium frame and green lenses.",
+    "details": [
+      "Titanium frame, 12g",
+      "Green mineral glass lenses, UV400",
+      "Adjustable silicone nose pads",
+      "Included microfibre pouch"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 180
+    },
+    "image": "/products/clifftop-round-sunglasses.jpg"
+  },
+  {
+    "slug": "grosvenor-reversible-belt",
+    "name": "Grosvenor Reversible Belt",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 7200,
+    "rating": 4.5,
+    "reviews": 590,
+    "blurb": "A two-tone reversible belt with fine bridle leather and a solid brass buckle.",
+    "details": [
+      "Reversible black / brown bridle leather",
+      "Solid brass single-prong buckle",
+      "2.5 cm wide",
+      "Fits 34\"–40\" waist"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 30
+    },
+    "image": "/products/grosvenor-reversible-belt.jpg"
+  },
+  {
+    "slug": "camden-tote",
+    "name": "Camden Tote",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 17500,
+    "rating": 4.7,
+    "reviews": 230,
+    "blurb": "A structured tote in pebbled leather with a magnetic snap pocket.",
+    "details": [
+      "Pebbled cowhide leather",
+      "Magnetic closure, interior zip pocket",
+      "Fits a 16\" laptop",
+      "Stands upright on steel feet"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 20
+    },
+    "image": "/products/camden-tote.jpg"
+  },
+  {
+    "slug": "solstice-sun-hat",
+    "name": "Solstice Sun Hat",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 5900,
+    "rating": 4.6,
+    "reviews": 180,
+    "blurb": "A wide-brim cotton sun hat with a UPF 50+ rating and packable crown.",
+    "details": [
+      "100% cotton with UPF 50+",
+      "8 cm wide brim",
+      "Interior drawstring for a custom fit",
+      "Stuffs into a small pouch"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 80
+    },
+    "image": "/products/solstice-sun-hat.jpg"
+  },
+  {
+    "slug": "modernist-tie-clip",
+    "name": "Modernist Tie Clip",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 3900,
+    "rating": 4.1,
+    "reviews": 44,
+    "blurb": "A brushed steel tie clip with a subtle angled notch.",
+    "details": [
+      "Stainless steel, brushed finish",
+      "5.7 cm long",
+      "Etched logo, engraved pattern",
+      "Keeps tie neatly in place"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/modernist-tie-clip.jpg"
+  },
+  {
+    "slug": "aurora-hoop-earrings",
+    "name": "Aurora Hoop Earrings",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 6800,
+    "rating": 4.8,
+    "reviews": 340,
+    "blurb": "Lightweight gold-vermeil hoops with a hinged closure for easy wear.",
+    "details": [
+      "18k gold-plated over brass",
+      "Hypoallergenic and nickel-free",
+      "15mm inner diameter",
+      "Click-hinge closure"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 45
+    },
+    "image": "/products/aurora-hoop-earrings.jpg"
+  },
+  {
+    "slug": "cloud-lock-setting-mist",
+    "name": "Cloud Lock Setting Mist",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 2600,
+    "rating": 4.4,
+    "reviews": 1120,
+    "blurb": "Sets makeup for 12 hours without whitening or drying. Shake once before spraying.",
+    "details": [
+      "100 ml / 3.4 fl oz",
+      "Aloe water and hyaluronic acid base",
+      "Suitable for sensitive skin",
+      "Recyclable glass bottle"
+    ],
+    "art": {
+      "kind": "speaker",
+      "hue": 218
+    },
+    "image": "/products/cloud-lock-setting-mist.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "even-tone-azelaic-serum",
+    "name": "Even-Tone Azelaic Serum",
+    "brand": "Ardent Flora",
+    "category": "beauty",
+    "priceUsd": 3800,
+    "compareAtUsd": 4800,
+    "rating": 4.7,
+    "reviews": 890,
+    "blurb": "A 10% azelaic acid serum that visibly evens tone and calms redness in four weeks.",
+    "details": [
+      "30 ml / 1 fl oz",
+      "10% azelaic acid, minimalists formula",
+      "Featherlight oil-free texture",
+      "Fragrance-free and non-comedogenic"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 25
+    },
+    "image": "/products/even-tone-azelaic-serum.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "invisible-dry-shampoo-powder",
+    "name": "Invisible Dry Shampoo Powder",
+    "brand": "Lantern & Lye",
+    "category": "beauty",
+    "priceUsd": 1600,
+    "rating": 4.2,
+    "reviews": 3450,
+    "blurb": "Invisible rice-starch powder that refreshes roots between washes, adding grip not grit.",
+    "details": [
+      "50 g / 1.7 oz",
+      "Rice starch and kaolin clay base",
+      "No white residue on dark hair",
+      "Comes with a soft applicator puff"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 50
+    },
+    "image": "/products/invisible-dry-shampoo-powder.jpg"
+  },
+  {
+    "slug": "brown-sugar-lip-polish",
+    "name": "Brown Sugar Lip Polish",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 1200,
+    "rating": 4,
+    "reviews": 780,
+    "blurb": "A brown-sugar polish that buffs away flakes and leaves lips pillowy soft.",
+    "details": [
+      "15 g / 0.5 oz",
+      "Brown sugar and shea butter",
+      "Edible-grade vanilla aroma",
+      "Twist-off jar with spatula"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 330
+    },
+    "image": "/products/brown-sugar-lip-polish.jpg"
+  },
+  {
+    "slug": "rose-quartz-gua-sha-stone",
+    "name": "Rose Quartz Gua Sha Stone",
+    "brand": "Morrow & Sage",
+    "category": "beauty",
+    "priceUsd": 2200,
+    "rating": 4.8,
+    "reviews": 560,
+    "blurb": "A sculpted rose quartz gua sha that drains puffiness and eases jaw tension.",
+    "details": [
+      "Weight 90 g / 3.2 oz",
+      "100% natural rose quartz",
+      "Heart-shaped with four working edges",
+      "Supplied in a linen drawstring pouch"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 344
+    },
+    "image": "/products/rose-quartz-gua-sha-stone.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "no-9-amber-vanilla-oil",
+    "name": "No. 9 Amber Vanilla Oil",
+    "brand": "Maison Virelle",
+    "category": "beauty",
+    "priceUsd": 4500,
+    "compareAtUsd": 5800,
+    "rating": 4.5,
+    "reviews": 220,
+    "blurb": "A warm amber-and-vanilla perfume oil that lasts six hours on skin.",
+    "details": [
+      "10 ml / 0.33 fl oz rollerball",
+      "Notes of vanilla, amber, and sandalwood",
+      "Jojoba oil carrier, no alcohol",
+      "Pocket-friendly rolling applicator"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 35
+    },
+    "image": "/products/no-9-amber-vanilla-oil.jpg"
+  },
+  {
+    "slug": "silk-shield-heat-spray",
+    "name": "Silk Shield Heat Spray",
+    "brand": "Otter & Oak",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.3,
+    "reviews": 1320,
+    "blurb": "A thermal shield that protects hair up to 230°C, leaving a silent sheen.",
+    "details": [
+      "150 ml / 5 fl oz",
+      "Argan oil and silk proteins",
+      "Heat protection up to 230°C",
+      "Works on wet or dry hair"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 281
+    },
+    "image": "/products/silk-shield-heat-spray.jpg"
+  },
+  {
+    "slug": "salt-sea-hand-balm",
+    "name": "Salt & Sea Hand Balm",
+    "brand": "Nereid Apothecary",
+    "category": "beauty",
+    "priceUsd": 1400,
+    "rating": 4.6,
+    "reviews": 980,
+    "blurb": "A sea-mineral hand balm that sinks in fast and refuses to feel greasy.",
+    "details": [
+      "75 ml / 2.5 fl oz tube",
+      "Sea fennel and shea butter",
+      "Absorbs in under a minute",
+      "Light marine citrus scent"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 197
+    },
+    "image": "/products/salt-sea-hand-balm.jpg"
+  },
+  {
+    "slug": "verve-six-piece-brush-set",
+    "name": "Verve Six-Piece Brush Set",
+    "brand": "Stave & Ember",
+    "category": "beauty",
+    "priceUsd": 6800,
+    "compareAtUsd": 8500,
+    "rating": 4.9,
+    "reviews": 410,
+    "blurb": "Six precision synthetic brushes in a compact roll, from flat liner to full-volume base.",
+    "details": [
+      "Includes 6 face and eye brushes",
+      "Ultra-soft synthetic bristles",
+      "Rose-gold ferrules and walnut handles",
+      "Fits in a leather-look roll case"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/verve-six-piece-brush-set.jpg"
+  },
+  {
+    "slug": "aura-exfoliating-body-mitt",
+    "name": "Aura Exfoliating Body Mitt",
+    "brand": "Buttermilk & Stone",
+    "category": "beauty",
+    "priceUsd": 900,
+    "rating": 4.1,
+    "reviews": 2500,
+    "blurb": "A two-sided exfoliating mitt that sloughs off dry patches without elbow grease.",
+    "details": [
+      "One-size-fits-all hand mitt",
+      "Coarse side for knees and heels",
+      "Fine side for body and shoulders",
+      "Machine washable, quick-dry"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 60
+    },
+    "image": "/products/aura-exfoliating-body-mitt.jpg"
+  },
+  {
+    "slug": "harlan-slim-bifold",
+    "name": "Harlan Slim Bifold",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 8900,
+    "rating": 4.6,
+    "reviews": 1284,
+    "blurb": "A slim bifold that holds six cards and a folded note without bulging a pocket.",
+    "details": [
+      "Full-grain vegetable-tanned leather",
+      "Six card slots, two hidden sleeves",
+      "Fits US and UK banknotes unfolded",
+      "Measures 4.3 x 3.2 inches when closed"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 20
+    },
+    "image": "/products/harlan-slim-bifold.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "solstice-aviator-ii",
+    "name": "Solstice Aviator II",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 14500,
+    "compareAtUsd": 18500,
+    "rating": 4.4,
+    "reviews": 890,
+    "blurb": "Classic teardrop aviators with a softly smoked lens for everyday glare control.",
+    "details": [
+      "Nickel-silver frame, adjustable nose pads",
+      "Smoked grey polycarbonate lenses",
+      "100% UV protection",
+      "Case and microfiber cloth included"
+    ],
+    "art": {
+      "kind": "sunglasses",
+      "hue": 210
+    },
+    "image": "/products/solstice-aviator-ii.jpg"
+  },
+  {
+    "slug": "marlowe-tank-watch-38",
+    "name": "Marlowe Tank Watch 38",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 49500,
+    "rating": 4.8,
+    "reviews": 412,
+    "blurb": "A rectangular dress watch with hand-applied indices and a quiet quartz heart.",
+    "details": [
+      "38mm stainless steel case",
+      "Sapphire crystal, 5 ATM water resistance",
+      "Italian leather strap with quick-release",
+      "Japanese quartz movement"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 40
+    },
+    "image": "/products/marlowe-tank-watch-38.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "kinfolk-canvas-tote",
+    "name": "Kinfolk Canvas Tote",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 5800,
+    "rating": 4.5,
+    "reviews": 2033,
+    "blurb": "A sturdy open tote that stands on its own, built from 18oz cotton duck.",
+    "details": [
+      "18oz cotton canvas, reinforced base",
+      "Interior zippered pocket",
+      "Fits a 15-inch laptop",
+      "24L capacity, 11-inch drop handles"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 25
+    },
+    "image": "/products/kinfolk-canvas-tote.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "cordova-leather-cuff",
+    "name": "Cordova Leather Cuff",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 6500,
+    "rating": 4.3,
+    "reviews": 156,
+    "blurb": "A hand-burnished leather cuff that softens and darkens with daily wear.",
+    "details": [
+      "Full-grain cowhide, hand-dyed",
+      "Brass snap closure",
+      "Fits wrists 6.5 to 8 inches",
+      "1.5-inch width"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 15
+    },
+    "image": "/products/cordova-leather-cuff.jpg"
+  },
+  {
+    "slug": "vela-silk-twill-scarf",
+    "name": "Vela Silk Twill Scarf",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 12000,
+    "compareAtUsd": 15000,
+    "rating": 4.7,
+    "reviews": 645,
+    "blurb": "A 90cm silk twill square with a hand-rolled hem, printed in a subtle geometric pattern.",
+    "details": [
+      "100% mulberry silk twill",
+      "Hand-rolled edges",
+      "90cm x 90cm square",
+      "Dry clean only"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 340
+    },
+    "image": "/products/vela-silk-twill-scarf.jpg",
+    "badge": "Limited"
+  },
+  {
+    "slug": "harborview-canvas-belt",
+    "name": "Harborview Canvas Belt",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 3500,
+    "rating": 4.2,
+    "reviews": 987,
+    "blurb": "A webbed canvas belt with a solid brass buckle that won't squeak or pinch.",
+    "details": [
+      "Heavyweight cotton webbing",
+      "Solid brass roller buckle",
+      "Adjustable 30-42 inches",
+      "1.5-inch width"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 45
+    },
+    "image": "/products/harborview-canvas-belt.jpg"
+  },
+  {
+    "slug": "sterling-chain-necklace",
+    "name": "Sterling Chain Necklace",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 18000,
+    "rating": 4.6,
+    "reviews": 324,
+    "blurb": "A substantial curb chain in solid sterling silver, sized for daily layering.",
+    "details": [
+      "Solid 925 sterling silver",
+      "20-inch length with 2-inch extension",
+      "Lobster clasp closure",
+      "Weight 18g"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 0
+    },
+    "image": "/products/sterling-chain-necklace.jpg"
+  },
+  {
+    "slug": "woolrich-knit-beanie",
+    "name": "Woolrich Knit Beanie",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 4200,
+    "rating": 4.4,
+    "reviews": 1510,
+    "blurb": "A chunky ribbed beanie in undyed lambswool, warm without the itch.",
+    "details": [
+      "100% lambswool, undyed",
+      "Ribbed knit, double-layer cuff",
+      "One size fits most",
+      "Hand wash cold"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 200
+    },
+    "image": "/products/woolrich-knit-beanie.jpg"
+  },
+  {
+    "slug": "aldgate-cardholder",
+    "name": "Aldgate Cardholder",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 4900,
+    "rating": 4.5,
+    "reviews": 761,
+    "blurb": "A four-slot cardholder that slips into any pocket and disappears.",
+    "details": [
+      "Saffiano leather, embossed",
+      "Four card slots, center pocket",
+      "2.8 x 3.8 x 0.2 inches",
+      "Available in black or cognac"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 30
+    },
+    "image": "/products/aldgate-cardholder.jpg"
+  },
+  {
+    "slug": "tern-round-sunglasses",
+    "name": "Tern Round Sunglasses",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 13500,
+    "compareAtUsd": 17000,
+    "rating": 4.1,
+    "reviews": 208,
+    "blurb": "Round metal frames with a hint of retro charm, made for broad daylight.",
+    "details": [
+      "Stainless steel frame, matte black",
+      "Green mineral glass lenses",
+      "100% UV protection",
+      "Hard case included"
+    ],
+    "art": {
+      "kind": "sunglasses",
+      "hue": 120
+    },
+    "image": "/products/tern-round-sunglasses.jpg"
+  },
+  {
+    "slug": "kensington-silk-tie",
+    "name": "Kensington Silk Tie",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 8500,
+    "rating": 4.3,
+    "reviews": 234,
+    "blurb": "A seven-fold silk tie in a deep plum, cut to knot neatly and hold its shape.",
+    "details": [
+      "100% silk twill, seven-fold construction",
+      "3-inch blade width",
+      "Length 58 inches",
+      "Dry clean only"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 320
+    },
+    "image": "/products/kensington-silk-tie.jpg"
+  },
+  {
+    "slug": "olive-ash-watch-40",
+    "name": "Olive & Ash Watch 40",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 37500,
+    "compareAtUsd": 45000,
+    "rating": 4.7,
+    "reviews": 189,
+    "blurb": "A field watch with a brushed case and olive nylon strap, ready for weekends.",
+    "details": [
+      "40mm brushed stainless steel case",
+      "Swiss quartz movement",
+      "Nylon NATO strap",
+      "100m water resistance"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 90
+    },
+    "image": "/products/olive-ash-watch-40.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "sable-leather-driving-gloves",
+    "name": "Sable Leather Driving Gloves",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 14500,
+    "rating": 4.6,
+    "reviews": 98,
+    "blurb": "Unlined deerskin gloves with perforated knuckles and a snap tab.",
+    "details": [
+      "Deerskin leather, unlined",
+      "Perforated back for breathability",
+      "Snap closure at wrist",
+      "Sizes S-XXL"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 10
+    },
+    "image": "/products/sable-leather-driving-gloves.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "halcyon-straw-fedora",
+    "name": "Halcyon Straw Fedora",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 9500,
+    "compareAtUsd": 12000,
+    "rating": 4.2,
+    "reviews": 410,
+    "blurb": "A breathable straw fedora with a grosgrain band, shaped for sun and style.",
+    "details": [
+      "Natural woven straw",
+      "Grosgrain ribbon band",
+      "Brim width 2.75 inches",
+      "Size M/L with adjustable inner band"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 50
+    },
+    "image": "/products/halcyon-straw-fedora.jpg"
+  },
+  {
+    "slug": "monterey-travel-wallet",
+    "name": "Monterey Travel Wallet",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 7500,
+    "rating": 4.4,
+    "reviews": 567,
+    "blurb": "A passport-sized wallet with a flap, card slots, and a lozenge coin pouch.",
+    "details": [
+      "Full-grain leather exterior",
+      "Six card slots, two bill sleeves",
+      "Fits passport and boarding pass",
+      "RFID-blocking lining"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 40
+    },
+    "image": "/products/monterey-travel-wallet.jpg"
+  },
+  {
+    "slug": "eton-cufflinks",
+    "name": "Eton Cufflinks",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 11000,
+    "rating": 4.8,
+    "reviews": 143,
+    "blurb": "Round silver-tone cufflinks with a hidden toggle, minimal and enduring.",
+    "details": [
+      "Stainless steel, silver finish",
+      "Toggle-back closure",
+      "14mm face diameter",
+      "Polished finish"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 0
+    },
+    "image": "/products/eton-cufflinks.jpg"
+  },
+  {
+    "slug": "bridger-leather-bracelet",
+    "name": "Bridger Leather Bracelet",
+    "brand": "Kestrel & Marsh",
+    "category": "accessories",
+    "priceUsd": 5500,
+    "rating": 4,
+    "reviews": 89,
+    "blurb": "A braided leather bracelet with a matte black clasp, rugged but neat.",
+    "details": [
+      "Braided full-grain leather",
+      "Matte black metal clasp",
+      "Fits 7-8 inch wrists",
+      "Water-resistant finish"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 0
+    },
+    "image": "/products/bridger-leather-bracelet.jpg"
+  },
+  {
+    "slug": "summer-linen-scarf",
+    "name": "Summer Linen Scarf",
+    "brand": "Northfield Knit Co.",
+    "category": "accessories",
+    "priceUsd": 6800,
+    "rating": 4.5,
+    "reviews": 302,
+    "blurb": "A light linen scarf with a subtle stripe, cool over a shirt or a summer dress.",
+    "details": [
+      "100% washed linen",
+      "Striped pattern in grey and white",
+      "70cm x 170cm",
+      "Machine wash gentle"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 220
+    },
+    "image": "/products/summer-linen-scarf.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "petal-hoop-earrings",
+    "name": "Petal Hoop Earrings",
+    "brand": "Aurelia & Co.",
+    "category": "accessories",
+    "priceUsd": 6500,
+    "rating": 4.6,
+    "reviews": 275,
+    "blurb": "Hollow silver hoops with a subtle hammered finish, light enough for all day.",
+    "details": [
+      "Sterling silver, hollow core",
+      "Hammered texture",
+      "1.5-inch diameter",
+      "Push-back closure"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 240
+    },
+    "image": "/products/petal-hoop-earrings.jpg"
+  },
+  {
+    "slug": "charter-leather-tech-organizer",
+    "name": "Charter Leather Tech Organizer",
+    "brand": "Marlowe & Grey",
+    "category": "accessories",
+    "priceUsd": 9500,
+    "compareAtUsd": 12000,
+    "rating": 4.7,
+    "reviews": 128,
+    "blurb": "Structured leather pouch that keeps cables, chargers, and small gadgets neatly in place.",
+    "details": [
+      "Full-grain vegetable-tanned leather",
+      "YKK zipper with leather zip pull",
+      "Interior elastic loops and a mesh pocket",
+      "Flat lay opening; 10\" x 7\" x 1\""
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 40
+    },
+    "image": "/products/charter-leather-tech-organizer.jpg",
+    "badge": "Staff pick"
+  },
+  {
+    "slug": "gale-city-umbrella",
+    "name": "Gale City Umbrella",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 7800,
+    "rating": 4.4,
+    "reviews": 342,
+    "blurb": "A compact city umbrella with a sturdy windproof frame and a smooth auto-open handle.",
+    "details": [
+      "Reinforced fiberglass shaft and ribs",
+      "Water-repellent polyester canopy",
+      "One-click auto-open handle",
+      "Folds to 12\" when closed; 38\" arc"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 210
+    },
+    "image": "/products/gale-city-umbrella.jpg"
   }
 ];

@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import { db, schema } from "../db";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const FROM = process.env.EMAIL_FROM ?? "Cartharsis <onboarding@resend.dev>";
+const FROM = process.env.EMAIL_FROM ?? "Window Spree <onboarding@resend.dev>";
 
 type EmailInput = { to: string; subject: string; html: string; text: string; kind: string };
 

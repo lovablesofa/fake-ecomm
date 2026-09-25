@@ -3,6 +3,7 @@ import Link from "next/link";
 import { deleteAccount, logout } from "@/app/actions";
 import { SubmitButton } from "@/components/submit-button";
 import { requireUser } from "@/lib/auth";
+import { userBudget } from "@/lib/budget";
 import { getCurrency } from "@/lib/cart";
 import { categoryName } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
@@ -15,10 +16,9 @@ export default async function AccountPage({ searchParams }: PageProps<"/account"
   const user = await requireUser("/account");
   await advanceOrders(user.id);
   const currency = await getCurrency();
-  const [s, { error }] = await Promise.all([userSavings(user.id, currency), searchParams]);
+  const [s, budget, { error }] = await Promise.all([userSavings(user.id, currency), userBudget(user.id, currency), searchParams]);
   const money = (c: number) => formatMoney(c, currency);
   const maxCat = s.byCategory[0]?.[1] ?? 1;
-  const reflected = s.reflections.gladIDidnt + s.reflections.stillWant;
 
   return (
     <div className="mx-auto max-w-5xl px-4 pt-10">
@@ -35,8 +35,14 @@ export default async function AccountPage({ searchParams }: PageProps<"/account"
           </p>
         </div>
         <div className="card p-6">
-          <p className="text-sm text-muted">This month</p>
-          <p className="mt-2 text-3xl font-semibold">{money(s.thisMonth)}</p>
+          <p className="text-sm text-muted">Pretend budget left this month</p>
+          <p className="mt-2 text-3xl font-semibold tabular-nums">{money(budget.remaining)}</p>
+          <div className="mt-3 h-2 rounded-full bg-stone-100">
+            <div className="h-2 rounded-full bg-ink" style={{ width: `${Math.min(100, (budget.spent / budget.limit) * 100)}%` }} />
+          </div>
+          <p className="mt-2 text-xs text-muted">
+            {money(budget.spent)} of {money(budget.limit)} used · resets {budget.resetsOn.toLocaleDateString("en-GB", { day: "numeric", month: "long" })}
+          </p>
           <Link href="/orders" className="mt-4 inline-block text-sm underline underline-offset-4">View orders</Link>
         </div>
       </section>
@@ -59,14 +65,15 @@ export default async function AccountPage({ searchParams }: PageProps<"/account"
             </ul>
           </div>
           <div className="card p-6">
-            <h2 className="font-medium">After it &quot;arrived&quot;</h2>
-            {reflected === 0 ? (
-              <p className="mt-4 text-sm text-muted">Once an order is delivered, we ask if you still want it. Your answers show up here.</p>
+            <h2 className="font-medium">Did it take the edge off?</h2>
+            {s.urge.after === null ? (
+              <p className="mt-4 text-sm text-muted">After each delivery we ask whether it took the edge off the urge, from 1 to 5. Your answers show up here.</p>
             ) : (
               <>
-                <p className="mt-4 text-4xl font-semibold">{Math.round((s.reflections.gladIDidnt / reflected) * 100)}%</p>
+                <p className="mt-4 text-4xl font-semibold tabular-nums">{s.urge.after.toFixed(1)}<span className="text-lg text-muted"> / 5</span></p>
                 <p className="text-sm text-muted">
-                  of delivered orders you were glad you didn&apos;t buy ({s.reflections.gladIDidnt} of {reflected}).
+                  Average across {s.urge.answeredAfter} delivered {s.urge.answeredAfter === 1 ? "order" : "orders"}.
+                  {s.urge.before !== null && <> Urge at checkout averaged {s.urge.before.toFixed(1)} / 5.</>}
                 </p>
               </>
             )}

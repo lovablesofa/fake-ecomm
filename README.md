@@ -1,4 +1,4 @@
-# Cartharsis
+# Window Spree
 
 A complete online store where nothing costs anything. Users browse, fill a bag, check out with a simulated
 payment, get a real order confirmation email, and follow tracking updates (also by email) until "delivery".

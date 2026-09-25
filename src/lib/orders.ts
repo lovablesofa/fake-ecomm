@@ -3,7 +3,7 @@ import { db, schema } from "./db";
 import type { Order } from "./db/schema";
 import { sendEmail } from "./email/send";
 import { orderConfirmationEmail, trackingEmail } from "./email/templates";
-import { currentStage, type Stage } from "./tracking";
+import { currentStage, DELIVERED } from "./tracking";
 
 export async function getUserOrders(userId: string) {
   await advanceOrders(userId);
@@ -47,8 +47,8 @@ export async function advanceOrders(userId?: string) {
     .from(schema.orders)
     .where(
       userId
-        ? and(lt(schema.orders.notifiedStage, 3), eq(schema.orders.userId, userId))
-        : lt(schema.orders.notifiedStage, 3),
+        ? and(lt(schema.orders.notifiedStage, DELIVERED), eq(schema.orders.userId, userId))
+        : lt(schema.orders.notifiedStage, DELIVERED),
     );
 
   let sent = 0;
@@ -63,13 +63,17 @@ export async function advanceOrders(userId?: string) {
       .returning({ id: schema.orders.id });
     if (!claimed.length) continue;
 
+    // "In transit" has no email of its own; it only sends the shipping email if that one was skipped.
+    const emailStage = stage === 2 ? (order.notifiedStage < 1 ? 1 : null) : stage;
+    if (emailStage === null) continue;
+
     const to = await recipientFor(order);
     if (!to) continue;
-    if (stage === 0) {
+    if (emailStage === 0) {
       const items = await db.select().from(schema.orderItems).where(eq(schema.orderItems.orderId, order.id));
       await sendEmail({ to, kind: "order_confirmed", ...orderConfirmationEmail(order, items) });
     } else {
-      await sendEmail({ to, kind: `order_stage_${stage}`, ...trackingEmail(order, stage as Exclude<Stage, 0>) });
+      await sendEmail({ to, kind: `order_stage_${emailStage}`, ...trackingEmail(order, emailStage) });
     }
     sent++;
   }

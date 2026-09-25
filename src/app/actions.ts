@@ -12,6 +12,7 @@ import {
   recentLoginTokenCount,
   safeNext,
 } from "@/lib/auth";
+import { userBudget } from "@/lib/budget";
 import { clearCart, getCart, readCartEntries, setCurrencyCookie, writeCartEntries } from "@/lib/cart";
 import { getProduct } from "@/lib/catalog";
 import { APP_URL, CART_LIMITS, COUNTRIES, isCurrency, SHIPPING } from "@/lib/config";
@@ -19,7 +20,7 @@ import { randomDigits } from "@/lib/crypto";
 import { db, schema } from "@/lib/db";
 import { sendEmail } from "@/lib/email/send";
 import { loginEmail } from "@/lib/email/templates";
-import { localPrice } from "@/lib/money";
+import { formatMoney, localPrice } from "@/lib/money";
 import { advanceOrders } from "@/lib/orders";
 import { makeTrackingNumber, scheduleFor } from "@/lib/tracking";
 
@@ -95,6 +96,8 @@ const checkoutSchema = z.object({
   postal: z.string().trim().min(2, "Enter a postcode").max(12),
   country: z.enum(COUNTRIES.map((c) => c.code) as [string, ...string[]]),
   shipping: z.enum(["standard", "express"]),
+  // Optional 1-5 answer to "How strong is the urge to buy this right now?"
+  urge: z.union([z.literal(""), z.coerce.number().int().min(1).max(5)]),
 });
 
 export type CheckoutState =
@@ -106,7 +109,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
   if (!user) redirect("/login?next=/checkout");
 
   const raw = Object.fromEntries(
-    ["name", "line1", "city", "postal", "country", "shipping"].map((k) => [k, String(formData.get(k) ?? "")]),
+    ["name", "line1", "city", "postal", "country", "shipping", "urge"].map((k) => [k, String(formData.get(k) ?? "")]),
   );
   const parsed = checkoutSchema.safeParse(raw);
   if (!parsed.success) {
@@ -122,6 +125,15 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
   await new Promise((r) => setTimeout(r, 1400));
 
   const shipping = localPrice(SHIPPING[input.shipping].priceUsd, cart.currency);
+  const budget = await userBudget(user.id, cart.currency);
+  if (cart.subtotal + shipping > budget.remaining) {
+    const money = (c: number) => formatMoney(c, cart.currency);
+    const resets = budget.resetsOn.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+    return {
+      error: `This order is ${money(cart.subtotal + shipping)} but you have ${money(budget.remaining)} left this month. Remove something from your bag, or wait until ${resets} when your budget resets.`,
+      values: raw,
+    };
+  }
   const placedAt = new Date();
   const orderId = crypto.randomUUID();
 
@@ -141,6 +153,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
       shipPostal: input.postal,
       shipCountry: input.country,
       trackingNumber: makeTrackingNumber(input.country, randomDigits(10)),
+      urgeBefore: input.urge === "" ? null : input.urge,
       placedAt,
       ...scheduleFor(input.shipping, placedAt),
     }),
@@ -154,6 +167,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
         category: l.product.category,
         unitPrice: l.unitPrice,
         quantity: l.quantity,
+        image: l.product.image ?? null,
       })),
     ),
   ]);
@@ -166,15 +180,15 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
 
 // ---------- Orders & account ----------
 
-export async function setReflection(formData: FormData) {
+export async function setUrgeAfter(formData: FormData) {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
   const orderId = String(formData.get("orderId") ?? "");
-  const value = formData.get("reflection");
-  if (value !== "still_want" && value !== "glad_i_didnt") return;
+  const score = Number(formData.get("score"));
+  if (!Number.isInteger(score) || score < 1 || score > 5) return;
   await db
     .update(schema.orders)
-    .set({ reflection: value })
+    .set({ urgeAfter: score })
     .where(and(eq(schema.orders.id, orderId), eq(schema.orders.userId, user.id)));
   revalidatePath(`/orders/${orderId}`);
 }

@@ -11,6 +11,7 @@ import { formatMoney } from "@/lib/money";
 type Props = {
   email: string;
   currency: Currency;
+  budget: { limit: number; remaining: number; resetsOn: string };
   subtotal: number;
   lines: { slug: string; name: string; quantity: number; lineTotal: number; art: { kind: ArtKind; hue: number }; image?: string }[];
   shippingOptions: { id: "standard" | "express"; label: string; eta: string; price: number }[];
@@ -28,11 +29,11 @@ function Field({ label, name, errors, ...rest }: { label: string; name: string; 
   );
 }
 
-function PayButton({ total }: { total: string }) {
+function PayButton({ total, disabled }: { total: string; disabled?: boolean }) {
   const { pending } = useFormStatus();
   return (
     <>
-      <button type="submit" disabled={pending} className="btn-primary w-full py-4 text-base">
+      <button type="submit" disabled={pending || disabled} className="btn-primary w-full py-4 text-base disabled:cursor-not-allowed disabled:opacity-50">
         {pending ? "Processing payment…" : `Pay ${total}`}
       </button>
       {pending && (
@@ -53,6 +54,7 @@ export function CheckoutForm(props: Props) {
   const [method, setMethod] = useState<"standard" | "express">("standard");
   const shipping = props.shippingOptions.find((o) => o.id === method)!.price;
   const total = props.subtotal + shipping;
+  const overBudget = total > props.budget.remaining;
   const fe = state?.fieldErrors;
   const v = state?.values;
   const money = (c: number) => formatMoney(c, props.currency);
@@ -96,6 +98,22 @@ export function CheckoutForm(props: Props) {
         </section>
 
         <section className="space-y-3">
+          <h2 className="text-lg font-medium">Before you pay</h2>
+          <fieldset>
+            <legend className="text-sm text-muted">How strong is the urge to buy this right now? Optional.</legend>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["1", "2", "3", "4", "5"].map((n) => (
+                <label key={n} className="cursor-pointer">
+                  <input type="radio" name="urge" value={n} defaultChecked={v?.urge === n} className="peer sr-only" />
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-line bg-white font-medium tabular-nums peer-checked:border-ink peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{n}</span>
+                </label>
+              ))}
+            </div>
+            <p className="mt-2 flex max-w-60 justify-between text-xs text-muted"><span>1 · Barely</span><span>5 · I need it</span></p>
+          </fieldset>
+        </section>
+
+        <section className="space-y-3">
           <h2 className="text-lg font-medium">Payment</h2>
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-stone-800 to-stone-950 p-6 text-white shadow-lg sm:max-w-sm">
             <div className="flex items-center justify-between text-sm">
@@ -104,10 +122,11 @@ export function CheckoutForm(props: Props) {
             </div>
             <p className="mt-10 font-mono text-lg tracking-widest">•••• •••• •••• 0000</p>
             <div className="mt-4 flex justify-between text-xs text-white/70">
-              <span>Unlimited imaginary balance</span><span>∞/∞</span>
+              <span>Left this month</span>
+              <span className="tabular-nums">{money(props.budget.remaining)} / {money(props.budget.limit)}</span>
             </div>
           </div>
-          <p className="text-sm text-muted">No card details needed. Nothing is charged and no bank is contacted.</p>
+          <p className="text-sm text-muted">No card details needed. Nothing is charged and no bank is contacted. Your pretend budget resets on {props.budget.resetsOn}.</p>
         </section>
       </div>
 
@@ -133,7 +152,12 @@ export function CheckoutForm(props: Props) {
         <div className="mt-4 flex justify-between border-t border-line pt-4 text-lg font-semibold">
           <span>Total</span><span>{money(total)}</span>
         </div>
-        <div className="mt-6"><PayButton total={money(total)} /></div>
+        <div className="mt-6"><PayButton total={money(total)} disabled={overBudget} /></div>
+        {overBudget && (
+          <p className="mt-3 text-sm text-red-600" role="alert">
+            Over budget: you have {money(props.budget.remaining)} left this month. Remove something from your bag, or wait until {props.budget.resetsOn}.
+          </p>
+        )}
         {state?.error && <p className="mt-3 text-sm text-red-600" role="alert">{state.error}</p>}
         <p className="mt-3 text-center text-xs text-muted">This is a simulated purchase. You will not be charged.</p>
       </aside>

@@ -1,14 +1,12 @@
 // Step 2: validates catalog/products.csv, generates missing photos, writes src/lib/catalog.generated.ts.
-// Usage: pnpm catalog:build [--skip-images] [--redo slug1,slug2]
+// Usage: pnpm catalog:build [--skip-images] [--redo slug1,slug2] [--limit N]
+// Photos: GPT Image 1 mini (medium) via OpenRouter, 1024x1024 JPEG, ~$0.0086 each.
 // Resumable: a photo is only generated when public/products/<slug>.{png,jpg,webp} doesn't exist yet.
 import fs from "node:fs";
 import type { Product } from "../../src/lib/catalog";
-import { GENERATED_TS, IMAGE_DIR, RowSchema, loadEnv, mapLimit, readRows, CSV_PATH } from "./shared";
+import { SetupError, generateImages } from "./openrouter-images";
+import { GENERATED_TS, IMAGE_DIR, RowSchema, loadEnv, readRows, CSV_PATH } from "./shared";
 
-const IMAGE_MODEL = "google/gemini-3.1-flash-lite-image"; // Nano Banana 2 Lite, via OpenRouter
-const OPENROUTER_IMAGES_URL = "https://openrouter.ai/api/v1/images";
-const CONCURRENCY = 6;
-const MAX_ATTEMPTS = 3;
 const EXTENSIONS: Record<string, string> = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" };
 
 // Shared framing so every photo looks like part of the same shop.
@@ -22,6 +20,8 @@ async function main() {
   const skipImages = process.argv.includes("--skip-images");
   const redoArg = process.argv.indexOf("--redo");
   const redo = new Set(redoArg > 0 ? process.argv[redoArg + 1].split(",") : []);
+  const limitArg = process.argv.indexOf("--limit");
+  const limit = limitArg > 0 ? Number(process.argv[limitArg + 1]) : Infinity;
 
   const rows = readRows();
   if (!rows.length) throw new Error(`No rows in ${CSV_PATH}. Run pnpm catalog:generate first.`);
@@ -52,29 +52,23 @@ async function main() {
   // The file extension follows whatever format the model returned.
   const findImage = (slug: string) =>
     Object.values(EXTENSIONS).map((ext) => `${IMAGE_DIR}/${slug}.${ext}`).find((f) => fs.existsSync(f));
-  const todo = valid.filter((r) => redo.has(r.slug) || !findImage(r.slug));
+  // --limit N: only generate the first N missing photos (handy for a quality check before a full run).
+  const todo = valid.filter((r) => redo.has(r.slug) || !findImage(r.slug)).slice(0, limit);
 
   if (!skipImages && todo.length) {
     const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) throw new Error("OPENROUTER_API_KEY is not set (add it to .env.local), or pass --skip-images.");
-    console.log(`Generating ${todo.length} photo(s) with ${IMAGE_MODEL}...`);
-    let done = 0;
-    let cost = 0;
-    const failed: string[] = [];
-    await mapLimit(todo, CONCURRENCY, async (r) => {
-      try {
-        const image = await generateImage(apiKey, photoPrompt(r.image_prompt));
-        cost += image.cost;
-        const old = findImage(r.slug);
-        if (old) fs.rmSync(old);
-        fs.writeFileSync(`${IMAGE_DIR}/${r.slug}.${image.ext}`, image.bytes);
-      } catch (err) {
-        if (err instanceof AuthError) throw err;
-        failed.push(`${r.slug}: ${err instanceof Error ? err.message : String(err)}`);
-      }
-      done++;
-      if (done % 10 === 0 || done === todo.length) console.log(`  ${done}/${todo.length} ($${cost.toFixed(2)} so far)`);
-    });
+    if (!apiKey) throw new Error("OPENROUTER_API_KEY is not set (add it to .env), or pass --skip-images.");
+    const slugs = new Set(valid.map((r) => r.slug));
+    const save = (slug: string, mimeType: string, bytes: Buffer) => {
+      const ext = EXTENSIONS[mimeType];
+      if (!slugs.has(slug) || !ext) return;
+      const old = findImage(slug);
+      if (old) fs.rmSync(old);
+      fs.writeFileSync(`${IMAGE_DIR}/${slug}.${ext}`, bytes);
+    };
+    const jobs = todo.map((r) => ({ key: r.slug, prompt: photoPrompt(r.image_prompt) }));
+    console.log(`Generating ${jobs.length} photo(s) with GPT Image 1 mini (~$${(jobs.length * 0.0086).toFixed(2)})...`);
+    const failed = await generateImages(apiKey, jobs, save);
     if (failed.length) {
       console.warn(`\n${failed.length} photo(s) failed; those products fall back to the illustration. Re-run to retry:\n  ${failed.join("\n  ")}`);
     }
@@ -106,37 +100,8 @@ async function main() {
   console.log(`\nWrote ${products.length} products to ${GENERATED_TS} (${withPhoto} with photos).`);
 }
 
-/** One OpenRouter image generation, retried on transient failures. */
-async function generateImage(apiKey: string, prompt: string) {
-  for (let attempt = 1; ; attempt++) {
-    try {
-      const res = await fetch(OPENROUTER_IMAGES_URL, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cartharsis catalog" },
-        body: JSON.stringify({ model: IMAGE_MODEL, prompt, n: 1, resolution: "1K", aspect_ratio: "1:1" }),
-      });
-      const body = await res.json().catch(() => null);
-      if (res.status === 401) throw new AuthError();
-      if (!res.ok) throw new Error(`HTTP ${res.status}: ${body?.error?.message ?? res.statusText}`);
-      const image = body?.data?.[0];
-      if (!image?.b64_json) throw new Error("no image returned");
-      const ext = EXTENSIONS[image.media_type ?? "image/png"];
-      if (!ext) throw new Error(`unexpected format ${image.media_type}`);
-      return { bytes: Buffer.from(image.b64_json, "base64"), ext, cost: Number(body.usage?.cost ?? 0) };
-    } catch (err) {
-      if (err instanceof AuthError || attempt >= MAX_ATTEMPTS) throw err;
-      await new Promise((r) => setTimeout(r, 2000 * attempt));
-    }
-  }
-}
-
-class AuthError extends Error {
-  constructor() {
-    super("Invalid OPENROUTER_API_KEY (check .env.local).");
-  }
-}
-
 main().catch((err) => {
-  console.error(err instanceof Error ? err.message : err);
+  if (err instanceof SetupError) console.error(err.message);
+  else console.error(err instanceof Error ? err.message : err);
   process.exit(1);
 });

@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 text-sm sm:grid-cols-3">
         <div>
           <p className="font-display text-xl">{BRAND.name}</p>
-          <p className="mt-2 max-w-xs text-muted">{BRAND.tagline} A simulated store for the urge to buy, without the bill.</p>
+          <p className="mt-2 max-w-xs text-muted">{BRAND.tagline} A simulated store for the urge to buy.</p>
         </div>
         <div className="space-y-2">
           <p className="font-medium">Shop</p>
