@@ -2,6 +2,7 @@ export const BRAND = {
   name: "Window Spree",
   tagline: "All the spree. None of the bill.",
   carrier: "Nowhere Express",
+  description: "The full online shopping experience, from bag to doorstep, with nothing charged and nothing shipped.",
 };
 
 export const APP_URL = (process.env.APP_URL ?? "http://localhost:3000").replace(/\/$/, "");

@@ -5,8 +5,32 @@ import { StatsTicker } from "@/components/stats-ticker";
 import { getCurrency } from "@/lib/cart";
 import { monthlyBudget } from "@/lib/budget";
 import { PRODUCTS } from "@/lib/catalog";
-import { CURRENCIES } from "@/lib/config";
+import { APP_URL, BRAND, CURRENCIES } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
+
+// Organization + WebSite only. No Product/Offer markup anywhere: nothing here is actually for sale.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${APP_URL}/#organization`,
+      name: BRAND.name,
+      url: APP_URL,
+      logo: `${APP_URL}/icon.png`,
+      slogan: BRAND.tagline,
+      description: BRAND.description,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${APP_URL}/#website`,
+      name: BRAND.name,
+      url: APP_URL,
+      description: BRAND.description,
+      publisher: { "@id": `${APP_URL}/#organization` },
+    },
+  ],
+};
 
 export default async function Home({ searchParams }: PageProps<"/">) {
   const currency = await getCurrency();
@@ -15,6 +39,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c") }} />
       {deleted && (
         <p className="bg-accent-soft px-4 py-3 text-center text-sm text-accent">Your account and all its data have been deleted.</p>
       )}

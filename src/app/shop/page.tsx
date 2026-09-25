@@ -4,7 +4,10 @@ import { ProductCard } from "@/components/product-card";
 import { getCurrency } from "@/lib/cart";
 import { CATEGORIES, PRODUCTS } from "@/lib/catalog";
 
-export const metadata: Metadata = { title: "Shop" };
+export const metadata: Metadata = {
+  title: "Shop",
+  description: "Browse fashion, beauty, accessories and home goods from made-up brands. Check out for free: nothing is charged, nothing ships.",
+};
 
 const PER_PAGE = 48;
 

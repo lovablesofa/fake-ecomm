@@ -8,10 +8,18 @@ import { ProductCard } from "@/components/product-card";
 import { Stars } from "@/components/stars";
 import { getCurrency } from "@/lib/cart";
 import { categoryName, getProduct, PRODUCTS } from "@/lib/catalog";
+import { BRAND } from "@/lib/config";
 
 export async function generateMetadata({ params }: PageProps<"/product/[slug]">): Promise<Metadata> {
   const product = getProduct((await params).slug);
-  return { title: product?.name ?? "Not found" };
+  if (!product) return { title: "Not found" };
+  const description = `${product.blurb} A made-up ${product.brand} product you can "buy" on ${BRAND.name} without being charged.`;
+  return {
+    title: product.name,
+    description,
+    alternates: { canonical: `/product/${product.slug}` },
+    openGraph: { siteName: BRAND.name, type: "website", title: product.name, description, ...(product.image && { images: [product.image] }) },
+  };
 }
 
 export default async function ProductPage({ params }: PageProps<"/product/[slug]">) {

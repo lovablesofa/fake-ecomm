@@ -5,7 +5,11 @@ import { getCurrency } from "@/lib/cart";
 import { BRAND } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
 
-export const metadata: Metadata = { title: "How it works" };
+export const metadata: Metadata = {
+  title: "How it works",
+  description: "Shop, check out with Pretend Pay, track the package and get the delivery email. Nothing is charged and nothing ships, so the urge passes and your money stays put.",
+  alternates: { canonical: "/how-it-works" },
+};
 
 // 24px line icons, drawn in the current text colour.
 const icon = (path: React.ReactNode) => (
