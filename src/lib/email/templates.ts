@@ -35,7 +35,7 @@ function itemsTable(order: Order, items: OrderItem[]) {
   const rows = items
     .map(
       (i) => `<tr>
-<td style="padding:8px 0;border-bottom:1px solid #f0efee"><div style="font-weight:600">${esc(i.name)}</div><div style="color:${MUTED};font-size:13px">${esc(i.brand)} · Qty ${i.quantity}</div></td>
+<td style="padding:8px 0;border-bottom:1px solid #f0efee"><div style="font-weight:600">${esc(i.name)}</div><div style="color:${MUTED};font-size:13px">${esc(i.brand)}${i.option ? ` · ${esc(i.option)}` : ""} · Qty ${i.quantity}</div></td>
 <td align="right" style="padding:8px 0;border-bottom:1px solid #f0efee;white-space:nowrap">${formatMoney(i.unitPrice * i.quantity, c)}</td></tr>`,
     )
     .join("");

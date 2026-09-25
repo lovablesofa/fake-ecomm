@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
           <div className="mt-3"><Stars rating={product.rating} reviews={product.reviews} /></div>
           <Price usd={product.priceUsd} compareAtUsd={product.compareAtUsd} currency={currency} className="mt-6 text-2xl" />
           <p className="mt-6 text-lg text-muted">{product.blurb}</p>
-          <div className="mt-8"><AddToCart slug={product.slug} /></div>
+          <div className="mt-8"><AddToCart slug={product.slug} options={product.options} /></div>
           <ul className="mt-8 space-y-2 border-t border-line pt-6 text-sm">
             {product.details.map((d) => (
               <li key={d} className="flex gap-2"><span className="text-accent">✓</span>{d}</li>

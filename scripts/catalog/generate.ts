@@ -163,6 +163,7 @@ function toRow(p: z.infer<typeof Batch>["products"][number], category: string, t
     art_kind: p.art_kind,
     hue: String(((Math.round(p.hue) % 360) + 360) % 360),
     image_prompt: p.image_prompt.trim(),
+    options: "",
   };
 }
 

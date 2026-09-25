@@ -17,12 +17,24 @@ export const CATEGORY_SLUGS = CATEGORIES.map((c) => c.slug) as [string, ...strin
 // Column order of products.csv. Prices are in dollars so the sheet is easy to edit by hand.
 export const COLUMNS = [
   "slug", "name", "brand", "category", "price_usd", "compare_at_usd", "rating", "reviews",
-  "blurb", "details", "badge", "art_kind", "hue", "image_prompt",
+  "blurb", "details", "badge", "art_kind", "hue", "image_prompt", "options",
 ] as const;
 export type Row = Record<(typeof COLUMNS)[number], string>;
 
 // `details` holds several bullet points in one cell.
 export const DETAILS_SEP = " | ";
+
+// `options` is empty or "Label: value | value | value", e.g. "Size: S | M | L".
+function parseOptions(v: string, ctx: z.RefinementCtx) {
+  if (!v.trim()) return undefined;
+  const match = v.match(/^([^:]+):(.+)$/);
+  const values = match?.[2].split(DETAILS_SEP.trim()).map((o) => o.trim()).filter(Boolean) ?? [];
+  if (!match || values.length < 2 || new Set(values).size !== values.length) {
+    ctx.addIssue({ code: "custom", message: 'must be empty or "Label: a | b | ..." with at least 2 distinct values' });
+    return undefined;
+  }
+  return { label: match[1].trim(), values };
+}
 
 /** Validates one CSV row and converts it to the catalog's Product shape. */
 export const RowSchema = z
@@ -46,6 +58,7 @@ export const RowSchema = z
     art_kind: z.enum(ART_KINDS),
     hue: z.coerce.number().int().min(0).max(359),
     image_prompt: z.string().min(1),
+    options: z.string().transform(parseOptions),
   })
   .refine((r) => r.compare_at_usd === undefined || r.compare_at_usd > r.price_usd, {
     message: "compare_at_usd must be higher than price_usd",
@@ -78,7 +91,7 @@ export function parseCsv(text: string): Row[] {
 
   const [header, ...body] = records;
   if (!header) return [];
-  const missing = COLUMNS.filter((c) => !header.includes(c));
+  const missing = COLUMNS.filter((c) => c !== "options" && !header.includes(c));
   if (missing.length) throw new Error(`${CSV_PATH} is missing columns: ${missing.join(", ")}`);
   return body.map((cells) => Object.fromEntries(COLUMNS.map((c) => [c, cells[header.indexOf(c)] ?? ""])) as Row);
 }

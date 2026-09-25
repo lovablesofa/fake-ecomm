@@ -26,7 +26,7 @@ export default async function CartPage() {
         <h1 className="font-display text-5xl">Your bag</h1>
         <ul className="mt-8 divide-y divide-line border-y border-line">
           {cart.lines.map((line) => (
-            <li key={line.product.slug} className="flex gap-4 py-5">
+            <li key={`${line.product.slug}:${line.option ?? ""}`} className="flex gap-4 py-5">
               <Link href={`/product/${line.product.slug}`} className="shrink-0">
                 <ProductArt {...line.product.art} image={line.product.image} alt={line.product.name} sizes="112px" className="size-24 rounded-xl sm:size-28" />
               </Link>
@@ -35,18 +35,21 @@ export default async function CartPage() {
                   <div>
                     <p className="text-xs uppercase tracking-wider text-muted">{line.product.brand}</p>
                     <Link href={`/product/${line.product.slug}`} className="font-medium hover:underline">{line.product.name}</Link>
+                    {line.option && <p className="text-sm text-muted">{line.product.options?.label}: {line.option}</p>}
                   </div>
                   <p className="font-medium">{formatMoney(line.lineTotal, cart.currency)}</p>
                 </div>
                 <div className="mt-auto flex items-center gap-3 pt-3 text-sm">
                   <form action={updateCartQuantity} className="flex items-center rounded-full border border-line">
                     <input type="hidden" name="slug" value={line.product.slug} />
+                    <input type="hidden" name="option" value={line.option ?? ""} />
                     <button name="quantity" value={line.quantity - 1} className="px-3 py-1" aria-label="Decrease quantity">−</button>
                     <span className="w-6 text-center">{line.quantity}</span>
                     <button name="quantity" value={line.quantity + 1} className="px-3 py-1 disabled:opacity-30" disabled={line.quantity >= 10} aria-label="Increase quantity">+</button>
                   </form>
                   <form action={updateCartQuantity}>
                     <input type="hidden" name="slug" value={line.product.slug} />
+                    <input type="hidden" name="option" value={line.option ?? ""} />
                     <button name="quantity" value="0" className="text-muted underline underline-offset-2 hover:text-ink">Remove</button>
                   </form>
                 </div>

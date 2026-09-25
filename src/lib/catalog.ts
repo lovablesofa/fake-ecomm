@@ -28,6 +28,8 @@ export type Product = {
   // Real photo under /public, e.g. "/products/halcyon-anc-headphones.jpg". Falls back to `art` when absent.
   image?: string;
   badge?: string;
+  // A choice the shopper makes before adding to the bag, e.g. { label: "Size", values: ["S", "M", "L"] }.
+  options?: { label: string; values: string[] };
 };
 
 // All brands and products are fictional. The catalog is built from catalog/products.csv (see scripts/catalog).

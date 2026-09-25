@@ -81,6 +81,8 @@ export const orderItems = sqliteTable("order_items", {
   name: text("name").notNull(),
   brand: text("brand").notNull(),
   category: text("category").notNull(),
+  // The chosen option at purchase time, already labelled, e.g. "Size: M".
+  option: text("option"),
   unitPrice: integer("unit_price").notNull(),
   quantity: integer("quantity").notNull(),
   // Photo path at purchase time, so the order keeps its picture if the product leaves the catalog.

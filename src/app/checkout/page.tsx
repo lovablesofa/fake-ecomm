@@ -31,7 +31,7 @@ export default async function CheckoutPage() {
         currency={cart.currency}
         budget={{ limit: budget.limit, remaining: budget.remaining, resetsOn: budget.resetsOn.toLocaleDateString("en-GB", { day: "numeric", month: "long" }) }}
         subtotal={cart.subtotal}
-        lines={cart.lines.map((l) => ({ slug: l.product.slug, name: l.product.name, quantity: l.quantity, lineTotal: l.lineTotal, art: l.product.art, image: l.product.image }))}
+        lines={cart.lines.map((l) => ({ key: `${l.product.slug}:${l.option ?? ""}`, name: l.product.name, option: l.option && `${l.product.options?.label}: ${l.option}`, quantity: l.quantity, lineTotal: l.lineTotal, art: l.product.art, image: l.product.image }))}
         shippingOptions={shippingOptions}
         countries={COUNTRIES.map((c) => ({ code: c.code, name: c.name }))}
         defaultCountry={defaultCountry}

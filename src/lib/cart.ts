@@ -6,9 +6,20 @@ import { localPrice } from "./money";
 const CART_COOKIE = "cart";
 const CURRENCY_COOKIE = "currency";
 
-type CartEntry = { s: string; q: number };
+// `o` is the chosen option value (e.g. a size) for products that have options.
+export type CartEntry = { s: string; q: number; o?: string };
 
-export type CartLine = { product: Product; quantity: number; unitPrice: number; lineTotal: number };
+export type CartLine = { product: Product; option?: string; quantity: number; unitPrice: number; lineTotal: number };
+
+/** The option value if it's valid for this product, "" for products without options, otherwise null. */
+export function validOption(product: Product, option: unknown) {
+  if (!product.options) return "";
+  return typeof option === "string" && product.options.values.includes(option) ? option : null;
+}
+
+export function sameLine(e: CartEntry, slug: string, option?: string) {
+  return e.s === slug && (e.o ?? "") === (option ?? "");
+}
 
 function parse(raw: string | undefined): CartEntry[] {
   if (!raw) return [];
@@ -16,9 +27,13 @@ function parse(raw: string | undefined): CartEntry[] {
     const data = JSON.parse(raw);
     if (!Array.isArray(data)) return [];
     return data
-      .filter((e): e is CartEntry => typeof e?.s === "string" && Number.isInteger(e?.q))
-      .filter((e) => getProduct(e.s) && e.q > 0)
-      .map((e) => ({ s: e.s, q: Math.min(e.q, CART_LIMITS.maxQty) }))
+      .filter((e): e is CartEntry => typeof e?.s === "string" && Number.isInteger(e?.q) && e.q > 0)
+      .flatMap((e) => {
+        const product = getProduct(e.s);
+        const option = product && validOption(product, e.o);
+        if (option === null || option === undefined) return [];
+        return [{ s: e.s, q: Math.min(e.q, CART_LIMITS.maxQty), ...(option && { o: option }) }];
+      })
       .slice(0, CART_LIMITS.maxLines);
   } catch {
     return [];
@@ -56,7 +71,7 @@ export async function getCart() {
   const lines: CartLine[] = entries.map((e) => {
     const product = getProduct(e.s)!;
     const unitPrice = localPrice(product.priceUsd, currency);
-    return { product, quantity: e.q, unitPrice, lineTotal: unitPrice * e.q };
+    return { product, option: e.o, quantity: e.q, unitPrice, lineTotal: unitPrice * e.q };
   });
   const subtotal = lines.reduce((sum, l) => sum + l.lineTotal, 0);
   const count = lines.reduce((sum, l) => sum + l.quantity, 0);

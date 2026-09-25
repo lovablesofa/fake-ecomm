@@ -88,6 +88,7 @@ async function main() {
     art: { kind: r.art_kind, hue: r.hue },
     ...(findImage(r.slug) && { image: findImage(r.slug)!.replace(/^public/, "") }),
     ...(r.badge && { badge: r.badge }),
+    ...(r.options && { options: r.options }),
   }));
 
   fs.writeFileSync(

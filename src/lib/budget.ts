@@ -3,7 +3,7 @@ import { db, schema } from "./db";
 import { MONTHLY_BUDGET_USD, type Currency } from "./config";
 import { convert } from "./money";
 
-// $1,200 becomes £950 / €1,100: converted, then rounded to a whole 10 so it reads like a set allowance.
+// $500 becomes £400 / €460: converted, then rounded to a whole 10 so it reads like a set allowance.
 export function monthlyBudget(currency: Currency) {
   return Math.round(convert(MONTHLY_BUDGET_USD, "USD", currency) / 1000) * 1000;
 }

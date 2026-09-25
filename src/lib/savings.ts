@@ -1,13 +1,21 @@
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db, schema } from "./db";
 import type { Currency } from "./config";
 import { convert } from "./money";
 
-export async function communitySaved(currency: Currency) {
-  const rows = await db.select({ total: schema.orders.total, currency: schema.orders.currency }).from(schema.orders);
+/** Site-wide totals for the homepage ticker. Money is in `currency` cents. */
+export async function communityStats(currency: Currency) {
+  const [orders, [items]] = await Promise.all([
+    db.select({ userId: schema.orders.userId, total: schema.orders.total, currency: schema.orders.currency, placedAt: schema.orders.placedAt }).from(schema.orders),
+    db.select({ count: sql<number>`coalesce(sum(${schema.orderItems.quantity}), 0)` }).from(schema.orderItems),
+  ]);
+  const monthAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+  const sum = (rows: typeof orders) => rows.reduce((total, o) => total + convert(o.total, o.currency, currency), 0);
   return {
-    total: rows.reduce((sum, r) => sum + convert(r.total, r.currency, currency), 0),
-    orders: rows.length,
+    shoppers: new Set(orders.map((o) => o.userId)).size,
+    items: items.count,
+    total: sum(orders),
+    last30Days: sum(orders.filter((o) => o.placedAt.getTime() >= monthAgo)),
   };
 }
 

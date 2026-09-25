@@ -111,7 +111,7 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
                   <div className="flex-1">
                     <p className="text-xs uppercase tracking-wider text-muted">{i.brand}</p>
                     <p className="font-medium">{i.name}</p>
-                    <p className="text-sm text-muted">Qty {i.quantity}</p>
+                    <p className="text-sm text-muted">{i.option && <>{i.option} · </>}Qty {i.quantity}</p>
                   </div>
                   <p>{money(i.unitPrice * i.quantity)}</p>
                 </li>

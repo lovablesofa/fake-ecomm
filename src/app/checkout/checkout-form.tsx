@@ -13,7 +13,7 @@ type Props = {
   currency: Currency;
   budget: { limit: number; remaining: number; resetsOn: string };
   subtotal: number;
-  lines: { slug: string; name: string; quantity: number; lineTotal: number; art: { kind: ArtKind; hue: number }; image?: string }[];
+  lines: { key: string; name: string; option?: string; quantity: number; lineTotal: number; art: { kind: ArtKind; hue: number }; image?: string }[];
   shippingOptions: { id: "standard" | "express"; label: string; eta: string; price: number }[];
   countries: { code: string; name: string }[];
   defaultCountry: string;
@@ -134,12 +134,12 @@ export function CheckoutForm(props: Props) {
         <h2 className="font-medium">Order summary</h2>
         <ul className="mt-4 space-y-3">
           {props.lines.map((l) => (
-            <li key={l.slug} className="flex items-center gap-3 text-sm">
+            <li key={l.key} className="flex items-center gap-3 text-sm">
               <div className="relative">
                 <ProductArt {...l.art} image={l.image} alt={l.name} sizes="56px" className="size-14 rounded-lg" />
                 <span className="absolute -right-1.5 -top-1.5 rounded-full bg-ink px-1.5 text-xs text-white">{l.quantity}</span>
               </div>
-              <span className="flex-1">{l.name}</span>
+              <span className="flex-1">{l.name}{l.option && <span className="block text-muted">{l.option}</span>}</span>
               <span>{money(l.lineTotal)}</span>
             </li>
           ))}

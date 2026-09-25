@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { ProductArt } from "@/components/product-art";
 import { ProductCard } from "@/components/product-card";
+import { StatsTicker } from "@/components/stats-ticker";
 import { getCurrency } from "@/lib/cart";
 import { monthlyBudget } from "@/lib/budget";
 import { PRODUCTS } from "@/lib/catalog";
+import { CURRENCIES } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
-import { communitySaved } from "@/lib/savings";
 
 export default async function Home({ searchParams }: PageProps<"/">) {
   const currency = await getCurrency();
-  const [community, { deleted }] = await Promise.all([communitySaved(currency), searchParams]);
+  const { deleted } = await searchParams;
   const featured = PRODUCTS.filter((p) => p.badge).slice(0, 4);
 
   return (
@@ -26,19 +27,14 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             <em>None of the bill.</em>
           </h1>
           <p className="mt-6 max-w-md text-lg text-muted">
-            Fill your bag, check out, get the confirmation email, and watch the package move across the map. You get the
-            whole rush of buying, and the money stays in your account.
+            Fill your bag, check out, and watch your package cross the map. You get the whole rush of buying. Your money
+            stays exactly where it is.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/shop" className="btn-primary">Start shopping</Link>
             <Link href="/how-it-works" className="btn-secondary">How it works</Link>
           </div>
-          {community.orders > 0 && (
-            <p className="mt-8 text-sm text-muted">
-              Shoppers here have kept <strong className="text-ink">{formatMoney(community.total, currency)}</strong> across{" "}
-              {community.orders.toLocaleString("en-US")} {community.orders === 1 ? "order" : "orders"} they didn&apos;t really place.
-            </p>
-          )}
+          <StatsTicker currency={currency} locale={CURRENCIES[currency].locale} className="mt-8 text-sm font-medium text-ink" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           {PRODUCTS.slice(0, 4).map((p, i) => (

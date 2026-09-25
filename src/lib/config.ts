@@ -47,6 +47,6 @@ export const SHIPPING = {
 export type ShippingMethod = keyof typeof SHIPPING;
 
 // Pretend money each account can "spend" per calendar month, in USD cents.
-export const MONTHLY_BUDGET_USD = 120_000;
+export const MONTHLY_BUDGET_USD = 50_000;
 
 export const CART_LIMITS = { maxLines: 30, maxQty: 10 };

@@ -153,7 +153,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 145
     },
-    "image": "/products/reversible-ripstop-puffer.jpg"
+    "image": "/products/reversible-ripstop-puffer.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "seabulk-40l-duffel",
@@ -196,7 +206,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "lamp",
       "hue": 320
     },
-    "image": "/products/winterton-parka.jpg"
+    "image": "/products/winterton-parka.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "merino-ridge-base-layer",
@@ -217,7 +237,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "lamp",
       "hue": 10
     },
-    "image": "/products/merino-ridge-base-layer.jpg"
+    "image": "/products/merino-ridge-base-layer.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "cashmere-crewneck-sweater",
@@ -240,7 +270,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 210
     },
     "image": "/products/cashmere-crewneck-sweater.jpg",
-    "badge": "Bestseller"
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "selvedge-slim-denim",
@@ -261,7 +301,18 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 220
     },
-    "image": "/products/selvedge-slim-denim.jpg"
+    "image": "/products/selvedge-slim-denim.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ]
+    }
   },
   {
     "slug": "merino-watch-cap",
@@ -304,7 +355,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 150
     },
-    "image": "/products/linen-oxford-shirt.jpg"
+    "image": "/products/linen-oxford-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "peak-chelsea-boot",
@@ -326,7 +387,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 20
     },
     "image": "/products/peak-chelsea-boot.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "foulard-silk-scarf",
@@ -369,7 +444,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 45
     },
-    "image": "/products/belgrave-trench-coat.jpg"
+    "image": "/products/belgrave-trench-coat.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "garrison-chino",
@@ -390,7 +475,18 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 200
     },
-    "image": "/products/garrison-chino.jpg"
+    "image": "/products/garrison-chino.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ]
+    }
   },
   {
     "slug": "holloway-leather-belt",
@@ -411,7 +507,18 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 15
     },
-    "image": "/products/holloway-leather-belt.jpg"
+    "image": "/products/holloway-leather-belt.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40"
+      ]
+    }
   },
   {
     "slug": "hartley-wool-overcoat",
@@ -434,7 +541,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 0
     },
     "image": "/products/hartley-wool-overcoat.jpg",
-    "badge": "New"
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "portside-espadrille",
@@ -455,7 +572,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 110
     },
-    "image": "/products/portside-espadrille.jpg"
+    "image": "/products/portside-espadrille.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "wexford-cashmere-scarf",
@@ -497,7 +628,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 205
     },
-    "image": "/products/marlowe-denim-jacket.jpg"
+    "image": "/products/marlowe-denim-jacket.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "strand-silk-tie",
@@ -539,7 +680,15 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 300
     },
-    "image": "/products/fair-isle-sock-trio.jpg"
+    "image": "/products/fair-isle-sock-trio.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S (EU 36–39)",
+        "M (EU 40–43)",
+        "L (EU 44–47)"
+      ]
+    }
   },
   {
     "slug": "bomber-flight-jacket",
@@ -562,7 +711,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 35
     },
     "image": "/products/bomber-flight-jacket.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "sundrop-linen-dress",
@@ -584,7 +743,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 55
     },
     "image": "/products/sundrop-linen-dress.jpg",
-    "badge": "New"
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "dunmore-leather-gloves",
@@ -605,7 +774,16 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "camera",
       "hue": 230
     },
-    "image": "/products/dunmore-leather-gloves.jpg"
+    "image": "/products/dunmore-leather-gloves.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "pebble-table-lamp",
@@ -683,8 +861,8 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A wood-smoke and amber candle with a crackling wick and zero shame about it.",
     "details": [
       "Fragrance: smoked amber, cedar, dried tobacco",
-      "Wax: soy blend, 11 oz",
-      "Burn time: 55 hours",
+      "Wax: soy blend, 5 oz or 11 oz",
+      "Burn time: 25 or 55 hours",
       "Wick: crackling wooden wick"
     ],
     "art": {
@@ -692,7 +870,14 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 14
     },
     "image": "/products/emberwick-soy-candle.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "Size",
+      "values": [
+        "5 oz",
+        "11 oz"
+      ]
+    }
   },
   {
     "slug": "ripple-glass-carafe",
@@ -726,7 +911,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "Vertical ridges in this vase make even a single stem look thoroughly considered.",
     "details": [
       "Material: hand-blown glass",
-      "Height: 10 in",
+      "Height: 6, 10 or 14 in",
       "Opening: 2 in wide",
       "Care: hand wash"
     ],
@@ -734,7 +919,15 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "bottle",
       "hue": 220
     },
-    "image": "/products/ridged-glass-vase.jpg"
+    "image": "/products/ridged-glass-vase.jpg",
+    "options": {
+      "label": "Height",
+      "values": [
+        "6 in",
+        "10 in",
+        "14 in"
+      ]
+    }
   },
   {
     "slug": "marlow-ceramic-mug",
@@ -879,14 +1072,22 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "Material: solid white oak",
       "Top: 12 in round",
-      "Height: 18 in",
+      "Height: 18, 24 or 30 in",
       "Finish: matte oil wax"
     ],
     "art": {
       "kind": "chair",
       "hue": 35
     },
-    "image": "/products/staple-oak-stool.jpg"
+    "image": "/products/staple-oak-stool.jpg",
+    "options": {
+      "label": "Height",
+      "values": [
+        "18 in (low)",
+        "24 in (counter)",
+        "30 in (bar)"
+      ]
+    }
   },
   {
     "slug": "kitchen-herb-trio",
@@ -941,7 +1142,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "reviews": 1800,
     "blurb": "A double-wall tumbler that keeps coffee hot and your commute fiction of calm intact.",
     "details": [
-      "Capacity: 16 oz",
+      "Capacity: 12, 16 or 20 oz",
       "Material: stainless steel with ceramic coating",
       "Lid: leak-resistant sliding closure",
       "Insulation: 6 hours hot / 12 hours cold"
@@ -950,7 +1151,15 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "mug",
       "hue": 250
     },
-    "image": "/products/insulated-travel-tumbler.jpg"
+    "image": "/products/insulated-travel-tumbler.jpg",
+    "options": {
+      "label": "Capacity",
+      "values": [
+        "12 oz",
+        "16 oz",
+        "20 oz"
+      ]
+    }
   },
   {
     "slug": "winslow-woven-storage-tote",
@@ -964,14 +1173,22 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "Material: natural seagrass",
       "Handles: vegetable-tanned leather",
-      "Dimensions: 16 x 12 x 10 in",
+      "Dimensions: 12 x 9 x 8 / 16 x 12 x 10 / 20 x 15 x 12 in",
       "Lining: removable cotton duck"
     ],
     "art": {
       "kind": "tote",
       "hue": 85
     },
-    "image": "/products/winslow-woven-storage-tote.jpg"
+    "image": "/products/winslow-woven-storage-tote.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "Small",
+        "Medium",
+        "Large"
+      ]
+    }
   },
   {
     "slug": "apiary-glass-soap-dispenser",
@@ -1478,7 +1695,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A breathable, matelassé-style quilt that reads as high design and sleeps cool.",
     "details": [
       "100% washed cotton shell; poly fill",
-      "Queen: 92 x 96 in; 2 shams 20 x 26 in",
+      "Full/Queen 92 x 96 in, King 108 x 96 in; 2 shams",
       "Pre-washed for a soft, relaxed hand",
       "Machine wash cold; tumble dry low"
     ],
@@ -1487,7 +1704,14 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 180
     },
     "image": "/products/larkspur-cotton-quilt-set.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "Bed size",
+      "values": [
+        "Full/Queen",
+        "King"
+      ]
+    }
   },
   {
     "slug": "vervain-diffuser-reed-set",
@@ -1521,7 +1745,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A sturdy acacia board with a juice groove for cheese, bread, or ambitious charcuterie.",
     "details": [
       "Solid acacia wood; natural oil finish",
-      "16 x 10 x 0.8 in; 3.4 lb",
+      "0.8 in thick; 3.4 lb at 16 x 10 in",
       "Hand wash; oil periodically",
       "Includes small metal handle"
     ],
@@ -1530,7 +1754,15 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 30
     },
     "image": "/products/holloway-serving-board.jpg",
-    "badge": "Bestseller"
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "12 x 8 in",
+        "16 x 10 in",
+        "20 x 12 in"
+      ]
+    }
   },
   {
     "slug": "finch-crystal-wine-glasses-set-of-4",
@@ -1586,7 +1818,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A waxed cotton cloth that sheds spills and crumbs, easing post-dinner cleanup.",
     "details": [
       "14-oz waxed cotton canvas",
-      "60 x 120 in; fits 6-8 seat tables",
+      "60 in wide; 84, 102 or 120 in long for 4 to 8 seats",
       "Water-resistant; wipe clean with damp cloth",
       "Finished hem; brass grommets at corners"
     ],
@@ -1595,7 +1827,15 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 40
     },
     "image": "/products/vellum-waxed-canvas-tablecloth.jpg",
-    "badge": "New"
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "60 x 84 in",
+        "60 x 102 in",
+        "60 x 120 in"
+      ]
+    }
   },
   {
     "slug": "ridged-stoneware-butter-dish",
@@ -1718,7 +1958,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "An oversized, stonewashed linen blanket that softens more with every wash.",
     "details": [
       "100% French flax linen; stonewashed",
-      "50 x 70 in; 2.1 lb",
+      "50 x 70 in (2.1 lb) or 60 x 80 in (2.9 lb)",
       "Relaxed slub texture; frayed trim",
       "Machine wash cold; air dry recommended"
     ],
@@ -1726,7 +1966,14 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "bottle",
       "hue": 260
     },
-    "image": "/products/wellfleet-linen-throw.jpg"
+    "image": "/products/wellfleet-linen-throw.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "50 x 70 in",
+        "60 x 80 in"
+      ]
+    }
   },
   {
     "slug": "tamarisk-glass-water-pitcher",
@@ -1855,7 +2102,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 20
     },
-    "image": "/products/painted-canyon-boxy-tee.jpg"
+    "image": "/products/painted-canyon-boxy-tee.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "alpine-fleece-half-zip",
@@ -1878,7 +2135,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 210
     },
     "image": "/products/alpine-fleece-half-zip.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "meridian-wool-trousers",
@@ -1900,7 +2167,18 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 250
     },
-    "image": "/products/meridian-wool-trousers.jpg"
+    "image": "/products/meridian-wool-trousers.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ]
+    }
   },
   {
     "slug": "cinder-block-knit-polo",
@@ -1921,7 +2199,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 0
     },
-    "image": "/products/cinder-block-knit-polo.jpg"
+    "image": "/products/cinder-block-knit-polo.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "nocturne-silk-blouse",
@@ -1942,7 +2230,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 280
     },
-    "image": "/products/nocturne-silk-blouse.jpg"
+    "image": "/products/nocturne-silk-blouse.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "fjord-linen-camp-shirt",
@@ -1963,7 +2261,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 150
     },
-    "image": "/products/fjord-linen-camp-shirt.jpg"
+    "image": "/products/fjord-linen-camp-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "arcadia-pleated-midi-skirt",
@@ -1985,7 +2293,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 35
     },
     "image": "/products/arcadia-pleated-midi-skirt.jpg",
-    "badge": "New"
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "moss-quilted-field-jacket",
@@ -2006,7 +2324,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 90
     },
-    "image": "/products/moss-quilted-field-jacket.jpg"
+    "image": "/products/moss-quilted-field-jacket.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "granite-lace-up-boot",
@@ -2028,7 +2356,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "sneaker",
       "hue": 30
     },
-    "image": "/products/granite-lace-up-boot.jpg"
+    "image": "/products/granite-lace-up-boot.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "court-classic-leather-sneaker",
@@ -2051,7 +2393,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 0
     },
     "image": "/products/court-classic-leather-sneaker.jpg",
-    "badge": "Bestseller"
+    "badge": "Bestseller",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "marsh-suede-loafer",
@@ -2072,7 +2428,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "sneaker",
       "hue": 220
     },
-    "image": "/products/marsh-suede-loafer.jpg"
+    "image": "/products/marsh-suede-loafer.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "osprey-hiking-boot",
@@ -2093,7 +2463,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "sneaker",
       "hue": 140
     },
-    "image": "/products/osprey-hiking-boot.jpg"
+    "image": "/products/osprey-hiking-boot.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "harbor-wool-peacoat",
@@ -2115,7 +2499,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 220
     },
-    "image": "/products/harbor-wool-peacoat.jpg"
+    "image": "/products/harbor-wool-peacoat.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "rainier-softshell-hoodie",
@@ -2136,7 +2530,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 200
     },
-    "image": "/products/rainier-softshell-hoodie.jpg"
+    "image": "/products/rainier-softshell-hoodie.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "high-desert-utility-shirt",
@@ -2157,7 +2561,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 30
     },
-    "image": "/products/high-desert-utility-shirt.jpg"
+    "image": "/products/high-desert-utility-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "slub-cotton-scoop-tee",
@@ -2178,7 +2592,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 330
     },
-    "image": "/products/slub-cotton-scoop-tee.jpg"
+    "image": "/products/slub-cotton-scoop-tee.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "ember-wool-wrap-dress",
@@ -2199,7 +2623,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 260
     },
-    "image": "/products/ember-wool-wrap-dress.jpg"
+    "image": "/products/ember-wool-wrap-dress.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "aster-running-trainer",
@@ -2220,7 +2654,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "sneaker",
       "hue": 260
     },
-    "image": "/products/aster-running-trainer.jpg"
+    "image": "/products/aster-running-trainer.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "portico-linen-shirt",
@@ -2241,7 +2689,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 45
     },
-    "image": "/products/portico-linen-shirt.jpg"
+    "image": "/products/portico-linen-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "tannery-leather-jacket",
@@ -2262,7 +2720,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "jacket",
       "hue": 20
     },
-    "image": "/products/tannery-leather-jacket.jpg"
+    "image": "/products/tannery-leather-jacket.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "cinder-cone-ceramic-pitcher",
@@ -2406,16 +2874,23 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A slow-burning soy candle with notes of smoked cedar, clove, and amber.",
     "details": [
       "100% soy wax, cotton wick",
-      "Approx. 50-hour burn time",
+      "Approx. 50 or 90-hour burn time",
       "Hand-poured in a glass jar",
-      "9 oz net weight"
+      "9 oz or 16 oz net weight"
     ],
     "art": {
       "kind": "plant",
       "hue": 20
     },
     "image": "/products/emberwick-soy-candle-2.jpg",
-    "badge": "Bestseller"
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "9 oz",
+        "16 oz"
+      ]
+    }
   },
   {
     "slug": "ripple-glass-carafe-2",
@@ -2458,7 +2933,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 190
     },
-    "image": "/products/halcyon-anorak.jpg"
+    "image": "/products/halcyon-anorak.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "marlow-cardigan",
@@ -2479,7 +2964,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 30
     },
-    "image": "/products/marlow-cardigan.jpg"
+    "image": "/products/marlow-cardigan.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "broadmoor-wide-leg-trousers",
@@ -2500,7 +2995,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 210
     },
-    "image": "/products/broadmoor-wide-leg-trousers.jpg"
+    "image": "/products/broadmoor-wide-leg-trousers.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "sandgate-chino-shorts",
@@ -2521,7 +3026,18 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 45
     },
-    "image": "/products/sandgate-chino-shorts.jpg"
+    "image": "/products/sandgate-chino-shorts.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ]
+    }
   },
   {
     "slug": "ellis-chukka-boot",
@@ -2543,7 +3059,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 20
     },
-    "image": "/products/ellis-chukka-boot.jpg"
+    "image": "/products/ellis-chukka-boot.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "vale-canvas-high-top",
@@ -2564,7 +3094,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 180
     },
-    "image": "/products/vale-canvas-high-top.jpg"
+    "image": "/products/vale-canvas-high-top.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "pemberly-poplin-shirt",
@@ -2585,7 +3129,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 220
     },
-    "image": "/products/pemberly-poplin-shirt.jpg"
+    "image": "/products/pemberly-poplin-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "sable-turtleneck",
@@ -2607,7 +3161,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 260
     },
     "image": "/products/sable-turtleneck.jpg",
-    "badge": "Bestseller"
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "caldwell-quilted-vest",
@@ -2629,7 +3193,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 120
     },
-    "image": "/products/caldwell-quilted-vest.jpg"
+    "image": "/products/caldwell-quilted-vest.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "larkspur-wrap-jumpsuit",
@@ -2651,7 +3225,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 330
     },
     "image": "/products/larkspur-wrap-jumpsuit.jpg",
-    "badge": "New"
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "gale-rain-slicker",
@@ -2672,7 +3256,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 55
     },
-    "image": "/products/gale-rain-slicker.jpg"
+    "image": "/products/gale-rain-slicker.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "tanner-moccasin",
@@ -2693,7 +3287,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 30
     },
-    "image": "/products/tanner-moccasin.jpg"
+    "image": "/products/tanner-moccasin.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "ivy-denim-a-line-skirt",
@@ -2714,7 +3322,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 220
     },
-    "image": "/products/ivy-denim-a-line-skirt.jpg"
+    "image": "/products/ivy-denim-a-line-skirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "silk-cami",
@@ -2735,7 +3353,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 350
     },
-    "image": "/products/silk-cami.jpg"
+    "image": "/products/silk-cami.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "ridgeline-trail-sandal",
@@ -2757,7 +3385,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "tote",
       "hue": 160
     },
-    "image": "/products/ridgeline-trail-sandal.jpg"
+    "image": "/products/ridgeline-trail-sandal.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
   },
   {
     "slug": "gentle-foam-gel-cleanser",
@@ -3293,7 +3935,14 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "lamp",
       "hue": 70
     },
-    "image": "/products/borealis-bucket-hat.jpg"
+    "image": "/products/borealis-bucket-hat.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S/M",
+        "L/XL"
+      ]
+    }
   },
   {
     "slug": "ascot-silk-pocket-square",
@@ -3357,7 +4006,16 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "lamp",
       "hue": 25
     },
-    "image": "/products/ferndale-suede-driving-gloves.jpg"
+    "image": "/products/ferndale-suede-driving-gloves.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
   },
   {
     "slug": "meridian-wool-tie",
@@ -3414,14 +4072,25 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "Full-grain leather, 1 inch wide",
       "Solid brass buckle",
-      "Fits 30\" to 40\" waist",
+      "Waist sizes 30\" to 40\"",
       "Stitched two-row hold"
     ],
     "art": {
       "kind": "lamp",
       "hue": 35
     },
-    "image": "/products/wicker-oak-braided-belt.jpg"
+    "image": "/products/wicker-oak-braided-belt.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40"
+      ]
+    }
   },
   {
     "slug": "linen-union-scarf",
@@ -3523,13 +4192,22 @@ export const GENERATED_PRODUCTS: Product[] = [
       "Reversible black / brown bridle leather",
       "Solid brass single-prong buckle",
       "2.5 cm wide",
-      "Fits 34\"–40\" waist"
+      "Waist sizes 34\" to 40\""
     ],
     "art": {
       "kind": "lamp",
       "hue": 30
     },
-    "image": "/products/grosvenor-reversible-belt.jpg"
+    "image": "/products/grosvenor-reversible-belt.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "34",
+        "36",
+        "38",
+        "40"
+      ]
+    }
   },
   {
     "slug": "camden-tote",
@@ -3606,14 +4284,22 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "18k gold-plated over brass",
       "Hypoallergenic and nickel-free",
-      "15mm inner diameter",
+      "Inner diameter 15, 20 or 30 mm",
       "Click-hinge closure"
     ],
     "art": {
       "kind": "lamp",
       "hue": 45
     },
-    "image": "/products/aurora-hoop-earrings.jpg"
+    "image": "/products/aurora-hoop-earrings.jpg",
+    "options": {
+      "label": "Diameter",
+      "values": [
+        "15 mm",
+        "20 mm",
+        "30 mm"
+      ]
+    }
   },
   {
     "slug": "cloud-lock-setting-mist",
@@ -3995,7 +4681,7 @@ export const GENERATED_PRODUCTS: Product[] = [
     "blurb": "A substantial curb chain in solid sterling silver, sized for daily layering.",
     "details": [
       "Solid 925 sterling silver",
-      "20-inch length with 2-inch extension",
+      "Every length has a 2-inch extension",
       "Lobster clasp closure",
       "Weight 18g"
     ],
@@ -4003,7 +4689,16 @@ export const GENERATED_PRODUCTS: Product[] = [
       "kind": "watch",
       "hue": 0
     },
-    "image": "/products/sterling-chain-necklace.jpg"
+    "image": "/products/sterling-chain-necklace.jpg",
+    "options": {
+      "label": "Length",
+      "values": [
+        "16 in",
+        "18 in",
+        "20 in",
+        "22 in"
+      ]
+    }
   },
   {
     "slug": "woolrich-knit-beanie",
@@ -4133,7 +4828,17 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 10
     },
     "image": "/products/sable-leather-driving-gloves.jpg",
-    "badge": "Staff pick"
+    "badge": "Staff pick",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ]
+    }
   },
   {
     "slug": "halcyon-straw-fedora",
@@ -4149,13 +4854,21 @@ export const GENERATED_PRODUCTS: Product[] = [
       "Natural woven straw",
       "Grosgrain ribbon band",
       "Brim width 2.75 inches",
-      "Size M/L with adjustable inner band"
+      "Adjustable inner band"
     ],
     "art": {
       "kind": "mug",
       "hue": 50
     },
-    "image": "/products/halcyon-straw-fedora.jpg"
+    "image": "/products/halcyon-straw-fedora.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "S/M",
+        "M/L",
+        "L/XL"
+      ]
+    }
   },
   {
     "slug": "monterey-travel-wallet",
@@ -4211,14 +4924,23 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "Braided full-grain leather",
       "Matte black metal clasp",
-      "Fits 7-8 inch wrists",
+      "Sized to your wrist, 6.5 to 8 inches",
       "Water-resistant finish"
     ],
     "art": {
       "kind": "watch",
       "hue": 0
     },
-    "image": "/products/bridger-leather-bracelet.jpg"
+    "image": "/products/bridger-leather-bracelet.jpg",
+    "options": {
+      "label": "Wrist",
+      "values": [
+        "6.5 in",
+        "7 in",
+        "7.5 in",
+        "8 in"
+      ]
+    }
   },
   {
     "slug": "summer-linen-scarf",
@@ -4254,14 +4976,22 @@ export const GENERATED_PRODUCTS: Product[] = [
     "details": [
       "Sterling silver, hollow core",
       "Hammered texture",
-      "1.5-inch diameter",
+      "1, 1.5 or 2-inch diameter",
       "Push-back closure"
     ],
     "art": {
       "kind": "watch",
       "hue": 240
     },
-    "image": "/products/petal-hoop-earrings.jpg"
+    "image": "/products/petal-hoop-earrings.jpg",
+    "options": {
+      "label": "Diameter",
+      "values": [
+        "1 in",
+        "1.5 in",
+        "2 in"
+      ]
+    }
   },
   {
     "slug": "charter-leather-tech-organizer",

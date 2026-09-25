@@ -13,7 +13,7 @@ import {
   safeNext,
 } from "@/lib/auth";
 import { userBudget } from "@/lib/budget";
-import { clearCart, getCart, readCartEntries, setCurrencyCookie, writeCartEntries } from "@/lib/cart";
+import { clearCart, getCart, readCartEntries, sameLine, setCurrencyCookie, validOption, writeCartEntries } from "@/lib/cart";
 import { getProduct } from "@/lib/catalog";
 import { APP_URL, CART_LIMITS, COUNTRIES, isCurrency, SHIPPING } from "@/lib/config";
 import { randomDigits } from "@/lib/crypto";
@@ -29,12 +29,17 @@ import { makeTrackingNumber, scheduleFor } from "@/lib/tracking";
 export async function addToCart(_prev: unknown, formData: FormData) {
   const slug = String(formData.get("slug") ?? "");
   const qty = Math.max(1, Math.min(CART_LIMITS.maxQty, Number(formData.get("quantity") ?? 1) || 1));
-  if (!getProduct(slug)) return { ok: false as const, at: Date.now() };
+  const product = getProduct(slug);
+  if (!product) return { ok: false as const, at: Date.now() };
+  const option = validOption(product, formData.get("option"));
+  if (option === null) {
+    return { ok: false as const, at: Date.now(), error: "Choose an option first." };
+  }
 
   const entries = await readCartEntries();
-  const existing = entries.find((e) => e.s === slug);
+  const existing = entries.find((e) => sameLine(e, slug, option));
   if (existing) existing.q = Math.min(CART_LIMITS.maxQty, existing.q + qty);
-  else if (entries.length < CART_LIMITS.maxLines) entries.push({ s: slug, q: qty });
+  else if (entries.length < CART_LIMITS.maxLines) entries.push({ s: slug, q: qty, ...(option && { o: option }) });
   await writeCartEntries(entries);
 
   if (formData.get("intent") === "buy-now") redirect("/checkout");
@@ -43,12 +48,13 @@ export async function addToCart(_prev: unknown, formData: FormData) {
 
 export async function updateCartQuantity(formData: FormData) {
   const slug = String(formData.get("slug") ?? "");
+  const option = String(formData.get("option") ?? "");
   const qty = Number(formData.get("quantity"));
   const entries = await readCartEntries();
   const next =
     Number.isInteger(qty) && qty > 0
-      ? entries.map((e) => (e.s === slug ? { ...e, q: Math.min(CART_LIMITS.maxQty, qty) } : e))
-      : entries.filter((e) => e.s !== slug);
+      ? entries.map((e) => (sameLine(e, slug, option) ? { ...e, q: Math.min(CART_LIMITS.maxQty, qty) } : e))
+      : entries.filter((e) => !sameLine(e, slug, option));
   await writeCartEntries(next);
 }
 
@@ -73,7 +79,10 @@ export async function requestLoginLink(_prev: unknown, formData: FormData) {
 
   const token = await createLoginToken(email, next);
   const link = `${APP_URL}/auth/verify?token=${encodeURIComponent(token)}`;
-  await sendEmail({ to: email, kind: "login", ...loginEmail(link) });
+  const status = await sendEmail({ to: email, kind: "login", ...loginEmail(link) });
+  if (status === "failed") {
+    return { error: "We couldn't send your sign-in link right now. Please try again in a few minutes." };
+  }
   redirect(`/login/check-email?email=${encodeURIComponent(email)}`);
 }
 
@@ -165,6 +174,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
         name: l.product.name,
         brand: l.product.brand,
         category: l.product.category,
+        option: l.option && l.product.options ? `${l.product.options.label}: ${l.option}` : null,
         unitPrice: l.unitPrice,
         quantity: l.quantity,
         image: l.product.image ?? null,
