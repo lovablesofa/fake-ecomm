@@ -8,7 +8,7 @@ function esc(value: string) {
 
 const INK = "#1c1917";
 const MUTED = "#78716c";
-const ACCENT = "#0f766e";
+const ACCENT = "#0d6e5a";
 
 function layout(preheader: string, body: string) {
   return `<!doctype html>

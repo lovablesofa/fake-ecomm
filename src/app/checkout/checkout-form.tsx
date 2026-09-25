@@ -87,9 +87,9 @@ export function CheckoutForm(props: Props) {
         <section className="space-y-3">
           <h2 className="text-lg font-medium">Delivery</h2>
           {props.shippingOptions.map((o) => (
-            <label key={o.id} className={`flex cursor-pointer items-center justify-between rounded-xl border bg-white p-4 ${method === o.id ? "border-ink ring-1 ring-ink" : "border-line"}`}>
+            <label key={o.id} className={`flex cursor-pointer items-center justify-between rounded-xl border bg-white p-4 ${method === o.id ? "border-accent ring-1 ring-accent" : "border-line"}`}>
               <span className="flex items-center gap-3">
-                <input type="radio" name="shipping" value={o.id} checked={method === o.id} onChange={() => setMethod(o.id)} className="accent-ink" />
+                <input type="radio" name="shipping" value={o.id} checked={method === o.id} onChange={() => setMethod(o.id)} className="accent-accent" />
                 <span><span className="font-medium">{o.label}</span><span className="block text-sm text-muted">{o.eta}</span></span>
               </span>
               <span className="text-sm font-medium">{o.price ? money(o.price) : "Free"}</span>
@@ -105,7 +105,7 @@ export function CheckoutForm(props: Props) {
               {["1", "2", "3", "4", "5"].map((n) => (
                 <label key={n} className="cursor-pointer">
                   <input type="radio" name="urge" value={n} defaultChecked={v?.urge === n} className="peer sr-only" />
-                  <span className="flex size-11 items-center justify-center rounded-xl border border-line bg-white font-medium tabular-nums peer-checked:border-ink peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{n}</span>
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-line bg-white font-medium tabular-nums peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:ring-1 peer-checked:ring-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{n}</span>
                 </label>
               ))}
             </div>
@@ -137,7 +137,7 @@ export function CheckoutForm(props: Props) {
             <li key={l.key} className="flex items-center gap-3 text-sm">
               <div className="relative">
                 <ProductArt {...l.art} image={l.image} alt={l.name} sizes="56px" className="size-14 rounded-lg" />
-                <span className="absolute -right-1.5 -top-1.5 rounded-full bg-ink px-1.5 text-xs text-white">{l.quantity}</span>
+                <span className="absolute -right-1.5 -top-1.5 rounded-full bg-accent px-1.5 text-xs text-white">{l.quantity}</span>
               </div>
               <span className="flex-1">{l.name}{l.option && <span className="block text-muted">{l.option}</span>}</span>
               <span>{money(l.lineTotal)}</span>

@@ -44,9 +44,9 @@ export default async function Shop({ searchParams }: PageProps<"/shop">) {
     <div className="mx-auto max-w-6xl px-4 pt-10">
       <h1 className="font-display text-5xl">{category ? CATEGORIES.find((c) => c.slug === category)?.name : "All products"}</h1>
       <div className="mt-6 flex flex-wrap items-center gap-2">
-        <Link href={href({ category: undefined })} className={`rounded-full border px-4 py-1.5 text-sm ${!category ? "border-ink bg-ink text-white" : "border-line"}`}>All</Link>
+        <Link href={href({ category: undefined })} className={`rounded-full border px-4 py-1.5 text-sm ${!category ? "border-accent bg-accent text-white" : "border-line"}`}>All</Link>
         {CATEGORIES.map((c) => (
-          <Link key={c.slug} href={href({ category: c.slug })} className={`rounded-full border px-4 py-1.5 text-sm ${category === c.slug ? "border-ink bg-ink text-white" : "border-line"}`}>
+          <Link key={c.slug} href={href({ category: c.slug })} className={`rounded-full border px-4 py-1.5 text-sm ${category === c.slug ? "border-accent bg-accent text-white" : "border-line"}`}>
             {c.name}
           </Link>
         ))}

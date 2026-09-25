@@ -8,7 +8,7 @@ export async function Header() {
   const [user, cart] = await Promise.all([getCurrentUser(), getCart()]);
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur">
-      <div className="bg-ink px-4 py-2 text-center text-xs text-white/85">
+      <div className="bg-accent px-4 py-2 text-center text-xs text-white/90">
         Simulated store: nothing is charged and nothing ships. <Link href="/how-it-works" className="underline underline-offset-2">That&apos;s the point.</Link>
       </div>
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:gap-6">
@@ -24,7 +24,7 @@ export async function Header() {
           ) : (
             <Link href="/login" className="hover:underline">Sign in</Link>
           )}
-          <Link href="/cart" className="relative inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-white">
+          <Link href="/cart" className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-white transition hover:bg-accent-strong">
             Bag
             <span className="min-w-5 rounded-full bg-white px-1.5 text-center text-xs font-semibold text-ink">{cart.count}</span>
           </Link>

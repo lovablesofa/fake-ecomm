@@ -23,7 +23,7 @@ export function AddToCart({ slug, options }: { slug: string; options?: Product["
             {options.values.map((v) => (
               <label key={v} className="cursor-pointer">
                 <input type="radio" name="option" value={v} checked={option === v} onChange={() => setOption(v)} required className="peer sr-only" />
-                <span className="inline-flex min-w-11 items-center justify-center rounded-lg border border-line bg-white px-3 py-2 text-sm tabular-nums peer-checked:border-ink peer-checked:ring-1 peer-checked:ring-ink peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{v}</span>
+                <span className="inline-flex min-w-11 items-center justify-center rounded-lg border border-line bg-white px-3 py-2 text-sm tabular-nums peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:ring-1 peer-checked:ring-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{v}</span>
               </label>
             ))}
           </div>

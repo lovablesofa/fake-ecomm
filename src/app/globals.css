@@ -3,10 +3,12 @@
 @theme {
   --color-paper: #fbfaf8;
   --color-ink: #1c1917;
-  --color-muted: #78716c;
+  --color-muted: #57534e;
   --color-line: #e7e5e4;
-  --color-accent: #0f766e;
-  --color-accent-soft: #f0fdfa;
+  /* A brighter take on the green of the logo's S (#2c685c). */
+  --color-accent: #0d6e5a;
+  --color-accent-strong: #0a5747;
+  --color-accent-soft: #e3f1ec;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-display: var(--font-display-serif), Georgia, serif;
 }
@@ -22,7 +24,7 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 font-medium text-white transition hover:bg-stone-700 disabled:cursor-wait disabled:opacity-60;
+    @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-medium text-white transition hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-full border border-ink px-6 py-3 font-medium transition hover:bg-ink hover:text-white disabled:cursor-wait disabled:opacity-60;

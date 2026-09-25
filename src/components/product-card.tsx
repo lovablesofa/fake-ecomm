@@ -11,7 +11,7 @@ export function ProductCard({ product, currency }: { product: Product; currency:
       <div className="relative overflow-hidden rounded-2xl">
         <ProductArt {...product.art} image={product.image} alt={product.name} sizes="(max-width: 1024px) 50vw, 288px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
         {product.badge && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium">{product.badge}</span>
+          <span className="absolute left-3 top-3 rounded-full bg-accent px-2.5 py-1 text-xs font-medium text-white">{product.badge}</span>
         )}
       </div>
       <div className="mt-3 space-y-1">
