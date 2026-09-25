@@ -20,14 +20,51 @@ function speed() {
   return Number.isFinite(s) && s > 0 ? s : 1;
 }
 
-export function scheduleFor(method: ShippingMethod, placedAt: Date) {
+// Local hours [open, close) when each step can happen. Deliveries follow courier hours; the warehouse works late.
+const DAYTIME = { ship: [7, 22], outForDelivery: [7, 19], deliver: [9, 20] } as const;
+const HOUR = 3_600_000;
+
+function localHour(date: Date, timeZone: string) {
+  const parts = new Intl.DateTimeFormat("en-GB", { timeZone, hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(date);
+  const get = (type: string) => Number(parts.find((p) => p.type === type)?.value ?? 0);
+  return get("hour") + get("minute") / 60;
+}
+
+// Pushes a time forward to the next [open, close) window in that zone, landing up to an hour after opening.
+function withinHours(date: Date, timeZone: string, [open, close]: readonly [number, number]) {
+  const h = localHour(date, timeZone);
+  if (h >= open && h < close) return date;
+  const wait = h < open ? open - h : 24 - h + open;
+  const opening = date.getTime() + wait * HOUR;
+  // Across a DST change the wall clock moves an extra hour; snap back to opening time.
+  const drift = localHour(new Date(opening), timeZone) - open;
+  return new Date(opening - drift * HOUR + Math.random() * HOUR);
+}
+
+export function scheduleFor(method: ShippingMethod, placedAt: Date, country: string) {
   const { ship, deliver, outForDelivery } = HOURS[method];
   const pick = ([min, max]: [number, number]) => min + Math.random() * (max - min);
-  const at = (hours: number) => new Date(placedAt.getTime() + (hours * 3_600_000) / speed());
+  const at = (hours: number) => new Date(placedAt.getTime() + (hours * HOUR) / speed());
   const deliverH = pick(deliver);
   const shipH = pick(ship);
   const ofdH = Math.max(deliverH - pick(outForDelivery), shipH + 1);
-  return { shipsAt: at(shipH), outForDeliveryAt: at(ofdH), deliversAt: at(deliverH) };
+  const raw = { shipsAt: at(shipH), outForDeliveryAt: at(ofdH), deliversAt: at(deliverH) };
+  // Compressed dev timelines would make waiting for daylight pointless.
+  if (speed() !== 1) return raw;
+
+  const timeZone = countryByCode(country)?.timeZone ?? "America/Chicago";
+  const shipsAt = withinHours(raw.shipsAt, timeZone, DAYTIME.ship);
+  let deliversAt = withinHours(raw.deliversAt, timeZone, DAYTIME.deliver);
+  // Keep the original gap before delivery; if that lands overnight, the van leaves at opening instead.
+  const gap = raw.deliversAt.getTime() - raw.outForDeliveryAt.getTime();
+  let outForDeliveryAt = withinHours(new Date(deliversAt.getTime() - gap), timeZone, DAYTIME.outForDelivery);
+  if (outForDeliveryAt.getTime() < shipsAt.getTime() + HOUR) {
+    outForDeliveryAt = withinHours(new Date(shipsAt.getTime() + HOUR), timeZone, DAYTIME.outForDelivery);
+  }
+  if (deliversAt.getTime() < outForDeliveryAt.getTime() + HOUR) {
+    deliversAt = withinHours(new Date(outForDeliveryAt.getTime() + HOUR), timeZone, DAYTIME.deliver);
+  }
+  return { shipsAt, outForDeliveryAt, deliversAt };
 }
 
 type Schedule = Pick<Order, "placedAt" | "shipsAt" | "outForDeliveryAt" | "deliversAt">;

@@ -22,16 +22,18 @@ export function isCurrency(value: unknown): value is Currency {
 
 export type Region = "US" | "GB" | "EU";
 
+// timeZone keeps "Out for delivery" and "Delivered" in daylight hours. The US spans several zones;
+// Central keeps the 9:00-20:00 delivery window between 7:00 Pacific and 21:00 Eastern.
 export const COUNTRIES = [
-  { code: "US", name: "United States", region: "US" },
-  { code: "GB", name: "United Kingdom", region: "GB" },
-  { code: "IE", name: "Ireland", region: "EU" },
-  { code: "DE", name: "Germany", region: "EU" },
-  { code: "FR", name: "France", region: "EU" },
-  { code: "IT", name: "Italy", region: "EU" },
-  { code: "ES", name: "Spain", region: "EU" },
-  { code: "NL", name: "Netherlands", region: "EU" },
-] as const satisfies readonly { code: string; name: string; region: Region }[];
+  { code: "US", name: "United States", region: "US", timeZone: "America/Chicago" },
+  { code: "GB", name: "United Kingdom", region: "GB", timeZone: "Europe/London" },
+  { code: "IE", name: "Ireland", region: "EU", timeZone: "Europe/Dublin" },
+  { code: "DE", name: "Germany", region: "EU", timeZone: "Europe/Berlin" },
+  { code: "FR", name: "France", region: "EU", timeZone: "Europe/Paris" },
+  { code: "IT", name: "Italy", region: "EU", timeZone: "Europe/Rome" },
+  { code: "ES", name: "Spain", region: "EU", timeZone: "Europe/Madrid" },
+  { code: "NL", name: "Netherlands", region: "EU", timeZone: "Europe/Amsterdam" },
+] as const satisfies readonly { code: string; name: string; region: Region; timeZone: string }[];
 
 export type CountryCode = (typeof COUNTRIES)[number]["code"];
 

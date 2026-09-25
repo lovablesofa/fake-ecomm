@@ -1,0 +1,9 @@
+{
+  "name": "window-spree-cron",
+  "main": "index.js",
+  "compatibility_date": "2026-09-01",
+  "triggers": { "crons": ["*/5 * * * *"] },
+  "vars": { "APP_URL": "https://windowspree.com" },
+  // CRON_SECRET is a secret: `npx wrangler secret put CRON_SECRET` (same value as on Vercel).
+  "observability": { "enabled": true }
+}

@@ -164,7 +164,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
       trackingNumber: makeTrackingNumber(input.country, randomDigits(10)),
       urgeBefore: input.urge === "" ? null : input.urge,
       placedAt,
-      ...scheduleFor(input.shipping, placedAt),
+      ...scheduleFor(input.shipping, placedAt, input.country),
     }),
     db.insert(schema.orderItems).values(
       cart.lines.map((l) => ({
