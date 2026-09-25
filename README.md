@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cartharsis
 
-## Getting Started
+A complete online store where nothing costs anything. Users browse, fill a bag, check out with a simulated
+payment, get a real order confirmation email, and follow tracking updates (also by email) until "delivery".
+Then they're asked whether they still want the item. The account page shows how much money they kept.
 
-First, run the development server:
+All brands and products are fictional. No card details are ever collected.
+
+## Stack
+
+Next.js 16 (App Router, Server Actions) · TypeScript · Tailwind 4 · Drizzle ORM on libSQL (SQLite locally,
+Turso in production) · Resend for email.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local
+pnpm db:push        # create tables in local.db
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Without `RESEND_API_KEY`, emails are not sent. They show up at http://localhost:3000/dev/outbox, including
+the magic sign-in link.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`TRACKING_SPEED=60` in `.env.example` turns hours into minutes, so a standard order is "delivered" in about
+an hour. Use `TRACKING_SPEED=1` for realistic timing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it works
 
-## Learn More
+| Piece | Where |
+| --- | --- |
+| Catalog (static, fictional) | `src/lib/catalog.ts`, art in `src/components/product-art.tsx` |
+| Cart (httpOnly cookie) | `src/lib/cart.ts` |
+| Magic-link auth, DB sessions | `src/lib/auth.ts`, `src/app/login`, `src/app/auth/verify` |
+| Checkout & all mutations | `src/app/actions.ts` |
+| Tracking timeline | `src/lib/tracking.ts` |
+| Tracking emails | `advanceOrders()` in `src/lib/orders.ts` |
+| Email templates / sending | `src/lib/email/` |
+| Savings dashboard | `src/lib/savings.ts`, `src/app/account` |
 
-To learn more about Next.js, take a look at the following resources:
+Each order stores its scheduled stage times when placed. `advanceOrders()` emails the latest stage reached,
+and a conditional update on `notified_stage` makes sure each email goes out only once. It runs:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- when a user views their orders or account,
+- every 30s in-process (`src/instrumentation.ts`, on by default in dev; set `INTERNAL_SCHEDULER=on` on a long-lived server),
+- via `GET /api/cron/advance` with `Authorization: Bearer $CRON_SECRET` on serverless hosts. Call it every few minutes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production checklist
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `RESEND_API_KEY` and `EMAIL_FROM` on a verified domain
+- `APP_URL` set to the public URL (used in email links)
+- `DATABASE_URL` / `DATABASE_AUTH_TOKEN` pointing at Turso (or another libSQL server), then `pnpm db:push`
+- `CRON_SECRET` plus a scheduler hitting `/api/cron/advance`, or `INTERNAL_SCHEDULER=on`
+- `TRACKING_SPEED=1`

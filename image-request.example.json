@@ -1,0 +1,45 @@
+{
+  "_note": "Dummy request for one product photo, same prompt pnpm catalog:build sends. Copy the block for the service you are testing; drop keys starting with _ before sending.",
+  "prompt_template": "Professional e-commerce studio product photo of {image_prompt}. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition. No text, no logos, no watermark, no people.",
+  "example_image_prompt": "a folded oatmeal linen throw blanket with fringed edges, three-quarter angle",
+
+  "openrouter_nano_banana_2_lite": {
+    "_endpoint": "POST https://openrouter.ai/api/v1/images (header Authorization: Bearer $OPENROUTER_API_KEY). Used by pnpm catalog:build.",
+    "model": "google/gemini-3.1-flash-lite-image",
+    "prompt": "Professional e-commerce studio product photo of a folded oatmeal linen throw blanket with fringed edges, three-quarter angle. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition. No text, no logos, no watermark, no people.",
+    "n": 1,
+    "resolution": "1K",
+    "aspect_ratio": "1:1"
+  },
+
+  "fal_flux_schnell": {
+    "prompt": "Professional e-commerce studio product photo of a folded oatmeal linen throw blanket with fringed edges, three-quarter angle. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition. No text, no logos, no watermark, no people.",
+    "image_size": "square_hd",
+    "num_images": 1,
+    "output_format": "jpeg"
+  },
+
+  "generic_width_height": {
+    "prompt": "Professional e-commerce studio product photo of a folded oatmeal linen throw blanket with fringed edges, three-quarter angle. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition. No text, no logos, no watermark, no people.",
+    "width": 1024,
+    "height": 1024,
+    "num_outputs": 1,
+    "output_format": "jpg"
+  },
+
+  "generic_aspect_ratio": {
+    "prompt": "Professional e-commerce studio product photo of a folded oatmeal linen throw blanket with fringed edges, three-quarter angle. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition. No text, no logos, no watermark, no people.",
+    "aspect_ratio": "1:1",
+    "num_outputs": 1,
+    "output_format": "jpg"
+  },
+
+  "with_negative_prompt": {
+    "prompt": "Professional e-commerce studio product photo of a folded oatmeal linen throw blanket with fringed edges, three-quarter angle. Single product, centered, fully in frame, soft diffused lighting, gentle shadow, plain light seamless background, square composition.",
+    "negative_prompt": "text, logo, watermark, people, hands, multiple products, cluttered background",
+    "width": 1024,
+    "height": 1024,
+    "num_outputs": 1,
+    "output_format": "jpg"
+  }
+}
