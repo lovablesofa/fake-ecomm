@@ -1,7 +1,8 @@
 "use server";
 
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, gt, inArray, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import {
@@ -15,11 +16,11 @@ import {
 import { userBudget } from "@/lib/budget";
 import { clearCart, getCart, readCartEntries, sameLine, setCurrencyCookie, validOption, writeCartEntries } from "@/lib/cart";
 import { getProduct } from "@/lib/catalog";
-import { APP_URL, CART_LIMITS, COUNTRIES, isCurrency, SHIPPING } from "@/lib/config";
-import { randomDigits } from "@/lib/crypto";
+import { adminEmails, APP_URL, CART_LIMITS, COUNTRIES, isCurrency, SHIPPING } from "@/lib/config";
+import { randomDigits, sha256 } from "@/lib/crypto";
 import { db, schema } from "@/lib/db";
 import { sendEmail } from "@/lib/email/send";
-import { loginEmail } from "@/lib/email/templates";
+import { feedbackNotificationEmail, loginEmail } from "@/lib/email/templates";
 import { formatMoney, localPrice } from "@/lib/money";
 import { advanceOrders } from "@/lib/orders";
 import { makeTrackingNumber, scheduleFor } from "@/lib/tracking";
@@ -218,8 +219,55 @@ export async function deleteAccount(formData: FormData) {
     db.delete(schema.sessions).where(eq(schema.sessions.userId, user.id)),
     db.delete(schema.loginTokens).where(eq(schema.loginTokens.email, user.email)),
     db.delete(schema.emails).where(eq(schema.emails.to, user.email)),
+    db.delete(schema.feedback).where(or(eq(schema.feedback.userId, user.id), eq(schema.feedback.email, user.email))),
     db.delete(schema.users).where(eq(schema.users.id, user.id)),
   ]);
   await destroySession();
   redirect("/?deleted=1");
+}
+
+// ---------- Feedback ----------
+
+const feedbackSchema = z.object({
+  email: emailSchema,
+  kind: z.enum(["idea", "problem", "other"]),
+  message: z.string().trim().min(5, "Tell us a little more.").max(2000, "Keep it under 2,000 characters."),
+});
+
+export type FeedbackState = { ok?: boolean; error?: string; values?: Record<string, string> } | undefined;
+
+const FEEDBACK_PER_HOUR = 5;
+
+export async function submitFeedback(_prev: FeedbackState, formData: FormData): Promise<FeedbackState> {
+  const values = {
+    email: String(formData.get("email") ?? "").trim(),
+    kind: String(formData.get("kind") ?? "other"),
+    message: String(formData.get("message") ?? ""),
+  };
+  // Hidden field only bots fill in. Pretend it worked so they don't retry.
+  if (String(formData.get("website") ?? "") !== "") return { ok: true };
+
+  const parsed = feedbackSchema.safeParse(values);
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "Please check the form.", values };
+  }
+
+  const h = await headers();
+  const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "unknown";
+  const ipHash = sha256(`feedback:${ip}`);
+  const recent = await db
+    .select({ id: schema.feedback.id })
+    .from(schema.feedback)
+    .where(and(eq(schema.feedback.ipHash, ipHash), gt(schema.feedback.createdAt, new Date(Date.now() - 3_600_000))));
+  if (recent.length >= FEEDBACK_PER_HOUR) {
+    return { error: "Thanks, that's plenty for now. Try again in an hour.", values };
+  }
+
+  const user = await getCurrentUser();
+  const row = { id: crypto.randomUUID(), userId: user?.id ?? null, ipHash, ...parsed.data };
+  await db.insert(schema.feedback).values(row);
+  await Promise.all(
+    adminEmails().map((to) => sendEmail({ to, kind: "feedback", ...feedbackNotificationEmail(row) })),
+  );
+  return { ok: true };
 }

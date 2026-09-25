@@ -1,5 +1,5 @@
 import { APP_URL, BRAND, SHIPPING, type Currency } from "../config";
-import type { Order, OrderItem } from "../db/schema";
+import type { Feedback, Order, OrderItem } from "../db/schema";
 import { formatMoney } from "../money";
 
 function esc(value: string) {
@@ -10,7 +10,9 @@ const INK = "#1c1917";
 const MUTED = "#78716c";
 const ACCENT = "#0d6e5a";
 
-function layout(preheader: string, body: string) {
+const ORDER_FOOTER = `${BRAND.name} is a simulated store. No payment was taken and nothing will be shipped. You received this because you placed a pretend order at <a href="${APP_URL}" style="color:${MUTED}">${APP_URL.replace(/^https?:\/\//, "")}</a>.`;
+
+function layout(preheader: string, body: string, footer = ORDER_FOOTER) {
   return `<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
 <body style="margin:0;background:#f5f5f4;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:${INK}">
@@ -21,7 +23,7 @@ function layout(preheader: string, body: string) {
 <tr><td style="padding:28px 32px 8px;font-size:20px;font-weight:700;letter-spacing:-0.02em">${BRAND.name}</td></tr>
 <tr><td style="padding:8px 32px 32px;font-size:15px;line-height:1.6">${body}</td></tr>
 <tr><td style="padding:20px 32px;background:#fafaf9;border-top:1px solid #e7e5e4;font-size:12px;line-height:1.5;color:${MUTED}">
-${BRAND.name} is a simulated store. No payment was taken and nothing will be shipped. You received this because you placed a pretend order at <a href="${APP_URL}" style="color:${MUTED}">${APP_URL.replace(/^https?:\/\//, "")}</a>.
+${footer}
 </td></tr>
 </table></td></tr></table></body></html>`;
 }
@@ -113,7 +115,26 @@ export function trackingEmail(order: Order, stage: 1 | 3 | 4) {
     `<h1 style="font-size:22px;margin:8px 0 12px">${copy.heading}</h1>
 <p>${copy.body(order)}</p>
 ${stage === 4 ? savedCallout(order) : ""}
-${button(orderUrl(order), stage === 4 ? "Answer one question" : "Track package")}`,
+${button(orderUrl(order), stage === 4 ? "Answer one question" : "Track package")}
+${stage === 4 ? `<p style="color:${MUTED};font-size:13px">Got a minute more? <a href="${APP_URL}/feedback" style="color:${ACCENT}">Tell us what you think of ${BRAND.name}</a>.</p>` : ""}`,
   );
   return { subject, html, text };
+}
+
+const FEEDBACK_KINDS: Record<Feedback["kind"], string> = { idea: "Idea", problem: "Problem", other: "Feedback" };
+
+// Sent to the admins in ADMIN_EMAILS. Reply goes straight to the sender.
+export function feedbackNotificationEmail(f: Pick<Feedback, "email" | "kind" | "message">) {
+  const label = FEEDBACK_KINDS[f.kind];
+  const subject = `${label} from ${f.email}`;
+  const text = `${label} from ${f.email}:\n\n${f.message}\n\nAll feedback: ${APP_URL}/insights`;
+  const html = layout(
+    `${label}: ${f.message.slice(0, 80)}`,
+    `<h1 style="font-size:22px;margin:8px 0 4px">New ${label.toLowerCase()}</h1>
+<p style="color:${MUTED};margin:0">From <a href="mailto:${esc(f.email)}" style="color:${ACCENT}">${esc(f.email)}</a></p>
+<div style="background:#fafaf9;border:1px solid #e7e5e4;border-radius:12px;padding:16px 18px;margin:20px 0;white-space:pre-wrap">${esc(f.message)}</div>
+${button(`${APP_URL}/insights#feedback`, "See all feedback")}`,
+    `Sent from the feedback form at ${APP_URL.replace(/^https?:\/\//, "")}/feedback. Reply to answer the sender directly.`,
+  );
+  return { subject, html, text, replyTo: f.email };
 }

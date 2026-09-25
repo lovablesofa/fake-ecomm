@@ -4,17 +4,17 @@ import { db, schema } from "../db";
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM = process.env.EMAIL_FROM ?? "Window Spree <onboarding@resend.dev>";
 
-type EmailInput = { to: string; subject: string; html: string; text: string; kind: string };
+type EmailInput = { to: string; subject: string; html: string; text: string; kind: string; replyTo?: string };
 
 /** Sends via Resend when configured; otherwise logs to the dev outbox. Never throws. */
-export async function sendEmail({ to, subject, html, text, kind }: EmailInput) {
+export async function sendEmail({ to, subject, html, text, kind, replyTo }: EmailInput) {
   let status: "sent" | "logged" | "failed" = "logged";
   let providerId: string | null = null;
   let error: string | null = null;
 
   if (resend) {
     try {
-      const res = await resend.emails.send({ from: FROM, to, subject, html, text });
+      const res = await resend.emails.send({ from: FROM, to, subject, html, text, ...(replyTo && { replyTo }) });
       if (res.error) {
         status = "failed";
         error = res.error.message;

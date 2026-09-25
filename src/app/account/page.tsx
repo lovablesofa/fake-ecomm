@@ -83,6 +83,9 @@ export default async function AccountPage({ searchParams }: PageProps<"/account"
 
       <section className="mt-16 border-t border-line pt-8">
         <h2 className="font-medium">Account</h2>
+        <p className="mt-2 text-sm text-muted">
+          Something you&apos;d change? <Link href="/feedback" className="text-ink underline underline-offset-4">Send us feedback</Link>.
+        </p>
         <form action={logout} className="mt-4">
           <SubmitButton className="btn-secondary">Sign out</SubmitButton>
         </form>

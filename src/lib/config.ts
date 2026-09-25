@@ -5,6 +5,11 @@ export const BRAND = {
   description: "The full online shopping experience, from bag to doorstep, with nothing charged and nothing shipped.",
 };
 
+// Emails allowed into /insights in production, also notified about new feedback. Comma-separated.
+export function adminEmails() {
+  return (process.env.ADMIN_EMAILS ?? "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
+}
+
 export const APP_URL = (process.env.APP_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
 export type Currency = "USD" | "GBP" | "EUR";

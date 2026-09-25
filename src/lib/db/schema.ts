@@ -102,6 +102,23 @@ export const emails = sqliteTable("emails", {
   createdAt: createdAt(),
 });
 
+export const feedback = sqliteTable(
+  "feedback",
+  {
+    id: text("id").primaryKey(),
+    // Set when the sender was signed in, so the message goes when the account does.
+    userId: text("user_id").references(() => users.id, { onDelete: "cascade" }),
+    email: text("email").notNull(),
+    kind: text("kind", { enum: ["idea", "problem", "other"] }).notNull(),
+    message: text("message").notNull(),
+    // sha256 of the sender's IP, only for rate limiting.
+    ipHash: text("ip_hash").notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [index("feedback_ip_idx").on(t.ipHash, t.createdAt)],
+);
+
 export type Order = typeof orders.$inferSelect;
 export type OrderItem = typeof orderItems.$inferSelect;
 export type User = typeof users.$inferSelect;
+export type Feedback = typeof feedback.$inferSelect;

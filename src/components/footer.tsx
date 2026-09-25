@@ -22,6 +22,7 @@ export function Footer() {
         <div className="space-y-2">
           <p className="font-medium">About</p>
           <Link href="/how-it-works" className="block text-muted hover:text-ink">How it works</Link>
+          <Link href="/feedback" className="block text-muted hover:text-ink">Send feedback</Link>
           <p className="text-muted">
             Real spree feeling, fictional products.
             <br />

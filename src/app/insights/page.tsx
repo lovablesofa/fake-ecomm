@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { desc } from "drizzle-orm";
 import { requireUser } from "@/lib/auth";
+import { adminEmails } from "@/lib/config";
 import { db, schema } from "@/lib/db";
 import { currentStage, DELIVERED } from "@/lib/tracking";
 
@@ -9,11 +11,11 @@ export const metadata: Metadata = { title: "Urge check-ins" };
 // Open to everyone in development; in production only to the emails in ADMIN_EMAILS (comma-separated).
 function isAdmin(email: string) {
   if (process.env.NODE_ENV !== "production") return true;
-  const admins = (process.env.ADMIN_EMAILS ?? "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
-  return admins.includes(email.toLowerCase());
+  return adminEmails().includes(email.toLowerCase());
 }
 
 const SCORES = [1, 2, 3, 4, 5] as const;
+const FEEDBACK_LABELS = { idea: "Idea", problem: "Problem", other: "Other" } as const;
 const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%` : "–");
 const avg = (xs: number[]) => (xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(2) : "–");
 
@@ -43,7 +45,10 @@ export default async function Insights() {
   const user = await requireUser("/insights");
   if (!isAdmin(user.email)) notFound();
 
-  const orders = await db.select().from(schema.orders);
+  const [orders, feedback] = await Promise.all([
+    db.select().from(schema.orders),
+    db.select().from(schema.feedback).orderBy(desc(schema.feedback.createdAt)).limit(100),
+  ]);
   const delivered = orders.filter((o) => currentStage(o) === DELIVERED);
   const before = orders.map((o) => o.urgeBefore).filter((n): n is number => n !== null);
   const after = delivered.map((o) => o.urgeAfter).filter((n): n is number => n !== null);
@@ -95,6 +100,24 @@ export default async function Insights() {
             })}
           </tbody>
         </table>
+      </section>
+
+      <section id="feedback" className="card mt-4 p-6">
+        <h2 className="font-medium">Feedback</h2>
+        <p className="mt-1 text-sm text-muted">Latest {feedback.length} messages from /feedback, newest first.</p>
+        <ul className="mt-4 divide-y divide-line text-sm">
+          {feedback.map((f) => (
+            <li key={f.id} className="py-4">
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted">
+                <span className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-ink">{FEEDBACK_LABELS[f.kind]}</span>
+                <a href={`mailto:${f.email}`} className="underline underline-offset-2">{f.email}</a>
+                <span>{f.createdAt.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Rome" })}</span>
+              </p>
+              <p className="mt-2 whitespace-pre-wrap">{f.message}</p>
+            </li>
+          ))}
+          {!feedback.length && <li className="py-4 text-muted">No feedback yet.</li>}
+        </ul>
       </section>
     </div>
   );
