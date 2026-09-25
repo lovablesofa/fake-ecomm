@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
-import { CART_LIMITS, isCurrency, type Currency } from "./config";
+import { cookies, headers } from "next/headers";
+import { CART_LIMITS, currencyForCountry, isCurrency, type Currency } from "./config";
 import { getProduct, type Product } from "./catalog";
 import { localPrice } from "./money";
 
@@ -59,7 +59,10 @@ export async function clearCart() {
 
 export async function getCurrency(): Promise<Currency> {
   const value = (await cookies()).get(CURRENCY_COOKIE)?.value;
-  return isCurrency(value) ? value : "USD";
+  if (isCurrency(value)) return value;
+  // No choice made yet: guess from the visitor's country. Cloudflare's header wins while its proxy sits in front of Vercel.
+  const h = await headers();
+  return currencyForCountry(h.get("cf-ipcountry") ?? h.get("x-vercel-ip-country"));
 }
 
 export async function setCurrencyCookie(currency: Currency) {

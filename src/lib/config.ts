@@ -20,6 +20,21 @@ export function isCurrency(value: unknown): value is Currency {
   return typeof value === "string" && value in CURRENCIES;
 }
 
+// Visitors' default currency by IP country: pounds for the UK and Crown dependencies, euros across Europe, dollars elsewhere.
+const GBP_COUNTRIES = new Set(["GB", "GG", "GI", "IM", "JE"]);
+const EUR_COUNTRIES = new Set([
+  "AD", "AL", "AT", "BA", "BE", "BG", "BY", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FO", "FR", "GR", "HR",
+  "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MD", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS",
+  "SE", "SI", "SK", "SM", "UA", "VA", "XK",
+]);
+
+export function currencyForCountry(country: string | null | undefined): Currency {
+  const code = country?.toUpperCase() ?? "";
+  if (GBP_COUNTRIES.has(code)) return "GBP";
+  if (EUR_COUNTRIES.has(code)) return "EUR";
+  return "USD";
+}
+
 export type Region = "US" | "GB" | "EU";
 
 // timeZone keeps "Out for delivery" and "Delivered" in daylight hours. The US spans several zones;
