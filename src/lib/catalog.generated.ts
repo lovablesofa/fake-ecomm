@@ -6024,5 +6024,1550 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 200
     },
     "image": "/products/smart-plugs-2-pack.jpg"
+  },
+  {
+    "slug": "wide-leg-cargo-jeans",
+    "name": "Wide-Leg Cargo Jeans",
+    "brand": "Loosecut",
+    "category": "fashion",
+    "priceUsd": 5900,
+    "compareAtUsd": 7900,
+    "rating": 4.6,
+    "reviews": 2840,
+    "blurb": "Baggy cargo jeans with pockets for everything you'd normally put in a bag.",
+    "details": [
+      "100% cotton denim",
+      "Relaxed wide leg",
+      "Six pockets, including two cargo",
+      "Mid-rise, button fly"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 215
+    },
+    "image": "/products/wide-leg-cargo-jeans.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "24",
+        "26",
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ]
+    }
+  },
+  {
+    "slug": "oversized-crewneck-sweatshirt",
+    "name": "Oversized Crewneck Sweatshirt",
+    "brand": "Loosecut",
+    "category": "fashion",
+    "priceUsd": 4500,
+    "rating": 4.7,
+    "reviews": 3310,
+    "blurb": "A heavyweight crewneck that fits like you stole it from someone taller.",
+    "details": [
+      "380gsm brushed fleece",
+      "Oversized fit, dropped shoulder",
+      "Ribbed cuffs and hem",
+      "Garment dyed"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 100
+    },
+    "image": "/products/oversized-crewneck-sweatshirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "pleated-tennis-skirt",
+    "name": "Pleated Tennis Skirt",
+    "brand": "Tenpace",
+    "category": "fashion",
+    "priceUsd": 3800,
+    "rating": 4.5,
+    "reviews": 1970,
+    "blurb": "A pleated skort with built-in shorts, for courts you'll never play on.",
+    "details": [
+      "Recycled polyester, stretch",
+      "Built-in shorts with phone pocket",
+      "Knife pleats",
+      "Quick dry"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 0
+    },
+    "image": "/products/pleated-tennis-skirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "nylon-puffer-vest",
+    "name": "Nylon Puffer Vest",
+    "brand": "Northbranch",
+    "category": "fashion",
+    "priceUsd": 6900,
+    "compareAtUsd": 8900,
+    "rating": 4.6,
+    "reviews": 1420,
+    "blurb": "A light puffer vest that makes any hoodie look like a plan.",
+    "details": [
+      "Recycled nylon shell",
+      "Synthetic down fill",
+      "Packs into its own pocket",
+      "Two zip hand pockets"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 30
+    },
+    "image": "/products/nylon-puffer-vest.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "satin-slip-skirt",
+    "name": "Satin Slip Skirt",
+    "brand": "Aurée",
+    "category": "fashion",
+    "priceUsd": 4900,
+    "rating": 4.6,
+    "reviews": 1580,
+    "blurb": "A bias-cut satin midi skirt that works with trainers or heels.",
+    "details": [
+      "Satin-finish viscose",
+      "Bias cut, midi length",
+      "Elastic waist",
+      "Machine wash cold"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 40
+    },
+    "image": "/products/satin-slip-skirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "chunky-knit-cardigan",
+    "name": "Chunky Knit Cardigan",
+    "brand": "Fjelde",
+    "category": "fashion",
+    "priceUsd": 6500,
+    "rating": 4.7,
+    "reviews": 1230,
+    "blurb": "A slouchy cable-knit cardigan for weekends that don't involve plans.",
+    "details": [
+      "Wool-blend chunky yarn",
+      "Cable knit front",
+      "Oversized buttons",
+      "Two patch pockets"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 35
+    },
+    "image": "/products/chunky-knit-cardigan.jpg",
+    "badge": "Staff pick",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "straight-leg-vintage-jeans",
+    "name": "Straight-Leg Vintage Jeans",
+    "brand": "Brevik",
+    "category": "fashion",
+    "priceUsd": 5500,
+    "rating": 4.5,
+    "reviews": 2690,
+    "blurb": "High-waisted straight jeans in a wash that looks properly lived in.",
+    "details": [
+      "100% rigid cotton",
+      "High rise, straight leg",
+      "Vintage mid-blue wash",
+      "Five-pocket design"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 215
+    },
+    "image": "/products/straight-leg-vintage-jeans.jpg",
+    "options": {
+      "label": "Waist",
+      "values": [
+        "24",
+        "26",
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ]
+    }
+  },
+  {
+    "slug": "flare-yoga-leggings",
+    "name": "Flare Yoga Leggings",
+    "brand": "Tenpace",
+    "category": "fashion",
+    "priceUsd": 4200,
+    "rating": 4.6,
+    "reviews": 3740,
+    "blurb": "Buttery-soft flared leggings that go from yoga to errands to the sofa.",
+    "details": [
+      "Buttery-soft stretch fabric",
+      "High, crossover waistband",
+      "Flared leg",
+      "Squat-proof"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 280
+    },
+    "image": "/products/flare-yoga-leggings.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "platform-canvas-sneaker",
+    "name": "Platform Canvas Sneaker",
+    "brand": "Tenpace",
+    "category": "fashion",
+    "priceUsd": 4900,
+    "compareAtUsd": 6500,
+    "rating": 4.5,
+    "reviews": 2210,
+    "blurb": "Low-top canvas sneakers on a chunky platform for an extra inch of confidence.",
+    "details": [
+      "Cotton canvas upper",
+      "1.5 in platform rubber sole",
+      "Cushioned insole",
+      "Metal eyelets"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 45
+    },
+    "image": "/products/platform-canvas-sneaker.jpg",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
+  },
+  {
+    "slug": "cropped-utility-jacket",
+    "name": "Cropped Utility Jacket",
+    "brand": "Brevik",
+    "category": "fashion",
+    "priceUsd": 7900,
+    "rating": 4.5,
+    "reviews": 860,
+    "blurb": "A boxy cropped jacket with big pockets and a little workwear swagger.",
+    "details": [
+      "Cotton twill",
+      "Cropped, boxy fit",
+      "Four flap pockets",
+      "Snap front"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 90
+    },
+    "image": "/products/cropped-utility-jacket.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "mesh-ballet-flats",
+    "name": "Mesh Ballet Flats",
+    "brand": "Aurée",
+    "category": "fashion",
+    "priceUsd": 5900,
+    "rating": 4.4,
+    "reviews": 1320,
+    "blurb": "Sheer mesh ballet flats with a skinny strap, very this year.",
+    "details": [
+      "Mesh upper, leather trim",
+      "Thin ankle strap",
+      "Padded footbed",
+      "Flexible rubber sole"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 0
+    },
+    "image": "/products/mesh-ballet-flats.jpg",
+    "badge": "New",
+    "options": {
+      "label": "EU size",
+      "values": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ]
+    }
+  },
+  {
+    "slug": "striped-rugby-shirt",
+    "name": "Striped Rugby Shirt",
+    "brand": "Castell Row",
+    "category": "fashion",
+    "priceUsd": 5500,
+    "rating": 4.6,
+    "reviews": 940,
+    "blurb": "A heavy cotton rugby shirt with bold stripes and a white collar.",
+    "details": [
+      "Heavyweight cotton jersey",
+      "Woven white collar",
+      "Rubber buttons",
+      "Relaxed fit"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 210
+    },
+    "image": "/products/striped-rugby-shirt.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "cat-eye-sunglasses",
+    "name": "Cat-Eye Sunglasses",
+    "brand": "Brevik",
+    "category": "accessories",
+    "priceUsd": 2900,
+    "rating": 4.5,
+    "reviews": 3120,
+    "blurb": "Sharp cat-eye frames that make any errand feel like an entrance.",
+    "details": [
+      "Acetate-look frame",
+      "UV400 lenses",
+      "Spring hinges",
+      "Case included"
+    ],
+    "art": {
+      "kind": "sunglasses",
+      "hue": 25
+    },
+    "image": "/products/cat-eye-sunglasses.jpg"
+  },
+  {
+    "slug": "nylon-belt-bag",
+    "name": "Nylon Belt Bag",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 3500,
+    "rating": 4.7,
+    "reviews": 4480,
+    "blurb": "A small belt bag you'll wear crossbody, like everyone else.",
+    "details": [
+      "Water-resistant nylon",
+      "Adjustable strap",
+      "Two zip compartments",
+      "8 x 5 in"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 150
+    },
+    "image": "/products/nylon-belt-bag.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Teal",
+        "Black",
+        "Sand"
+      ]
+    }
+  },
+  {
+    "slug": "layered-gold-necklace-set",
+    "name": "Layered Gold Necklace Set",
+    "brand": "Oro Nove",
+    "category": "accessories",
+    "priceUsd": 3200,
+    "compareAtUsd": 4200,
+    "rating": 4.6,
+    "reviews": 2370,
+    "blurb": "Three dainty chains to layer, so it looks like you planned it.",
+    "details": [
+      "18k gold plated brass",
+      "Three chains: 16, 18, 20 in",
+      "Lobster clasps",
+      "Tarnish resistant"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/layered-gold-necklace-set.jpg"
+  },
+  {
+    "slug": "pearl-drop-earrings",
+    "name": "Pearl Drop Earrings",
+    "brand": "Oro Nove",
+    "category": "accessories",
+    "priceUsd": 2800,
+    "rating": 4.7,
+    "reviews": 1890,
+    "blurb": "Freshwater pearls on small gold hoops. Instant 'put together'.",
+    "details": [
+      "Freshwater pearls",
+      "Gold-plated sterling silver hoops",
+      "12mm hoop",
+      "Nickel free"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 40
+    },
+    "image": "/products/pearl-drop-earrings.jpg"
+  },
+  {
+    "slug": "silk-hair-scarf",
+    "name": "Silk Hair Scarf",
+    "brand": "Aurée",
+    "category": "accessories",
+    "priceUsd": 2200,
+    "rating": 4.5,
+    "reviews": 870,
+    "blurb": "A small silk square for your hair, your bag handle or your neck.",
+    "details": [
+      "100% mulberry silk",
+      "Hand-rolled edges",
+      "21 x 21 in",
+      "Printed pattern"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 20
+    },
+    "image": "/products/silk-hair-scarf.jpg"
+  },
+  {
+    "slug": "everyday-shoulder-bag",
+    "name": "Everyday Shoulder Bag",
+    "brand": "Vionne",
+    "category": "accessories",
+    "priceUsd": 8900,
+    "compareAtUsd": 11900,
+    "rating": 4.6,
+    "reviews": 2140,
+    "blurb": "A slouchy shoulder bag that fits a laptop and still looks like a nice bag.",
+    "details": [
+      "Soft vegan leather",
+      "Magnetic snap closure",
+      "Inner zip pocket",
+      "13 x 10 x 4 in"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 25
+    },
+    "image": "/products/everyday-shoulder-bag.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Chocolate",
+        "Black",
+        "Taupe"
+      ]
+    }
+  },
+  {
+    "slug": "quilted-puffer-tote",
+    "name": "Quilted Puffer Tote",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 4900,
+    "rating": 4.6,
+    "reviews": 1760,
+    "blurb": "A padded nylon tote that feels like carrying a small cloud.",
+    "details": [
+      "Quilted recycled nylon",
+      "Padded laptop sleeve",
+      "Magnetic closure",
+      "15 x 12 x 5 in"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 200
+    },
+    "image": "/products/quilted-puffer-tote.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "minimal-mesh-watch",
+    "name": "Minimal Mesh Watch",
+    "brand": "Castell Row",
+    "category": "accessories",
+    "priceUsd": 6900,
+    "compareAtUsd": 8900,
+    "rating": 4.5,
+    "reviews": 1650,
+    "blurb": "A slim watch on a mesh strap that goes with everything you own.",
+    "details": [
+      "36mm stainless steel case",
+      "Japanese quartz",
+      "Mesh strap with sliding clasp",
+      "Water resistant to 30m"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/minimal-mesh-watch.jpg"
+  },
+  {
+    "slug": "gold-signet-ring",
+    "name": "Gold Signet Ring",
+    "brand": "Oro Nove",
+    "category": "accessories",
+    "priceUsd": 3900,
+    "rating": 4.6,
+    "reviews": 1120,
+    "blurb": "A chunky oval signet ring, polished and plain, ready for your initial.",
+    "details": [
+      "18k gold vermeil",
+      "Oval face, high polish",
+      "Solid band",
+      "Hypoallergenic"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/gold-signet-ring.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    }
+  },
+  {
+    "slug": "chunky-knit-scarf",
+    "name": "Chunky Knit Scarf",
+    "brand": "Fjelde",
+    "category": "accessories",
+    "priceUsd": 3200,
+    "rating": 4.7,
+    "reviews": 1340,
+    "blurb": "A thick ribbed scarf long enough to wrap twice and hide in.",
+    "details": [
+      "Soft acrylic-wool blend",
+      "Chunky rib knit",
+      "78 x 12 in",
+      "Hand wash"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 0
+    },
+    "image": "/products/chunky-knit-scarf.jpg"
+  },
+  {
+    "slug": "padded-laptop-sleeve",
+    "name": "Padded Laptop Sleeve",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 3500,
+    "rating": 4.6,
+    "reviews": 1910,
+    "blurb": "A soft padded sleeve that makes carrying a laptop feel less tragic.",
+    "details": [
+      "Water-resistant neoprene",
+      "Fits 13-14 in laptops",
+      "Zip front pocket",
+      "Soft fleece lining"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 330
+    },
+    "image": "/products/padded-laptop-sleeve.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Lilac",
+        "Sage",
+        "Black"
+      ]
+    }
+  },
+  {
+    "slug": "initial-pendant-necklace",
+    "name": "Initial Pendant Necklace",
+    "brand": "Oro Nove",
+    "category": "accessories",
+    "priceUsd": 3600,
+    "rating": 4.8,
+    "reviews": 2560,
+    "blurb": "A tiny gold initial on a fine chain. Yours, or someone you like.",
+    "details": [
+      "18k gold plated sterling silver",
+      "18 in chain with extender",
+      "Letters A-Z",
+      "Gift box included"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/initial-pendant-necklace.jpg",
+    "options": {
+      "label": "Letter",
+      "values": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "J",
+        "L",
+        "M",
+        "S"
+      ]
+    }
+  },
+  {
+    "slug": "hyaluronic-water-serum",
+    "name": "Hyaluronic Water Serum",
+    "brand": "Sage Theory",
+    "category": "beauty",
+    "priceUsd": 2200,
+    "rating": 4.7,
+    "reviews": 4630,
+    "blurb": "A watery serum that makes dry skin look like it drank eight glasses.",
+    "details": [
+      "1 fl oz / 30 mL",
+      "Five types of hyaluronic acid",
+      "Fragrance free",
+      "For all skin types"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 200
+    },
+    "image": "/products/hyaluronic-water-serum.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "retinol-night-serum",
+    "name": "Retinol Night Serum",
+    "brand": "Lantern Skin",
+    "category": "beauty",
+    "priceUsd": 3400,
+    "compareAtUsd": 4200,
+    "rating": 4.5,
+    "reviews": 2180,
+    "blurb": "A gentle retinol serum for smoother skin while you sleep.",
+    "details": [
+      "1 fl oz / 30 mL",
+      "0.3% encapsulated retinol",
+      "With squalane and ceramides",
+      "Use at night"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 270
+    },
+    "image": "/products/retinol-night-serum.jpg"
+  },
+  {
+    "slug": "lip-liner-duo",
+    "name": "Lip Liner Duo",
+    "brand": "Stave Cosmetics",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.6,
+    "reviews": 1850,
+    "blurb": "Two creamy liners, one nude, one rosy, for the overlined look.",
+    "details": [
+      "Two 0.04 oz pencils",
+      "Creamy, long-wear formula",
+      "Built-in sharpener caps",
+      "Vegan"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/lip-liner-duo.jpg"
+  },
+  {
+    "slug": "cream-blush-stick",
+    "name": "Cream Blush Stick",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 2400,
+    "rating": 4.7,
+    "reviews": 3290,
+    "blurb": "A cream blush you swipe on with your fingers and look instantly awake.",
+    "details": [
+      "0.25 oz stick",
+      "Buildable, dewy finish",
+      "Cheeks and lips",
+      "Fragrance free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 350
+    },
+    "image": "/products/cream-blush-stick.jpg",
+    "options": {
+      "label": "Shade",
+      "values": [
+        "Petal",
+        "Berry",
+        "Peach"
+      ]
+    }
+  },
+  {
+    "slug": "lengthening-mascara",
+    "name": "Lengthening Mascara",
+    "brand": "Stave Cosmetics",
+    "category": "beauty",
+    "priceUsd": 1900,
+    "rating": 4.6,
+    "reviews": 5120,
+    "blurb": "A tubing mascara that lengthens, doesn't flake and comes off with warm water.",
+    "details": [
+      "0.3 fl oz / 9 mL",
+      "Tubing formula",
+      "Slim precision brush",
+      "Smudge proof"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 0
+    },
+    "image": "/products/lengthening-mascara.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "tinted-moisturizer-spf-30",
+    "name": "Tinted Moisturizer SPF 30",
+    "brand": "Sollye",
+    "category": "beauty",
+    "priceUsd": 3200,
+    "rating": 4.5,
+    "reviews": 2470,
+    "blurb": "Light coverage, SPF 30 and a glow, for skin but better.",
+    "details": [
+      "1.7 fl oz / 50 mL",
+      "SPF 30 broad spectrum",
+      "Sheer, dewy coverage",
+      "12 shades"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 30
+    },
+    "image": "/products/tinted-moisturizer-spf-30.jpg",
+    "options": {
+      "label": "Shade",
+      "values": [
+        "Light",
+        "Medium",
+        "Tan",
+        "Deep"
+      ]
+    }
+  },
+  {
+    "slug": "heatless-curling-rod-set",
+    "name": "Heatless Curling Rod Set",
+    "brand": "Otto Botanics",
+    "category": "beauty",
+    "priceUsd": 1900,
+    "rating": 4.4,
+    "reviews": 3860,
+    "blurb": "A satin rod you sleep in and wake up with bouncy curls. No heat.",
+    "details": [
+      "Satin-wrapped foam rod",
+      "Two scrunchies and a clip",
+      "Works on damp hair",
+      "Overnight wear"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 330
+    },
+    "image": "/products/heatless-curling-rod-set.jpg"
+  },
+  {
+    "slug": "cordless-mini-straightener",
+    "name": "Cordless Mini Straightener",
+    "brand": "Novalis Instruments",
+    "category": "beauty",
+    "priceUsd": 4900,
+    "compareAtUsd": 6500,
+    "rating": 4.5,
+    "reviews": 1690,
+    "blurb": "A pocket straightener for fringe fixes and flyaways on the go.",
+    "details": [
+      "Ceramic plates",
+      "Three heat settings up to 390°F",
+      "USB-C rechargeable",
+      "Lockable for travel"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/cordless-mini-straightener.jpg"
+  },
+  {
+    "slug": "silicone-face-cleansing-brush",
+    "name": "Silicone Face Cleansing Brush",
+    "brand": "Novalis Instruments",
+    "category": "beauty",
+    "priceUsd": 3900,
+    "rating": 4.6,
+    "reviews": 2230,
+    "blurb": "A soft silicone brush that makes washing your face feel like a facial.",
+    "details": [
+      "Soft silicone bristles",
+      "Eight speeds",
+      "Waterproof",
+      "Months per charge"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 180
+    },
+    "image": "/products/silicone-face-cleansing-brush.jpg"
+  },
+  {
+    "slug": "vanilla-body-oil",
+    "name": "Vanilla Body Oil",
+    "brand": "Buttermilk",
+    "category": "beauty",
+    "priceUsd": 2800,
+    "rating": 4.7,
+    "reviews": 1970,
+    "blurb": "A dry body oil that smells like warm vanilla and sinks straight in.",
+    "details": [
+      "3.4 fl oz / 100 mL",
+      "Jojoba, almond and vanilla",
+      "Dry-touch finish",
+      "Spray pump"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 35
+    },
+    "image": "/products/vanilla-body-oil.jpg"
+  },
+  {
+    "slug": "neutral-eyeshadow-palette",
+    "name": "Neutral Eyeshadow Palette",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 3600,
+    "compareAtUsd": 4500,
+    "rating": 4.6,
+    "reviews": 2890,
+    "blurb": "Twelve wearable neutrals, from office matte to evening shimmer.",
+    "details": [
+      "12 shades, matte and shimmer",
+      "Mirror inside the lid",
+      "Highly pigmented",
+      "Vegan"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 25
+    },
+    "image": "/products/neutral-eyeshadow-palette.jpg"
+  },
+  {
+    "slug": "gel-nail-starter-kit",
+    "name": "Gel Nail Starter Kit",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 5500,
+    "rating": 4.4,
+    "reviews": 1540,
+    "blurb": "A mini LED lamp and gel polishes for a salon manicure at the kitchen table.",
+    "details": [
+      "Mini LED curing lamp",
+      "Four gel colours, base and top coat",
+      "Files and cuticle pusher",
+      "Lasts up to two weeks"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 340
+    },
+    "image": "/products/gel-nail-starter-kit.jpg"
+  },
+  {
+    "slug": "weighted-blanket-15-lb",
+    "name": "Weighted Blanket 15 lb",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 7900,
+    "compareAtUsd": 9900,
+    "rating": 4.7,
+    "reviews": 3380,
+    "blurb": "A heavy, calming blanket that makes lying down feel like a hug.",
+    "details": [
+      "15 lb, glass bead fill",
+      "Removable minky cover",
+      "48 x 72 in",
+      "Machine washable cover"
+    ],
+    "art": {
+      "kind": "chair",
+      "hue": 220
+    },
+    "image": "/products/weighted-blanket-15-lb.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Weight",
+      "values": [
+        "10 lb",
+        "15 lb",
+        "20 lb"
+      ]
+    }
+  },
+  {
+    "slug": "wavy-bath-mat",
+    "name": "Wavy Bath Mat",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 2900,
+    "rating": 4.6,
+    "reviews": 2140,
+    "blurb": "A plush wavy bath mat that makes a small bathroom look designed.",
+    "details": [
+      "Tufted cotton",
+      "Non-slip backing",
+      "20 x 32 in",
+      "Machine washable"
+    ],
+    "art": {
+      "kind": "chair",
+      "hue": 30
+    },
+    "image": "/products/wavy-bath-mat.jpg"
+  },
+  {
+    "slug": "compact-air-fryer-4-qt",
+    "name": "Compact Air Fryer 4 qt",
+    "brand": "HeatCycle",
+    "category": "home",
+    "priceUsd": 8900,
+    "compareAtUsd": 11900,
+    "rating": 4.7,
+    "reviews": 5620,
+    "blurb": "Crispy fries in 15 minutes and a lot less oil. Also, chicken wings.",
+    "details": [
+      "4 qt nonstick basket",
+      "Six presets",
+      "Up to 400°F",
+      "Dishwasher-safe basket"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 0
+    },
+    "image": "/products/compact-air-fryer-4-qt.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Cream",
+        "Black",
+        "Sage"
+      ]
+    }
+  },
+  {
+    "slug": "electric-milk-frother",
+    "name": "Electric Milk Frother",
+    "brand": "Crema Nove",
+    "category": "home",
+    "priceUsd": 1900,
+    "rating": 4.6,
+    "reviews": 4230,
+    "blurb": "Café foam in 20 seconds, for coffee that feels like an outing.",
+    "details": [
+      "Stainless steel whisk",
+      "Battery powered",
+      "Stand included",
+      "Works with dairy and oat milk"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 30
+    },
+    "image": "/products/electric-milk-frother.jpg"
+  },
+  {
+    "slug": "wavy-wall-mirror",
+    "name": "Wavy Wall Mirror",
+    "brand": "Studio Ferro",
+    "category": "home",
+    "priceUsd": 6900,
+    "rating": 4.5,
+    "reviews": 1280,
+    "blurb": "A squiggly-edged mirror that turns any hallway into a photo spot.",
+    "details": [
+      "Frameless wavy edge",
+      "24 x 36 in",
+      "Hanging hardware included",
+      "Shatter-resistant backing"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 200
+    },
+    "image": "/products/wavy-wall-mirror.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "rattan-pendant-shade",
+    "name": "Rattan Pendant Shade",
+    "brand": "Fieldgrain",
+    "category": "home",
+    "priceUsd": 5500,
+    "rating": 4.6,
+    "reviews": 980,
+    "blurb": "A handwoven rattan shade that throws the nicest patterned shadows.",
+    "details": [
+      "Handwoven natural rattan",
+      "16 in diameter",
+      "Fits standard pendant kits",
+      "Bulb not included"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 35
+    },
+    "image": "/products/rattan-pendant-shade.jpg"
+  },
+  {
+    "slug": "ceramic-planter-trio",
+    "name": "Ceramic Planter Trio",
+    "brand": "Morrow Ceramics",
+    "category": "home",
+    "priceUsd": 3200,
+    "rating": 4.7,
+    "reviews": 1560,
+    "blurb": "Three glazed planters in three sizes, for plants you'll definitely keep alive.",
+    "details": [
+      "Glazed stoneware",
+      "Drainage holes and saucers",
+      "4, 5 and 6 in",
+      "Indoor use"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 100
+    },
+    "image": "/products/ceramic-planter-trio.jpg"
+  },
+  {
+    "slug": "cordless-table-lamp",
+    "name": "Cordless Table Lamp",
+    "brand": "Lumo Glass",
+    "category": "home",
+    "priceUsd": 4500,
+    "rating": 4.6,
+    "reviews": 2090,
+    "blurb": "A rechargeable lamp you can carry to the balcony, bath or dinner table.",
+    "details": [
+      "Touch dimmer, three brightness levels",
+      "USB-C rechargeable",
+      "Up to 24 hours",
+      "Aluminium body"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 25
+    },
+    "image": "/products/cordless-table-lamp.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Orange",
+        "White",
+        "Black"
+      ]
+    }
+  },
+  {
+    "slug": "glass-food-storage-set",
+    "name": "Glass Food Storage Set",
+    "brand": "Cove Home",
+    "category": "home",
+    "priceUsd": 3900,
+    "compareAtUsd": 4900,
+    "rating": 4.7,
+    "reviews": 3240,
+    "blurb": "Ten glass containers that go from fridge to oven to desk lunch.",
+    "details": [
+      "10 borosilicate containers",
+      "Locking bamboo lids",
+      "Oven and microwave safe (glass)",
+      "Stackable"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 180
+    },
+    "image": "/products/glass-food-storage-set.jpg"
+  },
+  {
+    "slug": "aroma-diffuser-humidifier",
+    "name": "Aroma Diffuser Humidifier",
+    "brand": "Hearthly",
+    "category": "home",
+    "priceUsd": 3500,
+    "rating": 4.5,
+    "reviews": 2780,
+    "blurb": "A quiet diffuser that makes a room smell nice and glow a little.",
+    "details": [
+      "300 mL tank",
+      "Mist and light timer",
+      "Auto shut-off",
+      "Whisper-quiet"
+    ],
+    "art": {
+      "kind": "candle",
+      "hue": 30
+    },
+    "image": "/products/aroma-diffuser-humidifier.jpg"
+  },
+  {
+    "slug": "boucle-cushions-2-pack",
+    "name": "Bouclé Cushions (2-Pack)",
+    "brand": "Threadbare Goods",
+    "category": "home",
+    "priceUsd": 3900,
+    "rating": 4.6,
+    "reviews": 1470,
+    "blurb": "Two nubbly bouclé cushions that make any sofa look more expensive.",
+    "details": [
+      "Bouclé covers, hidden zips",
+      "Feather-blend inserts",
+      "18 x 18 in",
+      "Covers dry clean"
+    ],
+    "art": {
+      "kind": "chair",
+      "hue": 35
+    },
+    "image": "/products/boucle-cushions-2-pack.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Cream",
+        "Oat",
+        "Sage"
+      ]
+    }
+  },
+  {
+    "slug": "skincare-mini-fridge",
+    "name": "Skincare Mini Fridge",
+    "brand": "Bitsy Home",
+    "category": "home",
+    "priceUsd": 5900,
+    "compareAtUsd": 7500,
+    "rating": 4.5,
+    "reviews": 2310,
+    "blurb": "A tiny fridge for serums, sheet masks and a single emergency drink.",
+    "details": [
+      "4 L capacity",
+      "Cools and warms",
+      "Mirror door with LED ring",
+      "Quiet thermoelectric"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 330
+    },
+    "image": "/products/skincare-mini-fridge.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "kallo-band-fitness-tracker",
+    "name": "Kallo Band Fitness Tracker",
+    "brand": "Kallo",
+    "category": "tech",
+    "priceUsd": 4900,
+    "compareAtUsd": 6900,
+    "rating": 4.5,
+    "reviews": 3960,
+    "blurb": "A slim tracker for steps, sleep and a gentle nudge to stand up.",
+    "details": [
+      "1.1 in AMOLED display",
+      "Heart rate, sleep, SpO2",
+      "14-day battery",
+      "Water resistant to 50m"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 200
+    },
+    "image": "/products/kallo-band-fitness-tracker.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Lilac",
+        "Black",
+        "Mint"
+      ]
+    }
+  },
+  {
+    "slug": "voltwell-wireless-charging-pad",
+    "name": "Voltwell Wireless Charging Pad",
+    "brand": "Voltwell",
+    "category": "tech",
+    "priceUsd": 2500,
+    "rating": 4.6,
+    "reviews": 2870,
+    "blurb": "A slim pad that charges your phone while you pretend not to check it.",
+    "details": [
+      "15W fast wireless charging",
+      "Non-slip fabric top",
+      "LED indicator",
+      "USB-C cable included"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 30
+    },
+    "image": "/products/voltwell-wireless-charging-pad.jpg"
+  },
+  {
+    "slug": "sonvik-pebble-speaker",
+    "name": "Sonvik Pebble Speaker",
+    "brand": "Sonvik",
+    "category": "tech",
+    "priceUsd": 3500,
+    "rating": 4.6,
+    "reviews": 3150,
+    "blurb": "A palm-sized speaker with a loop, surprisingly loud for its size.",
+    "details": [
+      "5W, surprisingly deep bass",
+      "IP67 waterproof",
+      "12-hour battery",
+      "Carry loop"
+    ],
+    "art": {
+      "kind": "speaker",
+      "hue": 15
+    },
+    "image": "/products/sonvik-pebble-speaker.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Terracotta",
+        "Sage",
+        "Black"
+      ]
+    }
+  },
+  {
+    "slug": "keystead-compact-mouse",
+    "name": "Keystead Compact Mouse",
+    "brand": "Keystead",
+    "category": "tech",
+    "priceUsd": 2500,
+    "rating": 4.5,
+    "reviews": 2240,
+    "blurb": "A small, silent wireless mouse for laptops and tiny desks.",
+    "details": [
+      "Silent clicks",
+      "Bluetooth and USB receiver",
+      "18-month battery",
+      "Ambidextrous"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 90
+    },
+    "image": "/products/keystead-compact-mouse.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Mint",
+        "Pink",
+        "Graphite"
+      ]
+    }
+  },
+  {
+    "slug": "strata-laptop-stand",
+    "name": "Strata Laptop Stand",
+    "brand": "Strata",
+    "category": "tech",
+    "priceUsd": 3900,
+    "rating": 4.7,
+    "reviews": 3420,
+    "blurb": "An aluminium stand that lifts your laptop and your posture.",
+    "details": [
+      "Aluminium, folds flat",
+      "Six height settings",
+      "Fits 10-16 in laptops",
+      "Silicone pads"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 220
+    },
+    "image": "/products/strata-laptop-stand.jpg"
+  },
+  {
+    "slug": "strata-7-in-1-usb-c-hub",
+    "name": "Strata 7-in-1 USB-C Hub",
+    "brand": "Strata",
+    "category": "tech",
+    "priceUsd": 4500,
+    "rating": 4.5,
+    "reviews": 1980,
+    "blurb": "HDMI, card reader and more ports, because laptops stopped having them.",
+    "details": [
+      "4K HDMI",
+      "Two USB-A, one USB-C data",
+      "SD and microSD readers",
+      "100W passthrough"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 220
+    },
+    "image": "/products/strata-7-in-1-usb-c-hub.jpg"
+  },
+  {
+    "slug": "strata-portable-monitor-15-6",
+    "name": "Strata Portable Monitor 15.6",
+    "brand": "Strata",
+    "category": "tech",
+    "priceUsd": 11900,
+    "compareAtUsd": 14900,
+    "rating": 4.4,
+    "reviews": 1170,
+    "blurb": "A second screen that fits in your laptop bag. Productivity, supposedly.",
+    "details": [
+      "15.6 in Full HD IPS",
+      "Single USB-C connection",
+      "Magnetic cover stand",
+      "0.35 in thin"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 220
+    },
+    "image": "/products/strata-portable-monitor-15-6.jpg"
+  },
+  {
+    "slug": "ninebit-rgb-gaming-mouse",
+    "name": "Ninebit RGB Gaming Mouse",
+    "brand": "Ninebit",
+    "category": "tech",
+    "priceUsd": 4900,
+    "rating": 4.6,
+    "reviews": 2650,
+    "blurb": "A light gaming mouse with a sensor faster than your excuses.",
+    "details": [
+      "26K DPI sensor",
+      "58g honeycomb shell",
+      "Customisable RGB",
+      "Six programmable buttons"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 270
+    },
+    "image": "/products/ninebit-rgb-gaming-mouse.jpg"
+  },
+  {
+    "slug": "brightlane-stream-stick-4k",
+    "name": "Brightlane Stream Stick 4K",
+    "brand": "Brightlane",
+    "category": "tech",
+    "priceUsd": 3900,
+    "compareAtUsd": 4900,
+    "rating": 4.6,
+    "reviews": 4410,
+    "blurb": "Plug it into the TV and every streaming app is suddenly there.",
+    "details": [
+      "4K HDR, Dolby sound",
+      "Voice remote",
+      "Wi-Fi 6",
+      "Plugs into any HDMI port"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 280
+    },
+    "image": "/products/brightlane-stream-stick-4k.jpg"
+  },
+  {
+    "slug": "sonvik-open-ear-sport-buds",
+    "name": "Sonvik Open-Ear Sport Buds",
+    "brand": "Sonvik",
+    "category": "tech",
+    "priceUsd": 7900,
+    "rating": 4.5,
+    "reviews": 1640,
+    "blurb": "Open-ear headphones that stay put and still let you hear traffic.",
+    "details": [
+      "Open-ear design",
+      "Secure ear hooks",
+      "8-hour battery",
+      "IP55 sweat resistant"
+    ],
+    "art": {
+      "kind": "headphones",
+      "hue": 180
+    },
+    "image": "/products/sonvik-open-ear-sport-buds.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "keystead-retro-keyboard",
+    "name": "Keystead Retro Keyboard",
+    "brand": "Keystead",
+    "category": "tech",
+    "priceUsd": 6900,
+    "rating": 4.6,
+    "reviews": 1520,
+    "blurb": "A typewriter-style wireless keyboard with round keys and satisfying clicks.",
+    "details": [
+      "Round retro keycaps",
+      "Bluetooth, three devices",
+      "Tactile switches",
+      "Built-in tablet stand"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 40
+    },
+    "image": "/products/keystead-retro-keyboard.jpg"
+  },
+  {
+    "slug": "zapio-mini-label-printer",
+    "name": "Zapio Mini Label Printer",
+    "brand": "Zapio",
+    "category": "tech",
+    "priceUsd": 4500,
+    "rating": 4.5,
+    "reviews": 1980,
+    "blurb": "A tiny label printer for jars, cables and your new organised era.",
+    "details": [
+      "Thermal printing, no ink",
+      "Bluetooth app with fonts",
+      "Prints 15mm labels",
+      "Rechargeable"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 330
+    },
+    "image": "/products/zapio-mini-label-printer.jpg"
   }
 ];
