@@ -66,7 +66,7 @@ export async function setCurrency(formData: FormData) {
 
 // ---------- Auth ----------
 
-const emailSchema = z.email().max(254).transform((e) => e.trim().toLowerCase());
+const emailSchema = z.email("Please enter a valid email address.").max(254).transform((e) => e.trim().toLowerCase());
 
 export async function requestLoginLink(_prev: unknown, formData: FormData) {
   const parsed = emailSchema.safeParse(String(formData.get("email") ?? "").trim());

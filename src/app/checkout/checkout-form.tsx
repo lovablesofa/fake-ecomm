@@ -60,7 +60,8 @@ export function CheckoutForm(props: Props) {
   const money = (c: number) => formatMoney(c, props.currency);
 
   return (
-    <form key={JSON.stringify(v ?? null)} action={action} className="mt-8 grid gap-10 lg:grid-cols-[1fr_380px]">
+    // noValidate: the server checks every field and answers in English; browser bubbles follow the OS language.
+    <form key={JSON.stringify(v ?? null)} action={action} noValidate className="mt-8 grid gap-10 lg:grid-cols-[1fr_380px]">
       <div className="space-y-10">
         <section>
           <h2 className="text-lg font-medium">Contact</h2>

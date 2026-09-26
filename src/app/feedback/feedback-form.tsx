@@ -26,7 +26,8 @@ export function FeedbackForm({ email }: { email: string }) {
 
   const values = state?.values;
   return (
-    <form action={action} className="mt-10 space-y-6">
+    // noValidate: the server checks every field and answers in English; browser bubbles follow the OS language.
+    <form action={action} noValidate className="mt-10 space-y-6">
       <fieldset>
         <legend className="mb-2 text-sm text-muted">What&apos;s it about?</legend>
         <div className="flex flex-wrap gap-2">
