@@ -12,14 +12,17 @@ const EXTENSIONS: Record<string, string> = { "image/png": "png", "image/jpeg": "
 // Styled, in-context shots per category: studio packshots on beige read as "AI catalog".
 // People only ever appear cropped (no faces), which keeps them from looking uncanny.
 const SCENES: Record<string, string> = {
-  fashion: "Editorial lookbook photo: the item is worn by a model, cropped so the face is out of frame (for shoes, crop to legs and feet). Natural daylight, city street, sunlit wall or minimal apartment backdrop.",
+  fashion: "Editorial lookbook photo: the item is worn by a clearly adult model, cropped so the face is out of frame (for shoes, crop to legs and feet). Natural daylight, city street, sunlit wall or minimal apartment backdrop.",
   accessories: "Editorial still life or on-body close-up: worn or held by a model cropped with no face visible, or styled on a textured surface such as marble, linen or a café table with one or two props. Warm natural light.",
   beauty: "Styled beauty still life on a bathroom shelf, vanity or stone ledge, with soft morning light, subtle water droplets or a folded towel, and one or two props.",
   home: "Interior photo in a real, lived-in, well-styled room, the product in natural use. Soft window light, shallow depth of field.",
   tech: "Lifestyle tech photo in natural use: on a tidy desk, sofa, kitchen counter or held in hands, cropped with no face visible. Natural light, screens dark or showing abstract colour only.",
+  still: "Styled still life or flat lay on a textured surface such as a wooden dresser, linen or a made bed, with one or two props. No people, no body parts.",
 };
-const photoPrompt = (subject: string, category: string) =>
-  `Photorealistic premium brand photo of ${subject}. ${SCENES[category] ?? ""} ` +
+// Products that read wrong when worn (the socks came back on child-looking legs): shot as a still life instead.
+const STILL_LIFE = new Set(["everyday-crew-socks-5-pack"]);
+const photoPrompt = (subject: string, category: string, slug: string) =>
+  `Photorealistic premium brand photo of ${subject}. ${SCENES[STILL_LIFE.has(slug) ? "still" : category] ?? ""} ` +
   `The product is the clear hero, sharp and fully visible, square composition, shot on a full-frame camera with realistic textures and imperfections. Neutral, true-to-life white balance and a setting with its own distinct colours; avoid an overall beige, sepia or golden-hour look. ` +
   `The design is original and must not resemble any existing branded product. No text, no numbers, no logos, no watermark, no visible faces.`;
 
@@ -74,7 +77,7 @@ async function main() {
       if (old) fs.rmSync(old);
       fs.writeFileSync(`${IMAGE_DIR}/${slug}.${ext}`, bytes);
     };
-    const jobs = todo.map((r) => ({ key: r.slug, prompt: photoPrompt(r.image_prompt, r.category) }));
+    const jobs = todo.map((r) => ({ key: r.slug, prompt: photoPrompt(r.image_prompt, r.category, r.slug) }));
     console.log(`Generating ${jobs.length} photo(s) with GPT Image 1 mini (~$${(jobs.length * 0.0086).toFixed(2)})...`);
     const failed = await generateImages(apiKey, jobs, save);
     if (failed.length) {

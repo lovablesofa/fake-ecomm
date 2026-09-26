@@ -5043,11 +5043,11 @@ export const GENERATED_PRODUCTS: Product[] = [
     "compareAtUsd": 2000,
     "rating": 4.7,
     "reviews": 5840,
-    "blurb": "Five pairs of soft ribbed socks, so the odd-sock drawer finally closes.",
+    "blurb": "Five matching pairs of soft ribbed socks, so the odd-sock drawer finally closes.",
     "details": [
       "80% cotton, cushioned sole",
       "Ribbed cuff that stays up",
-      "Five colours per pack",
+      "Five matching pairs per pack",
       "Machine washable"
     ],
     "art": {

@@ -69,8 +69,8 @@ export default async function Shop({ searchParams }: PageProps<"/shop">) {
         ))}
       </div>
       <div className="product-grid mt-6">
-        {visible.map((p) => (
-          <ProductCard key={p.slug} product={p} currency={currency} />
+        {visible.map((p, i) => (
+          <ProductCard key={p.slug} product={p} currency={currency} eager={i < 5} />
         ))}
       </div>
       {pages > 1 && (

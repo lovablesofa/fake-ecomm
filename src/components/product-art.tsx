@@ -148,13 +148,15 @@ type Props = {
   alt?: string;
   // Rendered width hint for next/image, e.g. "(max-width: 1024px) 50vw, 25vw".
   sizes?: string;
+  // Above the fold (hero, first grid row, product photo): load right away, it is the page's LCP.
+  eager?: boolean;
 };
 
-export function ProductArt({ kind, hue, className = "", image, alt = "", sizes = "50vw" }: Props) {
+export function ProductArt({ kind, hue, className = "", image, alt = "", sizes = "50vw", eager }: Props) {
   if (image) {
     return (
       <div className={`relative overflow-hidden ${className}`} style={{ background: `hsl(${hue} 42% 91%)` }}>
-        <Image src={image} alt={alt} fill sizes={sizes} className="object-cover" />
+        <Image src={image} alt={alt} fill sizes={sizes} loading={eager ? "eager" : undefined} className="object-cover" />
       </div>
     );
   }

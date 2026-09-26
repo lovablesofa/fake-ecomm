@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
         <Link href={`/shop?category=${product.category}`} className="hover:underline">{categoryName(product.category)}</Link>
       </nav>
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
-        <ProductArt {...product.art} image={product.image} alt={product.name} sizes="(max-width: 1024px) 100vw, 576px" className="aspect-square rounded-xl" />
+        <ProductArt {...product.art} image={product.image} alt={product.name} eager sizes="(max-width: 1024px) 100vw, 576px" className="aspect-square rounded-xl" />
         <div className="lg:py-6">
           <p className="text-sm uppercase tracking-wider text-muted">{product.brand}</p>
           <h1 className="mt-1 font-display text-3xl leading-tight sm:text-4xl">{product.name}</h1>

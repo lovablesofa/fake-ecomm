@@ -73,7 +73,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
         <div className="grid grid-cols-2 gap-4">
           {HERO.map((p, i) => (
             <Link key={p.slug} href={`/product/${p.slug}`} className={`group relative block overflow-hidden rounded-xl ${i % 2 ? "translate-y-8" : ""}`}>
-              <ProductArt {...p.art} image={p.image} alt={p.name} sizes="(max-width: 1024px) 50vw, 288px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
+              <ProductArt {...p.art} image={p.image} alt={p.name} eager sizes="(max-width: 1024px) 50vw, 288px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
               {/* Price tags on the diagonal pair, so the hero reads as a shop without getting busy. */}
               {(i === 0 || i === 3) && (
                 <span className="absolute bottom-3 left-3 right-3 flex flex-col rounded-lg bg-white/95 px-3 py-2 text-sm shadow-sm backdrop-blur sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">

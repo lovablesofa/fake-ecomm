@@ -5,12 +5,12 @@ import { discountPct, Price } from "./price";
 import { ProductArt } from "./product-art";
 import { Stars } from "./stars";
 
-export function ProductCard({ product, currency }: { product: Product; currency: Currency }) {
+export function ProductCard({ product, currency, eager }: { product: Product; currency: Currency; eager?: boolean }) {
   const off = discountPct(product.priceUsd, product.compareAtUsd);
   return (
     <Link href={`/product/${product.slug}`} className="group flex flex-col rounded-xl bg-white p-2 ring-1 ring-line transition hover:shadow-md hover:ring-ink/20">
       <div className="relative overflow-hidden rounded-lg">
-        <ProductArt {...product.art} image={product.image} alt={product.name} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 224px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
+        <ProductArt {...product.art} image={product.image} alt={product.name} eager={eager} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 224px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
         <div className="absolute left-2 top-2 flex flex-col items-start gap-1">
           {off > 0 && <span className="rounded-md bg-deal px-2 py-0.5 text-xs font-bold text-white">-{off}%</span>}
           {product.badge && <span className="rounded-md bg-sun px-2 py-0.5 text-xs font-semibold text-ink">{product.badge}</span>}
