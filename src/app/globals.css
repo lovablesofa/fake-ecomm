@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #fbfaf8;
-  --color-ink: #1c1917;
-  --color-muted: #57534e;
-  --color-line: #e7e5e4;
+  --color-paper: #f2f3f5;
+  --color-ink: #16181d;
+  --color-muted: #5b606b;
+  --color-line: #e2e4e8;
   /* A brighter take on the green of the logo's S (#2c685c). */
   --color-accent: #0d6e5a;
   --color-accent-strong: #0a5747;
   --color-accent-soft: #e3f1ec;
+  /* Deals, markdowns and "under $25": loud on purpose. */
+  --color-deal: #c2410c;
+  --color-deal-soft: #ffedd5;
+  --color-sun: #fde047;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-display: var(--font-display-serif), Georgia, serif;
+  --font-display: var(--font-display-sans), system-ui, sans-serif;
 }
 
 html {
@@ -22,17 +26,28 @@ body {
   color: var(--color-ink);
 }
 
+@layer base {
+  /* Headings are chunky by default; a weight utility still wins. */
+  .font-display {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-medium text-white transition hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60;
+    @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-semibold text-white transition hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-ink px-6 py-3 font-medium transition hover:bg-ink hover:text-white disabled:cursor-wait disabled:opacity-60;
+    @apply inline-flex items-center justify-center rounded-full border border-ink bg-white px-6 py-3 font-semibold transition hover:bg-ink hover:text-white disabled:cursor-wait disabled:opacity-60;
   }
   .input {
-    @apply w-full rounded-xl border border-line bg-white px-4 py-3 outline-none transition focus:border-ink focus:ring-2 focus:ring-ink/10;
+    @apply w-full rounded-lg border border-line bg-white px-4 py-3 outline-none transition focus:border-ink focus:ring-2 focus:ring-ink/10;
   }
   .card {
-    @apply rounded-2xl border border-line bg-white;
+    @apply rounded-xl border border-line bg-white;
+  }
+  .product-grid {
+    @apply grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5;
   }
 }

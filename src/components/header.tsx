@@ -1,39 +1,49 @@
 import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { getCart } from "@/lib/cart";
+import { CATEGORIES, dealName, DEALS } from "@/lib/catalog";
 import { BRAND } from "@/lib/config";
 import { CurrencySelect } from "./currency-select";
 
 export async function Header() {
   const [user, cart] = await Promise.all([getCurrentUser(), getCart()]);
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur">
-      <div className="bg-accent px-4 py-2 text-center text-xs text-white/90">
-        Simulated store: nothing is charged and nothing ships. <Link href="/how-it-works" className="underline underline-offset-2">That&apos;s the point.</Link>
+    <header className="sticky top-0 z-30 border-b border-line bg-white">
+      <div className="bg-ink px-4 py-2 text-center text-xs text-white/90">
+        Simulated store: nothing is charged and nothing ships. <Link href="/how-it-works" className="font-semibold text-sun underline underline-offset-2">That&apos;s the point.</Link>
       </div>
-      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:gap-6">
-        <Link href="/" className="font-display text-2xl leading-none tracking-tight">{BRAND.name}</Link>
-        <nav className="hidden gap-5 text-sm sm:flex">
-          <Link href="/shop" className="hover:underline">Shop</Link>
-          <Link href="/how-it-works" className="hover:underline">How it works</Link>
-        </nav>
-        <div className="ml-auto flex items-center gap-3 text-sm sm:gap-4">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:gap-6">
+        <Link href="/" className="whitespace-nowrap font-display text-xl leading-none text-accent sm:text-2xl">{BRAND.name}</Link>
+        <div className="ml-auto flex items-center gap-2 whitespace-nowrap text-sm sm:gap-4">
+          <Link href="/how-it-works" className="hidden hover:underline sm:inline">How it works</Link>
           <CurrencySelect value={cart.currency} />
           {user ? (
-            <Link href="/account" className="hover:underline">Account</Link>
+            <>
+              <Link href="/orders" className="hidden hover:underline sm:inline">Orders</Link>
+              <Link href="/account" className="hover:underline">Account</Link>
+            </>
           ) : (
             <Link href="/login" className="hover:underline">Sign in</Link>
           )}
-          <Link href="/cart" className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-white transition hover:bg-accent-strong">
+          <Link href="/cart" className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 font-semibold text-white transition hover:bg-accent-strong">
             Bag
-            <span className="min-w-5 rounded-full bg-white px-1.5 text-center text-xs font-semibold text-ink">{cart.count}</span>
+            <span className="min-w-5 rounded-full bg-sun px-1.5 text-center text-xs font-bold text-ink">{cart.count}</span>
           </Link>
         </div>
       </div>
-      <nav className="flex gap-5 border-t border-line px-4 py-2 text-sm sm:hidden">
-        <Link href="/shop">Shop</Link>
-        <Link href="/how-it-works">How it works</Link>
-        {user && <Link href="/orders">Orders</Link>}
+      {/* Amazon-style department bar: deals first, then every category. Scrolls sideways on phones. */}
+      <nav className="border-t border-line">
+        <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto whitespace-nowrap px-4 py-2 text-sm">
+          {DEALS.map((d) => (
+            <Link key={d} href={`/shop?deal=${d}`} className="rounded-full bg-deal-soft px-3 py-1 font-semibold text-deal hover:bg-deal hover:text-white">
+              {dealName(d, cart.currency)}
+            </Link>
+          ))}
+          {CATEGORIES.map((c) => (
+            <Link key={c.slug} href={`/shop?category=${c.slug}`} className="rounded-full px-3 py-1 hover:bg-paper">{c.name}</Link>
+          ))}
+          <Link href="/shop" className="rounded-full px-3 py-1 hover:bg-paper">All</Link>
+        </div>
       </nav>
     </header>
   );

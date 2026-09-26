@@ -16,8 +16,9 @@ const MAX_ATTEMPTS = 3;
 const CATEGORY_SCOPE: Record<string, { scope: string; prices: string }> = {
   fashion: { scope: "clothing and footwear only: tops, knitwear, shirts, trousers, dresses, coats, jackets, shoes, boots, trainers", prices: "$25 to $900" },
   beauty: { scope: "skincare, haircare, makeup, fragrance, bath and body, grooming tools", prices: "$8 to $250" },
-  accessories: { scope: "bags, wallets, small leather goods, watches, jewellery, sunglasses, belts, scarves, hats, gloves, ties", prices: "$20 to $1,500" },
-  home: { scope: "homeware and decor: tableware, glassware, kitchen tools, textiles and bedding, candles, lighting, vases, small furniture", prices: "$12 to $1,200" },
+  accessories: { scope: "bags, wallets, small leather goods, watches, jewellery, sunglasses, belts, scarves, hats", prices: "$20 to $1,200" },
+  home: { scope: "homeware and decor: tableware, glassware, kitchen appliances, textiles and bedding, candles, lighting, rugs, furniture", prices: "$12 to $1,200" },
+  tech: { scope: "consumer electronics and gadgets: audio, wearables, phones, tablets, computers and peripherals, gaming, cameras, drones, smart home", prices: "$30 to $1,200" },
 };
 
 const Batch = z.object({
@@ -43,12 +44,14 @@ const SYSTEM = `You write product listings for Window Spree, an English-language
 
 Hard rules:
 - Every brand and product name is invented. Never use or closely imitate a real brand, trademark, or product line.
-- Products are ordinary physical goods a person would plausibly buy online.
+- Products are ordinary physical goods a person would plausibly buy online, and ones people actually crave: trending, giftable, a little aspirational.
+- Never describe a product so it copies a famous design (a console, phone, bag or watch someone would recognise).
 - Copy is in English, confident and specific. A little dry wit in blurbs is welcome; no emoji.
 
 Fields:
 - name: product name as shown on the shop, 2-5 words, may include a model word or number.
-- brand: invented brand. Reuse a brand across a few products when it fits, like a real store.
+- brand: invented brand. Reuse a brand across a few products when it fits, like a real store. Vary the naming style (one coined word, a surname, a studio or lab, a foreign word) and never use the "Word & Word" pattern.
+- Product names are plain and descriptive; avoid recycled poetic words (Holloway, Meridian, Halcyon, Solstice, Larkspur...).
 - price_usd: realistic retail price in dollars, ending in .00, .50 or .99.
 - compare_at_usd: a higher "was" price for about 1 in 4 products, otherwise null.
 - rating: 3.8 to 4.9, one decimal. reviews: 12 to 6000, varied.
@@ -141,7 +144,7 @@ class AuthError extends Error {
 }
 
 function toRow(p: z.infer<typeof Batch>["products"][number], category: string, taken: Set<string>): Row {
-  const base = p.name.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const base = p.name.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   let slug = base;
   for (let n = 2; taken.has(slug); n++) slug = `${base}-${n}`;
   taken.add(slug);

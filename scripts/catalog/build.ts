@@ -9,11 +9,19 @@ import { GENERATED_TS, IMAGE_DIR, RowSchema, loadEnv, readRows, CSV_PATH } from 
 
 const EXTENSIONS: Record<string, string> = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" };
 
-// Shared framing so every photo looks like part of the same shop.
-const photoPrompt = (subject: string) =>
-  `Professional e-commerce studio product photo of ${subject}. Single product, centered, fully in frame, ` +
-  `soft diffused lighting, gentle shadow, plain light seamless background, square composition. ` +
-  `No text, no logos, no watermark, no people.`;
+// Styled, in-context shots per category: studio packshots on beige read as "AI catalog".
+// People only ever appear cropped (no faces), which keeps them from looking uncanny.
+const SCENES: Record<string, string> = {
+  fashion: "Editorial lookbook photo: the item is worn by a model, cropped so the face is out of frame (for shoes, crop to legs and feet). Natural daylight, city street, sunlit wall or minimal apartment backdrop.",
+  accessories: "Editorial still life or on-body close-up: worn or held by a model cropped with no face visible, or styled on a textured surface such as marble, linen or a café table with one or two props. Warm natural light.",
+  beauty: "Styled beauty still life on a bathroom shelf, vanity or stone ledge, with soft morning light, subtle water droplets or a folded towel, and one or two props.",
+  home: "Interior photo in a real, lived-in, well-styled room, the product in natural use. Soft window light, shallow depth of field.",
+  tech: "Lifestyle tech photo in natural use: on a tidy desk, sofa, kitchen counter or held in hands, cropped with no face visible. Natural light, screens dark or showing abstract colour only.",
+};
+const photoPrompt = (subject: string, category: string) =>
+  `Photorealistic premium brand photo of ${subject}. ${SCENES[category] ?? ""} ` +
+  `The product is the clear hero, sharp and fully visible, square composition, shot on a full-frame camera with realistic textures and imperfections. Neutral, true-to-life white balance and a setting with its own distinct colours; avoid an overall beige, sepia or golden-hour look. ` +
+  `The design is original and must not resemble any existing branded product. No text, no numbers, no logos, no watermark, no visible faces.`;
 
 async function main() {
   loadEnv();
@@ -66,7 +74,7 @@ async function main() {
       if (old) fs.rmSync(old);
       fs.writeFileSync(`${IMAGE_DIR}/${slug}.${ext}`, bytes);
     };
-    const jobs = todo.map((r) => ({ key: r.slug, prompt: photoPrompt(r.image_prompt) }));
+    const jobs = todo.map((r) => ({ key: r.slug, prompt: photoPrompt(r.image_prompt, r.category) }));
     console.log(`Generating ${jobs.length} photo(s) with GPT Image 1 mini (~$${(jobs.length * 0.0086).toFixed(2)})...`);
     const failed = await generateImages(apiKey, jobs, save);
     if (failed.length) {

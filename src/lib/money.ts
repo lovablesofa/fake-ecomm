@@ -18,3 +18,8 @@ export function convert(cents: number, from: Currency, to: Currency) {
   if (from === to) return cents;
   return Math.round((cents / CURRENCIES[from].rate) * CURRENCIES[to].rate);
 }
+
+/** A round amount without decimals, e.g. "$25" or "20 €", for labels rather than prices. */
+export function formatWhole(cents: number, currency: Currency) {
+  return new Intl.NumberFormat(CURRENCIES[currency].locale, { style: "currency", currency, maximumFractionDigits: 0 }).format(cents / 100);
+}
