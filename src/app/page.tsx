@@ -55,6 +55,9 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       )}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-12 pt-8 sm:pt-12 lg:grid-cols-2">
         <div>
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-sun px-3 py-1 text-sm font-semibold text-ink">
+            Pretend shop: no real orders, no charges, nothing ships
+          </p>
           <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl">
             All the spree.
             <br />

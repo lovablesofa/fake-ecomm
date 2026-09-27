@@ -72,7 +72,8 @@ ${button(link, "Sign in")}
 
 export function orderConfirmationEmail(order: Order, items: OrderItem[]) {
   const c = order.currency as Currency;
-  const subject = `Order confirmed: #${order.number}`;
+  // "Pretend" leads every order subject, so an inbox preview never passes for a real purchase.
+  const subject = `Pretend order confirmed: #${order.number}`;
   const text = `Thanks for your order #${order.number}. Total: ${formatMoney(order.total, c)} (simulated, not charged).\nTrack it: ${orderUrl(order)}`;
   const html = layout(
     `Order #${order.number} is confirmed. ${formatMoney(order.total, c)}, not charged.`,
@@ -88,18 +89,18 @@ ${button(orderUrl(order), "Track your order")}`,
 
 const STAGE_COPY = {
   1: {
-    subject: (o: Order) => `Your order #${o.number} has shipped`,
+    subject: (o: Order) => `Your pretend order #${o.number} has shipped`,
     heading: "Your order is on its way",
     body: (o: Order) =>
       `Your package just left our warehouse with ${BRAND.carrier}. Tracking number <strong>${o.trackingNumber}</strong>.`,
   },
   3: {
-    subject: (o: Order) => `Out for delivery today: #${o.number}`,
+    subject: (o: Order) => `Pretend order out for delivery: #${o.number}`,
     heading: "Out for delivery",
     body: (o: Order) => `Your package is on the van in ${esc(o.shipCity)} and should arrive today.`,
   },
   4: {
-    subject: (o: Order) => `Delivered: #${o.number}`,
+    subject: (o: Order) => `Pretend order delivered: #${o.number}`,
     heading: "Your order has been delivered",
     body: () =>
       `It's at your door. Well, not really. But the money is still in your account, and that's the part that lasts.<br><br>One quick question on the order page: <strong>did this take the edge off the urge?</strong> It takes two seconds.`,
@@ -109,7 +110,7 @@ const STAGE_COPY = {
 export function trackingEmail(order: Order, stage: 1 | 3 | 4) {
   const copy = STAGE_COPY[stage];
   const subject = copy.subject(order);
-  const text = `${copy.heading}. Order #${order.number}. ${orderUrl(order)}`;
+  const text = `${copy.heading}. Order #${order.number} (simulated, nothing ships). ${orderUrl(order)}`;
   const html = layout(
     subject,
     `<h1 style="font-size:22px;margin:8px 0 12px">${copy.heading}</h1>

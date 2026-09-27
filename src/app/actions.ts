@@ -1,7 +1,7 @@
 "use server";
 
 import { and, eq, gt, inArray, or } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { refresh, revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -62,6 +62,24 @@ export async function updateCartQuantity(formData: FormData) {
 export async function setCurrency(formData: FormData) {
   const currency = formData.get("currency");
   if (isCurrency(currency)) await setCurrencyCookie(currency);
+}
+
+// ---------- Saved items ----------
+
+/** Sets whether a product is on the signed-in person's saved list. Signed out, it sends them to sign in first. */
+export async function setSaved(formData: FormData) {
+  const slug = String(formData.get("slug") ?? "");
+  const user = await getCurrentUser();
+  if (!user) redirect(`/login?reason=save&next=${encodeURIComponent(safeNext(formData.get("next")))}`);
+  if (!getProduct(slug)) return;
+  if (formData.get("saved") === "1") {
+    await db.insert(schema.savedItems).values({ userId: user.id, productSlug: slug }).onConflictDoNothing();
+  } else {
+    await db
+      .delete(schema.savedItems)
+      .where(and(eq(schema.savedItems.userId, user.id), eq(schema.savedItems.productSlug, slug)));
+  }
+  refresh();
 }
 
 // ---------- Auth ----------
@@ -216,6 +234,7 @@ export async function deleteAccount(formData: FormData) {
   await db.batch([
     db.delete(schema.orderItems).where(inArray(schema.orderItems.orderId, orderIds.length ? orderIds : [""])),
     db.delete(schema.orders).where(eq(schema.orders.userId, user.id)),
+    db.delete(schema.savedItems).where(eq(schema.savedItems.userId, user.id)),
     db.delete(schema.sessions).where(eq(schema.sessions.userId, user.id)),
     db.delete(schema.loginTokens).where(eq(schema.loginTokens.email, user.email)),
     db.delete(schema.emails).where(eq(schema.emails.to, user.email)),

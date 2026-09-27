@@ -12,7 +12,7 @@ export function CurrencySelect({ value }: { value: Currency }) {
         name="currency"
         defaultValue={value}
         onChange={(e) => e.currentTarget.form?.requestSubmit()}
-        className="cursor-pointer rounded-full border border-line bg-transparent px-2 py-1 text-sm"
+        className="cursor-pointer rounded-full border border-line bg-transparent px-1.5 py-1 text-sm sm:px-2"
       >
         {Object.entries(CURRENCIES).map(([code, c]) => (
           <option key={code} value={code}>{c.label}</option>

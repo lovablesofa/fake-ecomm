@@ -1,4 +1,4 @@
-import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { index, integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 const createdAt = () =>
   integer("created_at", { mode: "timestamp_ms" })
@@ -116,6 +116,19 @@ export const feedback = sqliteTable(
     createdAt: createdAt(),
   },
   (t) => [index("feedback_ip_idx").on(t.ipHash, t.createdAt)],
+);
+
+// Hearted products. Account-only, so the list follows the person across devices.
+export const savedItems = sqliteTable(
+  "saved_items",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    productSlug: text("product_slug").notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.productSlug] }), index("saved_items_user_idx").on(t.userId, t.createdAt)],
 );
 
 export type Order = typeof orders.$inferSelect;

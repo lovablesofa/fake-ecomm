@@ -16,7 +16,9 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
       <p className="mt-3 text-muted">
         {next === "/checkout"
           ? "Almost there. Sign in so we can send your order confirmation and tracking updates."
-          : "We'll email you a link to sign in. No password needed."}
+          : params.reason === "save"
+            ? "Sign in to save things for later. Your list stays on your account, so it's there when the urge comes back."
+            : "We'll email you a link to sign in. No password needed."}
       </p>
       {params.error === "expired" && (
         <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900" role="alert">
