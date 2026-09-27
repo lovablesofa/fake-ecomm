@@ -18,7 +18,7 @@ const fmt = (d: Date) => d.toLocaleString("en-GB", { weekday: "short", day: "num
 
 export default async function OrderPage({ params, searchParams }: PageProps<"/orders/[id]">) {
   const { id } = await params;
-  const { placed } = await searchParams;
+  const { placed, urge } = await searchParams;
   const user = await requireUser(`/orders/${id}`);
   const order = await getUserOrder(user.id, id);
   if (!order) notFound();
@@ -27,6 +27,8 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
   const events = trackingEvents(order).filter((e) => e.done).reverse();
   const money = (c: number) => formatMoney(c, order.currency);
   const eta = stage < DELIVERED ? order.deliversAt : null;
+  // The score tapped in the delivery email. It only highlights the button: saving still takes a tap here.
+  const picked = [1, 2, 3, 4, 5].find((n) => String(n) === urge);
 
   return (
     <div className="mx-auto max-w-5xl px-4 pt-10">
@@ -76,7 +78,7 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
       </section>
 
       {stage === DELIVERED && (
-        <section className="card mt-6 p-6">
+        <section id="urge" className="card mt-6 scroll-mt-40 p-6">
           <h3 className="font-display text-3xl">Did this take the edge off the urge?</h3>
           {order.urgeAfter ? (
             <p className="mt-3 text-muted">
@@ -86,10 +88,11 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
             </p>
           ) : (
             <form action={setUrgeAfter} className="mt-5">
+              {picked && <p className="mb-3 text-sm text-accent">You picked {picked} in the email. Tap it again to save your answer.</p>}
               <input type="hidden" name="orderId" value={order.id} />
               <div className="flex flex-wrap gap-2">
                 {[1, 2, 3, 4, 5].map((n) => (
-                  <SubmitButton key={n} name="score" value={String(n)} className="btn-secondary min-w-14 tabular-nums">{n}</SubmitButton>
+                  <SubmitButton key={n} name="score" value={String(n)} className={`${n === picked ? "btn-primary" : "btn-secondary"} min-w-14 tabular-nums`}>{n}</SubmitButton>
                 ))}
               </div>
               <p className="mt-2 flex max-w-72 justify-between text-xs text-muted"><span>1 · Not at all</span><span>5 · Completely</span></p>
