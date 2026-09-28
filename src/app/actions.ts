@@ -6,6 +6,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import {
+  consumeLoginCode,
   consumeLoginToken,
   createLoginToken,
   destroySession,
@@ -86,23 +87,45 @@ export async function setSaved(formData: FormData) {
 
 const emailSchema = z.email("Please enter a valid email address.").max(254).transform((e) => e.trim().toLowerCase());
 
-export async function requestLoginLink(_prev: unknown, formData: FormData) {
+// `devOutbox`: no email provider is configured locally, so the code is only in /dev/outbox.
+export type LoginState = { error?: string; sentTo?: string; devOutbox?: boolean } | undefined;
+
+/** Emails a sign-in code (and a link, for opening it on another device). The form then asks for the code in place. */
+export async function requestLoginLink(_prev: LoginState, formData: FormData): Promise<LoginState> {
   const parsed = emailSchema.safeParse(String(formData.get("email") ?? "").trim());
   if (!parsed.success) return { error: "Please enter a valid email address." };
   const email = parsed.data;
   const next = safeNext(formData.get("next"));
 
   if ((await recentLoginTokenCount(email, 15)) >= 3) {
-    return { error: "Too many sign-in links requested. Please check your inbox or try again in 15 minutes." };
+    return { error: "Too many codes requested. Please check your inbox or try again in 15 minutes." };
   }
 
-  const token = await createLoginToken(email, next);
+  const { token, code } = await createLoginToken(email, next);
   const link = `${APP_URL}/auth/verify?token=${encodeURIComponent(token)}`;
-  const status = await sendEmail({ to: email, kind: "login", ...loginEmail(link) });
+  const status = await sendEmail({ to: email, kind: "login", ...loginEmail(link, code) });
   if (status === "failed") {
-    return { error: "We couldn't send your sign-in link right now. Please try again in a few minutes." };
+    return { error: "We couldn't send your code right now. Please try again in a few minutes." };
   }
-  redirect(`/login/check-email?email=${encodeURIComponent(email)}`);
+  return { sentTo: email, devOutbox: status === "logged" && process.env.NODE_ENV !== "production" };
+}
+
+export async function verifyLoginCode(_prev: LoginState, formData: FormData): Promise<LoginState> {
+  const email = emailSchema.safeParse(String(formData.get("email") ?? "").trim());
+  // Spaces and dashes are fine: people paste "123 456" or "123-456".
+  const code = String(formData.get("code") ?? "").replace(/[\s-]/g, "");
+  if (!email.success) return { error: "Please enter a valid email address." };
+  if (!/^\d{6}$/.test(code)) return { sentTo: email.data, error: "Enter the 6-digit code from the email." };
+
+  const result = await consumeLoginCode(email.data, code);
+  if (result.status !== "ok") {
+    const error = result.status === "wrong"
+      ? "That code isn't right. Check the latest email and try again."
+      : "That code has expired or had too many tries. Send a new one.";
+    return { sentTo: email.data, error };
+  }
+  // The form's own `next` wins: signing in from the checkout page should land back on it.
+  redirect(safeNext(formData.get("next") ?? result.next));
 }
 
 export async function verifyLogin(formData: FormData) {

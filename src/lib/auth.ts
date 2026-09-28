@@ -1,4 +1,5 @@
-import { and, eq, gt, isNull } from "drizzle-orm";
+import { randomInt } from "node:crypto";
+import { and, eq, gt, inArray, isNull, lt, sql } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { cache } from "react";
@@ -8,6 +9,8 @@ import { randomToken, sha256 } from "./crypto";
 const SESSION_COOKIE = "session";
 const SESSION_DAYS = 30;
 const LOGIN_TOKEN_MINUTES = 20;
+// With at most 3 codes per email every 15 minutes, 5 tries each leaves a 1-in-67,000 guess.
+const MAX_CODE_ATTEMPTS = 5;
 
 export const getCurrentUser = cache(async () => {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
@@ -34,16 +37,21 @@ export function safeNext(next: unknown) {
     : "/";
 }
 
+/** A one-time link token plus a 6-digit code for the same sign-in, both sent in one email. */
 export async function createLoginToken(email: string, next: string) {
   const token = randomToken();
+  const code = randomInt(0, 1_000_000).toString().padStart(6, "0");
   await db.insert(schema.loginTokens).values({
     tokenHash: sha256(token),
+    codeHash: codeHash(email, code),
     email,
     next: safeNext(next),
     expiresAt: new Date(Date.now() + LOGIN_TOKEN_MINUTES * 60_000),
   });
-  return token;
+  return { token, code };
 }
+
+const codeHash = (email: string, code: string) => sha256(`${email}:${code}`);
 
 export async function recentLoginTokenCount(email: string, windowMinutes: number) {
   const rows = await db
@@ -60,28 +68,55 @@ export async function recentLoginTokenCount(email: string, windowMinutes: number
 
 /** Consumes a login token and starts a session. Returns the redirect target, or null if invalid. */
 export async function consumeLoginToken(token: string) {
-  const tokenHash = sha256(token);
   // Conditional update so a token can only be used once, even under concurrent requests.
-  const consumed = await db
+  const [row] = await db
     .update(schema.loginTokens)
     .set({ usedAt: new Date() })
-    .where(
-      and(
-        eq(schema.loginTokens.tokenHash, tokenHash),
-        isNull(schema.loginTokens.usedAt),
-        gt(schema.loginTokens.expiresAt, new Date()),
-      ),
-    )
+    .where(and(eq(schema.loginTokens.tokenHash, sha256(token)), isNull(schema.loginTokens.usedAt), gt(schema.loginTokens.expiresAt, new Date())))
     .returning();
-  const row = consumed[0];
   if (!row) return null;
+  await startSession(row.email);
+  return row.next;
+}
 
-  let user = await db.select().from(schema.users).where(eq(schema.users.email, row.email)).get();
+/**
+ * Checks a 6-digit code against the email's live tokens and starts a session.
+ * "ok" carries the redirect target; "locked" means every live code is out of attempts.
+ */
+export async function consumeLoginCode(email: string, code: string): Promise<{ status: "ok"; next: string } | { status: "wrong" | "locked" }> {
+  const live = and(
+    eq(schema.loginTokens.email, email),
+    isNull(schema.loginTokens.usedAt),
+    gt(schema.loginTokens.expiresAt, new Date()),
+    lt(schema.loginTokens.codeAttempts, MAX_CODE_ATTEMPTS),
+  );
+  const [row] = await db
+    .update(schema.loginTokens)
+    .set({ usedAt: new Date() })
+    .where(and(live, eq(schema.loginTokens.codeHash, codeHash(email, code))))
+    .returning();
+  if (row) {
+    await startSession(row.email);
+    return { status: "ok", next: row.next };
+  }
+
+  // A wrong guess counts against every code still open for this email, not just the newest.
+  const open = await db.select({ hash: schema.loginTokens.tokenHash }).from(schema.loginTokens).where(live);
+  if (!open.length) return { status: "locked" };
+  await db
+    .update(schema.loginTokens)
+    .set({ codeAttempts: sql`${schema.loginTokens.codeAttempts} + 1` })
+    .where(inArray(schema.loginTokens.tokenHash, open.map((o) => o.hash)));
+  return { status: "wrong" };
+}
+
+async function startSession(email: string) {
+  let user = await db.select().from(schema.users).where(eq(schema.users.email, email)).get();
   if (!user) {
     [user] = await db
       .insert(schema.users)
-      .values({ id: crypto.randomUUID(), email: row.email })
-      .onConflictDoUpdate({ target: schema.users.email, set: { email: row.email } })
+      .values({ id: crypto.randomUUID(), email })
+      .onConflictDoUpdate({ target: schema.users.email, set: { email } })
       .returning();
   }
 
@@ -95,7 +130,6 @@ export async function consumeLoginToken(token: string) {
     path: "/",
     expires: expiresAt,
   });
-  return row.next;
 }
 
 export async function destroySession() {

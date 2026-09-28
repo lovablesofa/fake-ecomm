@@ -17,6 +17,10 @@ export const loginTokens = sqliteTable(
     tokenHash: text("token_hash").primaryKey(),
     email: text("email").notNull(),
     next: text("next").notNull().default("/"),
+    // The same email carries a link and a 6-digit code; either one signs in. sha256 of `${email}:${code}`.
+    codeHash: text("code_hash"),
+    // Wrong codes typed against this token. It stops accepting codes at MAX_CODE_ATTEMPTS.
+    codeAttempts: integer("code_attempts").notNull().default(0),
     expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
     usedAt: integer("used_at", { mode: "timestamp_ms" }),
     createdAt: createdAt(),

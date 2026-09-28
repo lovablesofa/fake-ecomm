@@ -241,19 +241,22 @@ function itemsText(order: Order, items: OrderItem[]) {
   return items.map((i) => `- ${i.name} (${i.brand})${i.option ? `, ${i.option}` : ""} x${i.quantity}: ${formatMoney(i.unitPrice * i.quantity, c)}`).join("\n");
 }
 
-export function loginEmail(link: string) {
-  const text = `Sign in to ${BRAND.name}: ${link}\n\nThis link expires in 20 minutes. If you didn't request it, ignore this email.`;
+export function loginEmail(link: string, code: string) {
+  const text = `Your ${BRAND.name} sign-in code: ${code}\n\nOr sign in with this link: ${link}\n\nBoth expire in 20 minutes. If you didn't request this, ignore this email.`;
   const html = layout({
-    preheader: "Your sign-in link",
+    preheader: `Your sign-in code is ${code}`,
     campaign: "login",
     notice: "Simulated store · nothing is charged and nothing ships",
     body: `${heading(`Sign in to ${BRAND.name}`)}
-<p style="margin:12px 0 0">Tap the button below to sign in. The link expires in 20 minutes and can be used once.</p>
+<p style="margin:12px 0 0">Enter this code where you left off. It expires in 20 minutes and can be used once.</p>
+<p style="margin:20px 0;padding:16px;background:${PAPER};border-radius:12px;text-align:center;font-size:34px;font-weight:800;letter-spacing:0.3em;font-family:ui-monospace,Menlo,Consolas,monospace">${code}</p>
+<p style="margin:0;color:${MUTED}">On another device? Sign in with one tap instead:</p>
 ${button(link, "Sign in")}
 <p style="color:${MUTED};font-size:13px;margin:0">If you didn't ask for this, you can ignore this email.</p>`,
     footer: `${BRAND.name} is a simulated store: full shopping, nothing charged, nothing shipped. <a href="${APP_URL}" style="color:${MUTED}">${SITE}</a>`,
   });
-  return { subject: `Your ${BRAND.name} sign-in link`, html, text };
+  // The code leads the subject so it can be read straight off the notification.
+  return { subject: `${code} is your ${BRAND.name} sign-in code`, html, text };
 }
 
 export function orderConfirmationEmail(order: Order, items: OrderItem[], extras: EmailExtras) {

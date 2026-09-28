@@ -18,11 +18,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
           ? "Almost there. Sign in so we can send your order confirmation and tracking updates."
           : params.reason === "save"
             ? "Sign in to save things for later. Your list stays on your account, so it's there when the urge comes back."
-            : "We'll email you a link to sign in. No password needed."}
+            : "We'll email you a 6-digit code. No password needed."}
       </p>
       {params.error === "expired" && (
         <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900" role="alert">
-          That sign-in link has expired or was already used. Request a new one below.
+          That sign-in link has expired or was already used. Get a code below instead.
         </p>
       )}
       <LoginForm next={next} />
