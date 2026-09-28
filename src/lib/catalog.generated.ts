@@ -7569,5 +7569,523 @@ export const GENERATED_PRODUCTS: Product[] = [
       "hue": 330
     },
     "image": "/products/zapio-mini-label-printer.jpg"
+  },
+  {
+    "slug": "plumping-lip-gloss",
+    "name": "Plumping Lip Gloss",
+    "brand": "Stave Cosmetics",
+    "category": "beauty",
+    "priceUsd": 1600,
+    "rating": 4.7,
+    "reviews": 3940,
+    "blurb": "A glassy gloss with a cool tingle that makes lips look fuller without the sticky part.",
+    "details": [
+      "0.15 fl oz / 4.5 mL doe-foot wand",
+      "Peptides and hyaluronic acid",
+      "Non-sticky glass finish",
+      "Six sheer shades"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 345
+    },
+    "image": "/products/plumping-lip-gloss.jpg",
+    "badge": "New",
+    "options": {
+      "label": "Shade",
+      "values": [
+        "Bare Pink",
+        "Berry",
+        "Clear Glass",
+        "Peach"
+      ]
+    }
+  },
+  {
+    "slug": "liquid-highlighter-drops",
+    "name": "Liquid Highlighter Drops",
+    "brand": "Dewdrop",
+    "category": "beauty",
+    "priceUsd": 2000,
+    "compareAtUsd": 2600,
+    "rating": 4.6,
+    "reviews": 2180,
+    "blurb": "Two drops in your moisturiser and you look like you slept eight hours. You did not.",
+    "details": [
+      "0.5 fl oz / 15 mL dropper bottle",
+      "Buildable pearl glow",
+      "Mixes into moisturiser or foundation",
+      "Vegan and fragrance free"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 40
+    },
+    "image": "/products/liquid-highlighter-drops.jpg"
+  },
+  {
+    "slug": "under-eye-gel-patches-30-pairs",
+    "name": "Under-Eye Gel Patches (30 pairs)",
+    "brand": "Lantern Skin",
+    "category": "beauty",
+    "priceUsd": 1800,
+    "rating": 4.7,
+    "reviews": 5260,
+    "blurb": "Cooling gel patches that de-puff tired eyes while you drink your coffee.",
+    "details": [
+      "30 pairs in a resealable jar",
+      "Caffeine and niacinamide",
+      "Keep in the fridge for extra cool",
+      "Wear for 15 minutes"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 200
+    },
+    "image": "/products/under-eye-gel-patches-30-pairs.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "mini-perfume-discovery-set",
+    "name": "Mini Perfume Discovery Set",
+    "brand": "Maison Virelle",
+    "category": "beauty",
+    "priceUsd": 2400,
+    "compareAtUsd": 3200,
+    "rating": 4.6,
+    "reviews": 1730,
+    "blurb": "Five tiny bottles so you can find your signature scent before committing.",
+    "details": [
+      "Five 0.07 fl oz / 2 mL vials",
+      "Floral, woody, citrus, gourmand, musk",
+      "Refillable travel atomiser included",
+      "Gift-ready box"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 20
+    },
+    "image": "/products/mini-perfume-discovery-set.jpg"
+  },
+  {
+    "slug": "cuticle-oil-pen",
+    "name": "Cuticle Oil Pen",
+    "brand": "Petal Form",
+    "category": "beauty",
+    "priceUsd": 900,
+    "rating": 4.5,
+    "reviews": 2310,
+    "blurb": "A click-pen of nourishing oil for nails that look freshly done for longer.",
+    "details": [
+      "0.1 fl oz / 3 mL twist pen",
+      "Jojoba, vitamin E, sweet almond oil",
+      "Soft brush tip",
+      "Light peach scent"
+    ],
+    "art": {
+      "kind": "bottle",
+      "hue": 15
+    },
+    "image": "/products/cuticle-oil-pen.jpg"
+  },
+  {
+    "slug": "cropped-baby-tee",
+    "name": "Cropped Baby Tee",
+    "brand": "Loosecut",
+    "category": "fashion",
+    "priceUsd": 1600,
+    "rating": 4.6,
+    "reviews": 3120,
+    "blurb": "A snug, slightly cropped tee that goes with every high-waisted thing you own.",
+    "details": [
+      "100% cotton rib jersey",
+      "Slim cropped fit",
+      "Short cap sleeves",
+      "Machine wash cold"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 10
+    },
+    "image": "/products/cropped-baby-tee.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "high-waist-bike-shorts",
+    "name": "High-Waist Bike Shorts",
+    "brand": "Tenpace",
+    "category": "fashion",
+    "priceUsd": 2200,
+    "compareAtUsd": 2800,
+    "rating": 4.7,
+    "reviews": 2870,
+    "blurb": "Buttery bike shorts with a waistband that stays put through errands and spin class.",
+    "details": [
+      "Brushed nylon-spandex",
+      "High-rise wide waistband",
+      "6 in inseam",
+      "Hidden waistband pocket"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 280
+    },
+    "image": "/products/high-waist-bike-shorts.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "striped-pyjama-shorts-set",
+    "name": "Striped Pyjama Shorts Set",
+    "brand": "Snugly",
+    "category": "fashion",
+    "priceUsd": 2400,
+    "rating": 4.8,
+    "reviews": 1940,
+    "blurb": "A crisp striped shirt and shorts set that makes staying in feel like a plan.",
+    "details": [
+      "Cotton poplin",
+      "Short-sleeve camp collar shirt",
+      "Elastic drawstring shorts",
+      "Contrast piping"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 210
+    },
+    "image": "/products/striped-pyjama-shorts-set.jpg",
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "fuzzy-house-slippers",
+    "name": "Fuzzy House Slippers",
+    "brand": "Snugly",
+    "category": "fashion",
+    "priceUsd": 2200,
+    "rating": 4.7,
+    "reviews": 4410,
+    "blurb": "Fluffy open-toe slippers that feel like stepping onto a cloud at 7am.",
+    "details": [
+      "Faux fur upper",
+      "Memory foam footbed",
+      "Non-slip rubber sole",
+      "Machine washable"
+    ],
+    "art": {
+      "kind": "sneaker",
+      "hue": 30
+    },
+    "image": "/products/fuzzy-house-slippers.jpg",
+    "badge": "Bestseller",
+    "options": {
+      "label": "Size",
+      "values": [
+        "5-6",
+        "7-8",
+        "9-10",
+        "11-12"
+      ]
+    }
+  },
+  {
+    "slug": "ribbed-long-sleeve-top",
+    "name": "Ribbed Long-Sleeve Top",
+    "brand": "Loosecut",
+    "category": "fashion",
+    "priceUsd": 1900,
+    "rating": 4.5,
+    "reviews": 1680,
+    "blurb": "A slim ribbed layering top that works under blazers, overalls and everything else.",
+    "details": [
+      "Cotton-modal rib",
+      "Slim fit",
+      "Crew neck",
+      "Machine wash cold"
+    ],
+    "art": {
+      "kind": "jacket",
+      "hue": 0
+    },
+    "image": "/products/ribbed-long-sleeve-top.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  },
+  {
+    "slug": "pearl-hair-clip-set",
+    "name": "Pearl Hair Clip Set",
+    "brand": "Clipsy",
+    "category": "accessories",
+    "priceUsd": 1200,
+    "rating": 4.6,
+    "reviews": 3570,
+    "blurb": "Six pearly clips that make a lazy bun look intentional.",
+    "details": [
+      "Six clips in three sizes",
+      "Faux pearl and gold-tone metal",
+      "Snap and slide styles",
+      "Gift pouch included"
+    ],
+    "art": {
+      "kind": "tote",
+      "hue": 40
+    },
+    "image": "/products/pearl-hair-clip-set.jpg"
+  },
+  {
+    "slug": "stacking-ring-set",
+    "name": "Stacking Ring Set (5)",
+    "brand": "Oro Nove",
+    "category": "accessories",
+    "priceUsd": 1400,
+    "compareAtUsd": 2000,
+    "rating": 4.5,
+    "reviews": 2640,
+    "blurb": "Five slim rings in mixed textures so you can stack, split and share.",
+    "details": [
+      "Five rings: plain, twisted, beaded, dotted, open",
+      "18k gold-plated brass",
+      "Tarnish-resistant coating",
+      "Sizes 5 to 9"
+    ],
+    "art": {
+      "kind": "watch",
+      "hue": 45
+    },
+    "image": "/products/stacking-ring-set.jpg",
+    "options": {
+      "label": "Size",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    }
+  },
+  {
+    "slug": "pastel-heart-sunglasses",
+    "name": "Pastel Heart Sunglasses",
+    "brand": "Dryward",
+    "category": "accessories",
+    "priceUsd": 1600,
+    "rating": 4.4,
+    "reviews": 1920,
+    "blurb": "Heart-shaped frames for summer photos and not taking yourself too seriously.",
+    "details": [
+      "Lightweight acetate-look frame",
+      "UV400 tinted lenses",
+      "Soft carry pouch",
+      "One size"
+    ],
+    "art": {
+      "kind": "sunglasses",
+      "hue": 330
+    },
+    "image": "/products/pastel-heart-sunglasses.jpg",
+    "badge": "New"
+  },
+  {
+    "slug": "axolotl-cuddle-plush",
+    "name": "Axolotl Cuddle Plush",
+    "brand": "Bitsy Home",
+    "category": "home",
+    "priceUsd": 1600,
+    "rating": 4.9,
+    "reviews": 5980,
+    "blurb": "A smiley pink axolotl plush, frog's new best friend and just as squishy.",
+    "details": [
+      "Ultra-soft velour",
+      "Squishy polyfibre fill",
+      "10 in long",
+      "Machine washable"
+    ],
+    "art": {
+      "kind": "plant",
+      "hue": 330
+    },
+    "image": "/products/axolotl-cuddle-plush.jpg",
+    "badge": "New",
+    "options": {
+      "label": "Size",
+      "values": [
+        "8 in",
+        "12 in",
+        "16 in"
+      ]
+    }
+  },
+  {
+    "slug": "cloud-night-light",
+    "name": "Cloud Night Light",
+    "brand": "Bitsy Home",
+    "category": "home",
+    "priceUsd": 1800,
+    "compareAtUsd": 2400,
+    "rating": 4.7,
+    "reviews": 3480,
+    "blurb": "A soft glowing cloud that makes any room feel ten percent calmer.",
+    "details": [
+      "Silicone cloud shade",
+      "Warm white and 7 colours",
+      "Tap to dim",
+      "USB-C rechargeable, 12 h"
+    ],
+    "art": {
+      "kind": "lamp",
+      "hue": 210
+    },
+    "image": "/products/cloud-night-light.jpg"
+  },
+  {
+    "slug": "matcha-whisk-set",
+    "name": "Matcha Whisk Set",
+    "brand": "Morrow Ceramics",
+    "category": "home",
+    "priceUsd": 2200,
+    "rating": 4.7,
+    "reviews": 2150,
+    "blurb": "Everything you need for a proper frothy matcha, minus the café queue.",
+    "details": [
+      "Glazed stoneware bowl with spout",
+      "100-prong bamboo whisk",
+      "Ceramic whisk holder",
+      "Bamboo scoop"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 120
+    },
+    "image": "/products/matcha-whisk-set.jpg"
+  },
+  {
+    "slug": "checkered-ceramic-mug",
+    "name": "Checkered Ceramic Mug",
+    "brand": "Morrow Ceramics",
+    "category": "home",
+    "priceUsd": 1400,
+    "rating": 4.6,
+    "reviews": 2760,
+    "blurb": "A chunky hand-glazed checkerboard mug that makes weekday coffee a small event.",
+    "details": [
+      "14 oz stoneware",
+      "Hand-painted checker glaze",
+      "Dishwasher and microwave safe",
+      "Each one slightly different"
+    ],
+    "art": {
+      "kind": "mug",
+      "hue": 45
+    },
+    "image": "/products/checkered-ceramic-mug.jpg",
+    "options": {
+      "label": "Colour",
+      "values": [
+        "Butter",
+        "Lilac",
+        "Sage"
+      ]
+    }
+  },
+  {
+    "slug": "retro-handheld-game-keychain",
+    "name": "Retro Handheld Game Keychain",
+    "brand": "Ninebit",
+    "category": "tech",
+    "priceUsd": 1900,
+    "rating": 4.6,
+    "reviews": 3390,
+    "blurb": "A tiny handheld with 26 built-in pixel games that clips onto your keys.",
+    "details": [
+      "26 original built-in games",
+      "1.3 in colour screen",
+      "USB-C rechargeable",
+      "Keychain clip included"
+    ],
+    "art": {
+      "kind": "keyboard",
+      "hue": 170
+    },
+    "image": "/products/retro-handheld-game-keychain.jpg",
+    "badge": "Bestseller"
+  },
+  {
+    "slug": "phone-tripod-with-remote",
+    "name": "Phone Tripod with Remote",
+    "brand": "Zapio",
+    "category": "tech",
+    "priceUsd": 2200,
+    "compareAtUsd": 2900,
+    "rating": 4.5,
+    "reviews": 2980,
+    "blurb": "A bendy tripod with a Bluetooth remote, for outfit photos without asking a stranger.",
+    "details": [
+      "Extends to 42 in",
+      "Bendable legs wrap round poles",
+      "Detachable Bluetooth remote",
+      "Fits phones up to 3.5 in wide"
+    ],
+    "art": {
+      "kind": "camera",
+      "hue": 220
+    },
+    "image": "/products/phone-tripod-with-remote.jpg"
+  },
+  {
+    "slug": "mini-karaoke-microphone",
+    "name": "Mini Karaoke Microphone",
+    "brand": "Sonvik",
+    "category": "tech",
+    "priceUsd": 2400,
+    "rating": 4.5,
+    "reviews": 2410,
+    "blurb": "A wireless mic with a built-in speaker and voice effects for spontaneous living-room concerts.",
+    "details": [
+      "Built-in 5W speaker",
+      "Bluetooth, works with any karaoke app",
+      "Echo and voice-change modes",
+      "6 h battery"
+    ],
+    "art": {
+      "kind": "speaker",
+      "hue": 300
+    },
+    "image": "/products/mini-karaoke-microphone.jpg"
   }
 ];

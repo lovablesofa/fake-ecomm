@@ -1,23 +1,36 @@
 import Link from "next/link";
 import { ProductArt } from "@/components/product-art";
 import { ProductCard } from "@/components/product-card";
-import { discountPct, Price } from "@/components/price";
+import { Price } from "@/components/price";
 import { StatsTicker } from "@/components/stats-ticker";
 import { getCurrency } from "@/lib/cart";
 import { monthlyBudget } from "@/lib/budget";
-import { dealName, getProduct, matchesDeal, PRODUCTS, type Product } from "@/lib/catalog";
+import { dealName, getProduct, PRODUCTS, type Product } from "@/lib/catalog";
 import { APP_URL, BRAND, CURRENCIES } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
 
-// Hand-picked crowd-pleasers across categories. Slugs that leave the catalog just drop out.
+// Picks follow the page-view analytics: the most-visited product pages go up front. Slugs that leave the catalog just drop out.
 const pick = (slugs: string[]) => slugs.map(getProduct).filter((p): p is Product => !!p);
-const HERO = pick(["vionne-top-handle-bag", "sonvik-anc-headphones", "retro-runner-90", "figue-blanche-eau-de-parfum"]);
-const FEATURED = pick(["okuda-m-ii-mirrorless-camera", "luna-crescent-mini-bag", "tallboy-40oz-tumbler", "mushroom-glass-lamp", "frog-squish-plush"]);
-// The most-reviewed cheap things, and the deepest markdowns.
-const UNDER = PRODUCTS.filter((p) => matchesDeal(p, "under-25")).sort((a, b) => b.reviews - a.reviews).slice(0, 10);
-const DEALS = PRODUCTS.filter((p) => matchesDeal(p, "sale") && !UNDER.includes(p))
-  .sort((a, b) => discountPct(b.priceUsd, b.compareAtUsd) - discountPct(a.priceUsd, a.compareAtUsd))
-  .slice(0, 10);
+// Price tags sit on 0 and 3, so the diagonal shows the range: a $395 bag next to a $24 lipstick.
+const HERO = pick(["vionne-top-handle-bag", "frog-squish-plush", "sundrop-linen-dress", "velvet-matte-lipstick"]);
+// Cheap things shoppers actually opened, mixed with the newest impulse buys.
+const UNDER = pick([
+  "axolotl-cuddle-plush", "fluffy-brow-gel", "plumping-lip-gloss", "mini-waffle-maker", "retro-handheld-game-keychain",
+  "milky-rice-toner", "fuzzy-house-slippers", "fermented-rice-cleansing-oil", "pastel-heart-sunglasses", "cloud-night-light",
+]);
+const FEATURED = pick([
+  "camden-tote", "coventry-chronograph-41", "sonvik-buds-pro", "alder-oak-teapot-32oz", "solaris-aviator-sunglasses",
+  "skyloft-action-cam-5", "jasmine-night-candle", "foulard-silk-scarf", "desert-bloom-potted-plant", "tidewell-stoneware-bottle",
+]);
+// Fashion at $75-200 draws the most views per product: the aspirational-but-reachable band.
+// The most-visited ones lead, the most-reviewed fill the row.
+const shown = new Set([...HERO, ...UNDER, ...FEATURED]);
+const FASHION_PICKS = pick(["larkspur-wrap-jumpsuit", "cashmere-crewneck-sweater", "peak-chelsea-boot", "halcyon-anorak", "reversible-ripstop-puffer"]);
+const FASHION = [
+  ...FASHION_PICKS,
+  ...PRODUCTS.filter((p) => p.category === "fashion" && p.priceUsd >= 7500 && p.priceUsd <= 20000 && !shown.has(p) && !FASHION_PICKS.includes(p))
+    .sort((a, b) => b.reviews - a.reviews),
+].slice(0, 10);
 
 // Organization + WebSite only. No Product/Offer markup anywhere: nothing here is actually for sale.
 const JSON_LD = {
@@ -91,8 +104,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
       {[
         { title: `${dealName("under-25", currency)}: treat yourself`, href: "/shop?deal=under-25", products: UNDER, tone: "text-deal" },
-        { title: "Today's deals", href: "/shop?deal=sale", products: DEALS, tone: "text-deal" },
         { title: "Everyone's adding these", href: "/shop", products: FEATURED, tone: "" },
+        { title: "Wardrobe upgrades", href: "/shop?category=fashion", products: FASHION, tone: "" },
       ].map((row) => (
         <section key={row.href} className="mx-auto max-w-6xl px-4 pt-12">
           <div className="flex items-end justify-between gap-4">
