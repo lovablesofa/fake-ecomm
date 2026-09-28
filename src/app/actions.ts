@@ -141,7 +141,7 @@ export async function logout() {
 // ---------- Checkout ----------
 
 const checkoutSchema = z.object({
-  name: z.string().trim().min(2, "Enter your full name").max(80),
+  name: z.string().trim().min(2, "Enter your name").max(80),
   line1: z.string().trim().min(3, "Enter a street address").max(120),
   city: z.string().trim().min(2, "Enter a city").max(60),
   postal: z.string().trim().min(2, "Enter a postcode").max(12),

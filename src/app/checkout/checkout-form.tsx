@@ -16,7 +16,8 @@ type Props = {
   lines: { key: string; name: string; option?: string; quantity: number; lineTotal: number; art: { kind: ArtKind; hue: number }; image?: string }[];
   shippingOptions: { id: "standard" | "express"; label: string; eta: string; price: number }[];
   countries: { code: string; name: string }[];
-  defaultCountry: string;
+  // `pretend`: a made-up street in the visitor's city, rather than the address from their last order.
+  address: { name: string; line1: string; city: string; postal: string; country: string; pretend: boolean };
 };
 
 function Field({ label, name, errors, ...rest }: { label: string; name: string; errors?: string[] } & React.InputHTMLAttributes<HTMLInputElement>) {
@@ -58,6 +59,10 @@ export function CheckoutForm(props: Props) {
   const fe = state?.fieldErrors;
   const v = state?.values;
   const money = (c: number) => formatMoney(c, props.currency);
+  const a = { line1: v?.line1 ?? props.address.line1, city: v?.city ?? props.address.city, postal: v?.postal ?? props.address.postal, country: v?.country ?? props.address.country };
+  // The address starts folded into one line; it opens by itself when a field in it needs fixing.
+  const [editing, setEditing] = useState(!!(fe?.line1 || fe?.city || fe?.postal));
+  const countryName = props.countries.find((c) => c.code === a.country)?.name ?? a.country;
 
   return (
     // noValidate: the server checks every field and answers in English; browser bubbles follow the OS language.
@@ -70,19 +75,35 @@ export function CheckoutForm(props: Props) {
 
         <section className="space-y-4">
           <h2 className="text-lg font-medium">Shipping address</h2>
-          <Field label="Full name" name="name" defaultValue={v?.name} autoComplete="name" required errors={fe?.name} />
-          <Field label="Address" name="line1" defaultValue={v?.line1} autoComplete="address-line1" required errors={fe?.line1} />
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Field label="City" name="city" defaultValue={v?.city} autoComplete="address-level2" required errors={fe?.city} />
-            <Field label="Postcode / ZIP" name="postal" defaultValue={v?.postal} autoComplete="postal-code" required errors={fe?.postal} />
-            <label className="block text-sm">
-              <span className="mb-1.5 block text-muted">Country</span>
-              <select name="country" defaultValue={v?.country ?? props.defaultCountry} className="input" autoComplete="country">
-                {props.countries.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
-              </select>
-            </label>
-          </div>
-          <p className="text-xs text-muted">Nothing is delivered, so a rough address is fine. We use it to make tracking feel real.</p>
+          <Field label="Your name" name="name" defaultValue={v?.name ?? props.address.name} autoComplete={props.address.pretend ? "given-name" : "name"} required errors={fe?.name} />
+          {editing ? (
+            <>
+              <Field label="Address" name="line1" defaultValue={a.line1} autoComplete="address-line1" required errors={fe?.line1} />
+              <div className="grid gap-4 sm:grid-cols-3">
+                <Field label="City" name="city" defaultValue={a.city} autoComplete="address-level2" required errors={fe?.city} />
+                <Field label="Postcode / ZIP" name="postal" defaultValue={a.postal} autoComplete="postal-code" required errors={fe?.postal} />
+                <label className="block text-sm">
+                  <span className="mb-1.5 block text-muted">Country</span>
+                  <select name="country" defaultValue={a.country} className="input" autoComplete="country">
+                    {props.countries.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
+                  </select>
+                </label>
+              </div>
+              <p className="text-xs text-muted">Nothing is delivered, so a rough address is fine. We use it to make tracking feel real.</p>
+            </>
+          ) : (
+            <div className="flex items-start justify-between gap-4 rounded-xl border border-line bg-white p-4 text-sm">
+              {["line1", "city", "postal", "country"].map((k) => <input key={k} type="hidden" name={k} value={a[k as keyof typeof a]} />)}
+              <div>
+                <p className="font-medium">{a.line1}</p>
+                <p className="text-muted">{a.city} {a.postal} · {countryName}</p>
+                {props.address.pretend && (
+                  <p className="mt-2 text-xs text-muted">It&apos;s a pretend order, so we filled in a pretend address. Change it if you like.</p>
+                )}
+              </div>
+              <button type="button" onClick={() => setEditing(true)} className="shrink-0 font-semibold text-accent underline underline-offset-4">Edit</button>
+            </div>
+          )}
         </section>
 
         <section className="space-y-3">

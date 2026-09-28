@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { defaultAddress } from "@/lib/address";
 import { ProductArt } from "@/components/product-art";
 import { getCurrentUser } from "@/lib/auth";
 import { userBudget } from "@/lib/budget";
@@ -54,7 +55,7 @@ export default async function CheckoutPage() {
       </div>
     );
   }
-  const budget = await userBudget(user.id, cart.currency);
+  const [budget, address] = await Promise.all([userBudget(user.id, cart.currency), defaultAddress(user.id, cart.currency)]);
 
   const shippingOptions = Object.entries(SHIPPING).map(([id, s]) => ({
     id: id as keyof typeof SHIPPING,
@@ -62,7 +63,6 @@ export default async function CheckoutPage() {
     eta: s.eta,
     price: localPrice(s.priceUsd, cart.currency),
   }));
-  const defaultCountry = cart.currency === "GBP" ? "GB" : cart.currency === "EUR" ? "IE" : "US";
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-10">
@@ -75,7 +75,7 @@ export default async function CheckoutPage() {
         lines={cart.lines.map((l) => ({ key: `${l.product.slug}:${l.option ?? ""}`, name: l.product.name, option: l.option && `${l.product.options?.label}: ${l.option}`, quantity: l.quantity, lineTotal: l.lineTotal, art: l.product.art, image: l.product.image }))}
         shippingOptions={shippingOptions}
         countries={COUNTRIES.map((c) => ({ code: c.code, name: c.name }))}
-        defaultCountry={defaultCountry}
+        address={address}
       />
     </div>
   );
