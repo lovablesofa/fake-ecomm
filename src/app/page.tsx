@@ -6,13 +6,17 @@ import { StatsTicker } from "@/components/stats-ticker";
 import { getCurrency } from "@/lib/cart";
 import { monthlyBudget } from "@/lib/budget";
 import { dealName, getProduct, PRODUCTS, type Product } from "@/lib/catalog";
-import { APP_URL, BRAND, CURRENCIES } from "@/lib/config";
+import { APP_URL, BRAND, CURRENCIES, type Currency } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
 
 // Picks follow the page-view analytics: the most-visited product pages go up front. Slugs that leave the catalog just drop out.
 const pick = (slugs: string[]) => slugs.map(getProduct).filter((p): p is Product => !!p);
-// Price tags sit on 0 and 3, so the diagonal shows the range: a $395 bag next to a $24 lipstick.
 const HERO = pick(["vionne-top-handle-bag", "frog-squish-plush", "sundrop-linen-dress", "velvet-matte-lipstick"]);
+// The moving hero strip: the four strongest photos first, then more of the most-viewed.
+const STRIP = [...HERO, ...pick([
+  "axolotl-cuddle-plush", "camden-tote", "plumping-lip-gloss", "peak-chelsea-boot", "retro-handheld-game-keychain",
+  "coventry-chronograph-41", "pastel-heart-sunglasses", "larkspur-wrap-jumpsuit", "mushroom-glass-lamp", "sonvik-buds-pro",
+])];
 // Cheap things shoppers actually opened, mixed with the newest impulse buys.
 const UNDER = pick([
   "axolotl-cuddle-plush", "fluffy-brow-gel", "plumping-lip-gloss", "mini-waffle-maker", "retro-handheld-game-keychain",
@@ -31,6 +35,38 @@ const FASHION = [
   ...PRODUCTS.filter((p) => p.category === "fashion" && p.priceUsd >= 7500 && p.priceUsd <= 20000 && !shown.has(p) && !FASHION_PICKS.includes(p))
     .sort((a, b) => b.reviews - a.reviews),
 ].slice(0, 10);
+
+/**
+ * A row of products that slides forever. The list is rendered twice and slides by half, so the loop has no seam;
+ * the second copy is hidden from screen readers and the tab order. Hover or focus pauses it.
+ */
+function Strip({ products, currency, card, named, reverse }: { products: Product[]; currency: Currency; card: string; named?: boolean; reverse?: boolean }) {
+  return (
+    <div className={`marquee flex w-max ${reverse ? "marquee-reverse" : ""}`}>
+      {[...products, ...products].map((p, i) => {
+        const copy = i >= products.length;
+        return (
+          // Padding instead of gap: each half has to be exactly 50% wide for the loop to line up.
+          <Link key={i} href={`/product/${p.slug}`} aria-hidden={copy || undefined} tabIndex={copy ? -1 : undefined} className={`group block shrink-0 ${card}`}>
+            <span className="relative block overflow-hidden rounded-xl">
+              <ProductArt {...p.art} image={p.image} alt={copy ? "" : p.name} eager={i < 3} sizes={named ? "240px" : "160px"} className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
+              {named ? (
+                <span className="absolute bottom-3 left-3 right-3 flex items-baseline justify-between gap-2 rounded-lg bg-white/95 px-3 py-2 text-sm shadow-sm backdrop-blur">
+                  <span className="truncate font-medium">{p.name}</span>
+                  <Price usd={p.priceUsd} currency={currency} className="shrink-0" />
+                </span>
+              ) : (
+                <span className="absolute bottom-2 left-2 rounded-md bg-white/95 px-2 py-0.5 text-sm font-semibold shadow-sm">
+                  <Price usd={p.priceUsd} currency={currency} />
+                </span>
+              )}
+            </span>
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
 
 // Organization + WebSite only. No Product/Offer markup anywhere: nothing here is actually for sale.
 const JSON_LD = {
@@ -78,22 +114,16 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             <Link href="/shop" className="btn-primary px-7 py-4 text-lg shadow-lg shadow-accent/25 sm:px-9">Start shopping</Link>
             <Link href="/how-it-works" className="btn-secondary">How it works</Link>
           </div>
-          <StatsTicker currency={currency} locale={CURRENCIES[currency].locale} className="mt-8 text-sm font-medium text-ink" />
+          <StatsTicker currency={currency} locale={CURRENCIES[currency].locale} className="mt-8 max-w-md text-lg text-muted sm:text-xl" />
         </div>
         {/* On phones the products come first, so the first screen shows the shop, not just a headline. */}
-        <div className="order-first mb-8 grid grid-cols-2 gap-4 lg:order-none lg:mb-0">
-          {HERO.map((p, i) => (
-            <Link key={p.slug} href={`/product/${p.slug}`} className={`group relative block overflow-hidden rounded-xl ${i % 2 ? "translate-y-8" : ""}`}>
-              <ProductArt {...p.art} image={p.image} alt={p.name} eager sizes="(max-width: 1024px) 50vw, 288px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
-              {/* Price tags on the diagonal pair, so the hero reads as a shop without getting busy. */}
-              {(i === 0 || i === 3) && (
-                <span className="absolute bottom-3 left-3 right-3 flex flex-col rounded-lg bg-white/95 px-3 py-2 text-sm shadow-sm backdrop-blur sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
-                  <span className="truncate font-medium">{p.name}</span>
-                  <Price usd={p.priceUsd} currency={currency} className="shrink-0" />
-                </span>
-              )}
-            </Link>
-          ))}
+        <div className="order-first -mx-4 overflow-hidden motion-reduce:overflow-x-auto lg:hidden">
+          <Strip products={STRIP} currency={currency} card="w-40 pr-3" />
+        </div>
+        {/* Desktop: the headline stays put while two rows drift past in opposite directions, fading in at the edges. */}
+        <div className="hidden space-y-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] motion-reduce:overflow-x-auto lg:block">
+          <Strip products={STRIP.filter((_, i) => i % 2 === 0)} currency={currency} card="w-60 pr-4" named />
+          <Strip products={STRIP.filter((_, i) => i % 2 === 1)} currency={currency} card="w-60 pr-4" named reverse />
         </div>
       </section>
 

@@ -7,6 +7,7 @@ const INTERVAL_MS = 3500;
 /**
  * Cross-fades through `phrases`. Pauses while the tab is hidden and stays on the first phrase
  * for people who prefer reduced motion. Screen readers get one fixed phrase instead of a changing one.
+ * Text between **…** is set in bold.
  */
 export function PhraseRotator({ phrases, className }: { phrases: string[]; className?: string }) {
   const [index, setIndex] = useState(0);
@@ -33,7 +34,7 @@ export function PhraseRotator({ phrases, className }: { phrases: string[]; class
 
   return (
     <p className={className}>
-      <span className="sr-only">{phrases[0]}</span>
+      <span className="sr-only">{phrases[0].replaceAll("**", "")}</span>
       {/* Every phrase sits in the same grid cell, so the box keeps the size of the longest one and nothing below jumps. */}
       <span aria-hidden className="grid">
         {phrases.map((p, i) => (
@@ -41,7 +42,7 @@ export function PhraseRotator({ phrases, className }: { phrases: string[]; class
             key={p}
             className={`[grid-area:1/1] transition-opacity duration-500 motion-reduce:transition-none ${i === index ? "opacity-100" : "opacity-0"}`}
           >
-            {p}
+            {p.split("**").map((part, j) => (j % 2 ? <strong key={j} className="font-bold text-ink">{part}</strong> : part))}
           </span>
         ))}
       </span>

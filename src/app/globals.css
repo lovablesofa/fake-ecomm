@@ -51,3 +51,30 @@ body {
     @apply grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5;
   }
 }
+
+/* Hero strip on phones: the list is rendered twice, so sliding by half loops without a seam. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 55s;
+}
+
+.marquee:hover,
+.marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
