@@ -46,3 +46,6 @@ local.db*
 
 # editor swap files
 *.swp
+
+# design exports, not used by the site
+/logos-ext/
