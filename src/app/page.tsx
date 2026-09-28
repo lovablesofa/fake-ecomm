@@ -68,25 +68,20 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       )}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-12 pt-8 sm:pt-12 lg:grid-cols-2">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-sun px-3 py-1 text-sm font-semibold text-ink">
-            Pretend shop: no real orders, no charges, nothing ships
-          </p>
           <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl">
             All the spree.
             <br />
             <span className="text-accent">None of the bill.</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg text-muted">
-            Fill your bag, check out, and watch your package cross the map. You get the whole rush of buying. Your money
-            stays exactly where it is.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/shop" className="btn-primary">Start shopping</Link>
+          <p className="mt-5 max-w-md text-balance text-xl text-muted">The whole rush of buying, without spending a cent.</p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link href="/shop" className="btn-primary px-7 py-4 text-lg shadow-lg shadow-accent/25 sm:px-9">Start shopping</Link>
             <Link href="/how-it-works" className="btn-secondary">How it works</Link>
           </div>
           <StatsTicker currency={currency} locale={CURRENCIES[currency].locale} className="mt-8 text-sm font-medium text-ink" />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        {/* On phones the products come first, so the first screen shows the shop, not just a headline. */}
+        <div className="order-first mb-8 grid grid-cols-2 gap-4 lg:order-none lg:mb-0">
           {HERO.map((p, i) => (
             <Link key={p.slug} href={`/product/${p.slug}`} className={`group relative block overflow-hidden rounded-xl ${i % 2 ? "translate-y-8" : ""}`}>
               <ProductArt {...p.art} image={p.image} alt={p.name} eager sizes="(max-width: 1024px) 50vw, 288px" className="aspect-square transition-transform duration-500 group-hover:scale-[1.03]" />
