@@ -25,6 +25,7 @@ import { feedbackNotificationEmail, loginEmail } from "@/lib/email/templates";
 import { formatMoney, localPrice } from "@/lib/money";
 import { advanceOrders } from "@/lib/orders";
 import { makeTrackingNumber, scheduleFor } from "@/lib/tracking";
+import { isUrgeScore, validUrgeToken } from "@/lib/urge";
 
 // ---------- Cart ----------
 
@@ -243,6 +244,16 @@ export async function setUrgeAfter(formData: FormData) {
     .set({ urgeAfter: score })
     .where(and(eq(schema.orders.id, orderId), eq(schema.orders.userId, user.id)));
   revalidatePath(`/orders/${orderId}`);
+}
+
+/** The check-in page opened from the delivery email. The signed link stands in for a session. */
+export async function saveUrgeFromEmail(formData: FormData) {
+  const orderId = String(formData.get("orderId") ?? "");
+  const token = String(formData.get("token") ?? "");
+  const score = Number(formData.get("score"));
+  if (!validUrgeToken(orderId, token) || !isUrgeScore(score)) return;
+  await db.update(schema.orders).set({ urgeAfter: score }).where(eq(schema.orders.id, orderId));
+  redirect(`/urge/${orderId}/${token}?saved=1`);
 }
 
 export async function deleteAccount(formData: FormData) {

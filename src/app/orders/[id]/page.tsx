@@ -11,6 +11,7 @@ import { BRAND, countryByCode, SHIPPING } from "@/lib/config";
 import { formatMoney } from "@/lib/money";
 import { getUserOrder } from "@/lib/orders";
 import { currentStage, DELIVERED, STAGES, trackingEvents } from "@/lib/tracking";
+import { urgeReply } from "@/lib/urge";
 
 export const metadata: Metadata = { title: "Order" };
 
@@ -27,7 +28,7 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
   const events = trackingEvents(order).filter((e) => e.done).reverse();
   const money = (c: number) => formatMoney(c, order.currency);
   const eta = stage < DELIVERED ? order.deliversAt : null;
-  // The score tapped in the delivery email. It only highlights the button: saving still takes a tap here.
+  // The score tapped in a delivery email sent before the sign-in-free check-in page (/urge). It only highlights the button: saving still takes a tap here.
   const picked = [1, 2, 3, 4, 5].find((n) => String(n) === urge);
 
   return (
@@ -82,9 +83,7 @@ export default async function OrderPage({ params, searchParams }: PageProps<"/or
           <h3 className="font-display text-3xl">Did this take the edge off the urge?</h3>
           {order.urgeAfter ? (
             <p className="mt-3 text-muted">
-              You answered {order.urgeAfter} out of 5. {order.urgeAfter >= 4
-                ? `Nice. The urge is handled and you kept ${money(order.total)}.`
-                : "Thanks for being honest. If you still want it in 30 days, it's probably a real want. Put it on a list and come back."}
+              You answered {order.urgeAfter} out of 5. {urgeReply(order.urgeAfter, money(order.total))}
             </p>
           ) : (
             <form action={setUrgeAfter} className="mt-5">

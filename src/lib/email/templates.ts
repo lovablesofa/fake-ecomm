@@ -3,6 +3,7 @@ import type { Product } from "../catalog";
 import type { Feedback, Order, OrderItem } from "../db/schema";
 import { formatMoney, localPrice } from "../money";
 import { STAGES } from "../tracking";
+import { urgePath } from "../urge";
 
 function esc(value: string) {
   return value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -221,10 +222,10 @@ ${targets.map(([label, icon, href]) => `<td style="padding-right:12px"><a href="
 </td></tr></table>`;
 }
 
-/** Five tappable scores. They only open the order page with the score picked: link scanners open links too, so a click never saves on its own. */
+/** Five tappable scores. Each opens a check-in page that needs no sign-in, with that score picked: link scanners open links too, so saving still takes one tap there. */
 function urgeQuestion(order: Order, campaign: string) {
   const cells = [1, 2, 3, 4, 5]
-    .map((n) => `<td style="padding-right:6px"><a href="${track(`/orders/${order.id}?urge=${n}`, campaign)}#urge" style="display:inline-block;width:40px;line-height:40px;text-align:center;border:2px solid ${ACCENT};border-radius:12px;color:${ACCENT};font-weight:800;font-size:18px;text-decoration:none">${n}</a></td>`)
+    .map((n) => `<td style="padding-right:6px"><a href="${track(`${urgePath(order.id)}?score=${n}`, campaign)}" style="display:inline-block;width:40px;line-height:40px;text-align:center;border:2px solid ${ACCENT};border-radius:12px;color:${ACCENT};font-weight:800;font-size:18px;text-decoration:none">${n}</a></td>`)
     .join("");
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0"><tr><td style="border:1px solid ${LINE};border-radius:12px;padding:20px">
 <div style="font-size:18px;font-weight:800">Did this take the edge off the urge?</div>

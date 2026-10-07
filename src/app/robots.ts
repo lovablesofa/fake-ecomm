@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { APP_URL } from "@/lib/config";
 
 // Account, checkout and admin pages are per-user and have nothing worth indexing.
-const PRIVATE = ["/account", "/api/", "/auth/", "/cart", "/checkout", "/dev/", "/insights", "/login", "/orders", "/saved"];
+const PRIVATE = ["/account", "/api/", "/auth/", "/cart", "/checkout", "/dev/", "/insights", "/login", "/orders", "/saved", "/urge/"];
 
 // Named explicitly so the welcome to AI crawlers stays deliberate even if the default rule changes.
 const AI_CRAWLERS = [
