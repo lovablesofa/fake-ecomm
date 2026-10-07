@@ -315,7 +315,7 @@ export function trackingEmail(order: Order, stage: 1 | 3 | 4, items: OrderItem[]
   const subject = copy.subject(order);
   const text = `${copy.heading}. Order #${order.number} (simulated, nothing ships).
 ${stage < 4 ? `Arriving ${arrivalDate(order)}. ` : ""}Tracking ${order.trackingNumber}.
-${stage === 4 ? "\nDid this take the edge off the urge? Answer on the order page: " : "\n"}${orderUrl(order, campaign)}`;
+${stage === 4 ? `\nDid this take the edge off the urge? Answer here: ${track(urgePath(order.id), campaign)}` : `\n${orderUrl(order, campaign)}`}`;
   const delivered = stage === 4;
   const html = layout({
     preheader: delivered ? `${formatMoney(order.total, order.currency as Currency)} kept. One quick question inside.` : `Arriving ${arrivalDate(order)} · ${order.trackingNumber}`,
@@ -329,6 +329,28 @@ ${delivered ? savedCallout(order, extras) : button(orderUrl(order, campaign), co
 ${comeBack(order, extras, campaign)}
 ${shareBlock(campaign)}
 ${delivered ? `<p style="color:${MUTED};font-size:13px;margin:24px 0 0">Got a minute more? <a href="${track("/feedback", campaign)}" style="color:${ACCENT};font-weight:600">Tell us what you think of ${BRAND.name}</a>.</p>` : ""}`,
+  });
+  return { subject, html, text };
+}
+
+/** One-off nudge for delivered orders whose urge check-in is still unanswered. */
+export function urgeReminderEmail(order: Order) {
+  const campaign = "urge_reminder";
+  const kept = formatMoney(order.total, order.currency as Currency);
+  const subject = `One quick question about order #${order.number}`;
+  const text = `Hi ${order.shipName.split(" ")[0]}, your pretend order #${order.number} was delivered and the ${kept} is still in your account.
+
+Did it take the edge off the urge? 1 = not at all, 5 = completely. One tap, no sign-in:
+${track(urgePath(order.id), campaign)}
+
+This is the only reminder we'll send about this order.`;
+  const html = layout({
+    preheader: `${kept} kept. Did it take the edge off? One tap, no sign-in.`,
+    campaign,
+    body: `${heading("Did it take the edge off?", `Order #${order.number}`)}
+<p style="margin:14px 0 0">Hi ${firstName(order)}, your pretend order arrived and the ${kept} is still in your account. One tap tells us whether ${BRAND.name} actually works. We read every answer.</p>
+${urgeQuestion(order, campaign)}
+<p style="color:${MUTED};font-size:13px;margin:0">This is the only reminder we'll send about this order.</p>`,
   });
   return { subject, html, text };
 }
