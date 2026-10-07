@@ -49,3 +49,6 @@ local.db*
 
 # design exports, not used by the site
 /logos-ext/
+
+# private analytics and email exports
+/analysis/
