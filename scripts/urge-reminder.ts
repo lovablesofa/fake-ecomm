@@ -5,8 +5,8 @@
  *   npx tsx --env-file=.env.turso scripts/urge-reminder.ts --send   # sends
  *
  * Needs the production DATABASE_URL/DATABASE_AUTH_TOKEN, the same CRON_SECRET (or LINK_SECRET) as production so the
- * links verify, APP_URL, and for --send RESEND_API_KEY and EMAIL_FROM. Admins (ADMIN_EMAILS) are skipped, and an
- * order never gets the reminder twice.
+ * links verify, APP_URL, and for --send RESEND_API_KEY and EMAIL_FROM. Admins (ADMIN_EMAILS) are skipped, and each
+ * person gets one reminder ever, about their latest unanswered order.
  */
 
 const send = process.argv.includes("--send");
@@ -38,13 +38,18 @@ async function main() {
     .where(and(isNull(schema.orders.urgeAfter), eq(schema.orders.notifiedStage, DELIVERED)));
 
   const reminded = new Set(
-    (await db.select({ subject: schema.emails.subject }).from(schema.emails).where(eq(schema.emails.kind, KIND)))
-      .map((e) => e.subject.match(/#(\S+)$/)?.[1]),
+    (await db.select({ to: schema.emails.to }).from(schema.emails).where(eq(schema.emails.kind, KIND))).map((e) => e.to.toLowerCase()),
   );
   const admins = adminEmails();
-  const targets = rows.filter((r) => !admins.includes(r.email.toLowerCase()) && !reminded.has(r.order.number));
+  // Newest first, so a person with several unanswered orders is asked about the latest one only.
+  const latest = new Map<string, (typeof rows)[number]>();
+  for (const r of [...rows].sort((a, b) => b.order.placedAt.getTime() - a.order.placedAt.getTime())) {
+    const key = r.email.toLowerCase();
+    if (!admins.includes(key) && !reminded.has(key) && !latest.has(key)) latest.set(key, r);
+  }
+  const targets = [...latest.values()];
 
-  console.log(`${rows.length} delivered without an answer, ${targets.length} to remind (admins and already reminded skipped):`);
+  console.log(`${rows.length} delivered without an answer, ${targets.length} people to remind (one email each; admins and already reminded skipped):`);
   for (const { order, email } of targets) console.log(`  #${order.number}  ${email}`);
   if (!targets.length) return;
 
