@@ -3,11 +3,10 @@ import { ProductArt } from "@/components/product-art";
 import { ProductCard } from "@/components/product-card";
 import { Price } from "@/components/price";
 import { StatsTicker } from "@/components/stats-ticker";
+import { StepIcon } from "@/components/step-icon";
 import { getCurrency } from "@/lib/cart";
-import { monthlyBudget } from "@/lib/budget";
 import { dealName, getProduct, PRODUCTS, type Product } from "@/lib/catalog";
 import { APP_URL, BRAND, CURRENCIES, type Currency } from "@/lib/config";
-import { formatMoney } from "@/lib/money";
 
 // Picks follow the page-view analytics: the most-visited product pages go up front. Slugs that leave the catalog just drop out.
 const pick = (slugs: string[]) => slugs.map(getProduct).filter((p): p is Product => !!p);
@@ -68,6 +67,12 @@ function Strip({ products, currency, card, named, reverse }: { products: Product
   );
 }
 
+const HERO_STEPS = [
+  ["shop", "Fill your bag"],
+  ["pay", "Pretend Pay"],
+  ["track", "Real tracking"],
+] as const;
+
 // Organization + WebSite only. No Product/Offer markup anywhere: nothing here is actually for sale.
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -95,6 +100,7 @@ const JSON_LD = {
 export default async function Home({ searchParams }: PageProps<"/">) {
   const currency = await getCurrency();
   const { deleted } = await searchParams;
+  const zero = new Intl.NumberFormat(CURRENCIES[currency].locale, { style: "currency", currency, maximumFractionDigits: 0 }).format(0);
 
   return (
     <>
@@ -109,11 +115,24 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             <br />
             <span className="text-accent">None of the bill.</span>
           </h1>
-          <p className="mt-5 max-w-md text-balance text-xl text-muted">The whole rush of buying, without spending a cent.</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          {/* The mechanism, not the mood: 1 in 5 home visitors used to open How it works to find out what this is. */}
+          <p className="mt-5 max-w-md text-balance text-xl text-muted">
+            Fill your bag, check out with Pretend Pay, get real order and tracking emails. Charged: <span className="font-semibold text-ink">{zero}</span>.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href="/shop" className="btn-primary px-7 py-4 text-lg shadow-lg shadow-accent/25 sm:px-9">Start shopping</Link>
-            <Link href="/how-it-works" className="btn-secondary">How it works</Link>
+            <Link href="/how-it-works" className="text-sm font-semibold underline underline-offset-4">How it works</Link>
           </div>
+          <p className="mt-3 text-sm text-muted">Free · no card · no account to browse</p>
+          <ol className="mt-6 grid max-w-sm grid-cols-3 gap-3 text-center text-sm">
+            {HERO_STEPS.map(([icon, label], i) => (
+              <li key={label} className="relative flex flex-col items-center gap-1.5">
+                {i > 0 && <span className="absolute -left-3 top-2 text-muted" aria-hidden>→</span>}
+                <span className="flex size-10 items-center justify-center rounded-full bg-accent-soft text-accent"><StepIcon name={icon} className="size-5" /></span>
+                <span className="font-medium leading-tight">{label}</span>
+              </li>
+            ))}
+          </ol>
           <StatsTicker currency={currency} locale={CURRENCIES[currency].locale} className="mt-8 max-w-md text-lg text-muted sm:text-xl" />
         </div>
         {/* On phones the products come first, so the first screen shows the shop, not just a headline. */}
@@ -144,20 +163,6 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </div>
         </section>
       ))}
-      <section className="mt-16 border-y border-line bg-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-3">
-          {[
-            ["1. Want it", `Browse and fill your bag the way you normally would, with ${formatMoney(monthlyBudget(currency), currency).replace(/\.00$/, "")} of pretend money to spend each month.`],
-            ["2. Check out", "Pay with a simulated card. The confirmation email lands in your inbox straight away."],
-            ["3. Keep the money", "Track the package to your door, then decide whether you still want it."],
-          ].map(([title, body]) => (
-            <div key={title}>
-              <h2 className="font-display text-2xl">{title}</h2>
-              <p className="mt-2 text-muted">{body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
